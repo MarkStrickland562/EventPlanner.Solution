@@ -1,16 +1,17 @@
 | [<img src="https://avatars1.githubusercontent.com/u/43104007?s=400&v=4" width=100 alt="GitHub avatar for author claramunro">](https://github.com/claramunro) | [<img src="https://avatars1.githubusercontent.com/u/46427680?s=400&v=4" width=100 alt="GitHub avatar for author LondresRi">](https://github.com/LondresRi) | [<img src="https://avatars1.githubusercontent.com/u/46455727?s=400&v=4" width=100 alt="GitHub avatar for author MarkStrickland562">](https://github.com/MarkStrickland562) | [<img src="https://avatars1.githubusercontent.com/u/43095957?s=400&v=4" width=100 alt="GitHub avatar for author MicaelaDJ">](https://github.com/MicaelaDJ) |
 |:-----:|:-----:|:-----:|:-----:|
 | [**claramunro**](https://github.com/claramunro) | [**LondresRi**](https://github.com/LondresRi) | [**MarkStrickland562**](https://github.com/MarkStrickland562) | [**MicaelaDJ**](https://github.com/MicaelaDJ) |
+| Clara Munro | Shawn Lunsford | Mark Strickland | Micaela Jawor |
 
 ## | **eHappenings Project** |
 
 #### By Clara Munro, Mark Strickland, Micaela Jawor, Shawn Lunsford
-###### Initiated March 5th, 2019. Updated March TODO, 2019.
+###### Initiated March 5th, 2019. Updated March 6th, 2019.
 
 ----------
 
 ## Description
-An event planning web application to assist in organizing venues, menus, food, and mood to maximize event success. TODO
+An event planning web application to assist in organizing venues, menus, food, and mood to maximize event success. The applications manages databases take into account menu ingredients and preparation, else catering options, venue details, invitees and their responses or requirements, tasks prioritizing and distributing among event managers, etc.
 
 ## Known Bugs
 
@@ -118,9 +119,9 @@ Query OK, 0 row affected (0.00 sec)
 
 | Author | GitHub | Email |
 |--------|:------:|:-----:|
-| Clara Munro | [claramunro](https://github.com/claramunro) |  [clarajmunro@gmail.com](mailto:clarajmunro@gmail.com) |
+| Clara Munro | [claramunro](https://github.com/claramunro) | [clarajmunro@gmail.com](mailto:clarajmunro@gmail.com) |
 | Mark Strickland | [MarkStrickland562](https://github.com/MarkStrickland562) |  [markstrickland562@hotmail.com](mailto:markstrickland562@hotmail.com) |
-| Micaela Jawor | [MicaelaDJ](https://github.com/MicaelaDJ) |  [micaelajawor@yahoo.com](mailto:micaelajawor@yahoo.com) |
+| Micaela Jawor | [MicaelaDJ](https://github.com/MicaelaDJ) | [micaelajawor@yahoo.com](mailto:micaelajawor@yahoo.com) |
 | Shawn Lunsford | [LondresRi](https://github.com/LondresRi) |  [lunsford.sk@gmail.com](mailto:lunsford.sk@gmail.com) |
 
 ## Support and contact details
