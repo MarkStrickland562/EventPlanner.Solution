@@ -89,7 +89,7 @@ Database changed
 mysql>SHOW TABLES;
 Query OK, 0 row affected (0.00 sec)
 
-mysql>DESCRIBE todo;
+mysql>DESCRIBE [insert any table name, case sensitive];
 Query OK, 0 row affected (0.00 sec)
 ```
 
