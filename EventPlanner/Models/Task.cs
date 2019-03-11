@@ -32,31 +32,16 @@ namespace EventPlanner.Models
       return _taskPlannedStartDateTime;
     }
 
-    // public void SetTaskDate(DateTime newTaskDate)
-    // {
-    //   _TaskDate = newTaskDate;
-    // }
-    //
-    // public string GetTaskLocation()
-    // {
-    //   return _TaskLocation;
-    // }
-    //
-    // public void SetTaskLocation(string newTaskLocation)
-    // {
-    //   _TaskLocation = newTaskLocation;
-    // }
-    //
-    // public int GetMenusId()
-    // {
-    //   return _menusId;
-    // }
-    //
-    // public void SetMenusId(int newMenusId)
-    // {
-    //   _menusId = newMenusId;
-    // }
-    //
+    public void GetTaskPlannedStartDateTime_ReturnsTaskPlannedStartDateTime_DateTime(DateTime newTaskPlannedStartDateTime)
+    {
+      _taskPlannedStartDateTime = newTaskPlannedStartDateTime;
+    }
+
+    public void SetTaskPlannedStartDateTime(DateTime newTaskPlannedStartDateTime)
+    {
+      _taskPlannedStartDateTime = newTaskPlannedStartDateTime;
+    }
+    
     // public int GetId()
     // {
     //   return _id;

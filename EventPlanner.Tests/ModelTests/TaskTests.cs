@@ -76,25 +76,23 @@ namespace EventPlanner.Tests
       Assert.AreEqual(taskPlannedStartDateTime, result);
     }
 
-    // [TestMethod]
-    // public void SetTaskDate_SetTaskDate_DateTime()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //
-    //   //Act
-    //   DateTime updatedTaskDate = new DateTime(2019, 05, 03);
-    //   newTask.SetTaskDate(updatedTaskDate);
-    //   DateTime result = newTask.GetTaskDate();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedTaskDate, result);
-    // }
-    //
+    [TestMethod]
+    public void SetTaskPlannedStartDateTime_SetTaskPlannedStartDateTime_DateTime()
+    {
+      //Arrange
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+
+      //Act
+      DateTime updatedTaskPlannedStartDateTime = new DateTime(2019, 05, 03);
+      newTask.SetTaskPlannedStartDateTime(updatedTaskPlannedStartDateTime);
+      DateTime result = newTask.GetTaskPlannedStartDateTime();
+    
+      //Assert
+      Assert.AreEqual(updatedTaskPlannedStartDateTime, result);
+    }
+
     // [TestMethod]
     // public void GetTaskLocation_ReturnsTaskLocation_String()
     // {
