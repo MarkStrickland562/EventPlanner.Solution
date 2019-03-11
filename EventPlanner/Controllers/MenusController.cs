@@ -39,10 +39,10 @@ namespace MenuPlanner.Controllers
     }
 
     [HttpPost("/menus/{menuId}/tasks/new")]
-    public ActionResult AddTask(int menuId, int taskId)
+    public ActionResult AddMenuItem(int menuId, int menuItemId)
     {
       Menu Menu = Menu.Find(menuId);
-      Menu.AddTask(Task.Find(taskId));
+      Menu.AddMenuItem(MenuItem.Find(taskId));
       return RedirectToAction("Show");
     }
 

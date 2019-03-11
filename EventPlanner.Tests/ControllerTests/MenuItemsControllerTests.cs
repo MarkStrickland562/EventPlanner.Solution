@@ -6,9 +6,9 @@ using EventPlanner.Models;
 
 namespace EventPlanner.Tests
 {
-    [TestClass]
-    public class MenuItemsControllerTest
-    {
+  [TestClass]
+  public class MenuItemsControllerTest
+  {
 
-    }
+  }
 }
