@@ -247,58 +247,58 @@ namespace EventPlanner.Tests
 
       List<Task> result = Task.GetAll();
       List<Task> testList = new List<Task>{updatedTask};
-    
+
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
 
     // [TestMethod]
-    // public void Save_SavesTaskSpecialtyToDatabase_SpecialtyList()
+    // public void Save_SavesTaskTaskToDatabase_TaskList()
     // {
     //   //Arrange
     //   string name = "Betty Clark";
     //   DateTime hireDate = new DateTime(2019, 01, 01);
     //   Task newTask = new Task(name, hireDate);
     //   newTask.Save();
-    //   string specialty = "Colorist";
-    //   Specialty newSpecialty = new Specialty(specialty);
-    //   newSpecialty.Save();
+    //   string Task = "Colorist";
+    //   Task newTask = new Task(Task);
+    //   newTask.Save();
     //
     //   //Act
     //   Task foundTask = Task.Find(newTask.GetId());
-    //   Specialty foundSpecialty = Specialty.Find(newSpecialty.GetId());
-    //   foundTask.AddSpecialty(foundSpecialty);
+    //   Task foundTask = Task.Find(newTask.GetId());
+    //   foundTask.AddTask(foundTask);
     //
-    //   List<Specialty> result = newTask.GetSpecialties();
-    //   List<Specialty> testList = new List<Specialty>{foundSpecialty};
+    //   List<Task> result = newTask.GetTasks();
+    //   List<Task> testList = new List<Task>{foundTask};
     //
     //   //Assert
     //   CollectionAssert.AreEqual(testList, result);
     // }
     //
     // [TestMethod]
-    // public void GetSpecialties_RetrievesAllSpecialtiesForATask_SpecialtyList()
+    // public void GetTasks_RetrievesAllTasksForATask_TaskList()
     // {
     //   //Arrange
     //   string name = "Betty Clark";
     //   DateTime hireDate = new DateTime(2019, 01, 01);
     //   Task newTask = new Task(name, hireDate);
     //   newTask.Save();
-    //   string specialty1 = "Colorist";
-    //   Specialty newSpecialty1 = new Specialty(specialty1);
-    //   newSpecialty1.Save();
-    //   string specialty2 = "Barber";
-    //   Specialty newSpecialty2 = new Specialty(specialty2);
-    //   newSpecialty2.Save();
+    //   string Task1 = "Colorist";
+    //   Task newTask1 = new Task(Task1);
+    //   newTask1.Save();
+    //   string Task2 = "Barber";
+    //   Task newTask2 = new Task(Task2);
+    //   newTask2.Save();
     //   //Act
     //   Task foundTask = Task.Find(newTask.GetId());
-    //   Specialty foundSpecialty1 = Specialty.Find(newSpecialty1.GetId());
-    //   Specialty foundSpecialty2 = Specialty.Find(newSpecialty2.GetId());
-    //   foundTask.AddSpecialty(foundSpecialty1);
-    //   foundTask.AddSpecialty(foundSpecialty2);
+    //   Task foundTask1 = Task.Find(newTask1.GetId());
+    //   Task foundTask2 = Task.Find(newTask2.GetId());
+    //   foundTask.AddTask(foundTask1);
+    //   foundTask.AddTask(foundTask2);
     //
-    //   List<Specialty> result = newTask.GetSpecialties();
-    //   List<Specialty> testList = new List<Specialty>{foundSpecialty1, foundSpecialty2};
+    //   List<Task> result = newTask.GetTasks();
+    //   List<Task> testList = new List<Task>{foundTask1, foundTask2};
     //
     //   //Assert
     //   CollectionAssert.AreEqual(testList, result);

@@ -261,21 +261,21 @@ namespace EventPlanner.Tests
     // public void GetTasks_RetrievesAllTasksWithEvent_TaskList()
     // {
     //   //Arrange, Act
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
+    //   string eventName = "July 4th BBQ";
+    //   DateTime eventDate = new DateTime(2019, 04, 04);
+    //   string eventLocation = "Capitol Hill";
+    //   int menusId = 1;
+    //   Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
     //   newEvent.Save();
     //
-    //   string name1 = "Tom Jones";
-    //   string gender1 = "Male";
-    //   int EventId1 = newEvent.GetId();
-    //   Task newTask1 = new Task(name1, gender1, EventId1);
+    //   string taskDescription1 = "Setup Tables";
+    //   DateTime taskPlannedStartDateTime1 = new DateTime(2019, 04, 04);
+    //   Task newTask1 = new Task(taskDescription1, taskPlannedStartDateTime1);
     //   newTask1.Save();
     //
-    //   string name2 = "Jane Doe";
-    //   string gender2 = "Female";
-    //   int EventId2 = newEvent.GetId();
-    //   Task newTask2 = new Task(name2, gender2, EventId2);
+    //   string taskDescription2 = "Ice Drinks";
+    //   DateTime taskPlannedStartDateTime2 = new DateTime(2019, 04, 04);
+    //   Task newTask2 = new Task(taskDescription2, taskPlannedStartDateTime2);
     //   newTask2.Save();
     //
     //   List<Task> newList = new List<Task> { newTask1, newTask2 };
@@ -285,7 +285,7 @@ namespace EventPlanner.Tests
     //   //Assert
     //   CollectionAssert.AreEqual(newList, resultList);
     // }
-    //
+
     [TestMethod]
     public void Delete_DeletesEventFromDatabase()
     {
@@ -353,53 +353,57 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
+    [TestMethod]
+    public void Save_SavesEventTaskToDatabase_TaskList()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Task foundTask = Task.Find(newTask.GetId());
+      foundEvent.AddTask(foundTask);
+
+      List<Task> result = newEvent.GetTasks();
+      List<Task> testList = new List<Task>{foundTask};
+    
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
     // [TestMethod]
-    // public void Save_SavesEventSpecialtyToDatabase_SpecialtyList()
+    // public void GetSpecialties_RetrievesAllSpecialtiesForAEvent_TaskList()
     // {
     //   //Arrange
     //   string name = "Betty Clark";
     //   DateTime hireDate = new DateTime(2019, 01, 01);
     //   Event newEvent = new Event(name, hireDate);
     //   newEvent.Save();
-    //   string specialty = "Colorist";
-    //   Specialty newSpecialty = new Specialty(specialty);
-    //   newSpecialty.Save();
-    //
+    //   string Task1 = "Colorist";
+    //   Task newTask1 = new Task(Task1);
+    //   newTask1.Save();
+    //   string Task2 = "Barber";
+    //   Task newTask2 = new Task(Task2);
+    //   newTask2.Save();
     //   //Act
     //   Event foundEvent = Event.Find(newEvent.GetId());
-    //   Specialty foundSpecialty = Specialty.Find(newSpecialty.GetId());
-    //   foundEvent.AddSpecialty(foundSpecialty);
+    //   Task foundTask1 = Task.Find(newTask1.GetId());
+    //   Task foundTask2 = Task.Find(newTask2.GetId());
+    //   foundEvent.AddTask(foundTask1);
+    //   foundEvent.AddTask(foundTask2);
     //
-    //   List<Specialty> result = newEvent.GetSpecialties();
-    //   List<Specialty> testList = new List<Specialty>{foundSpecialty};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetSpecialties_RetrievesAllSpecialtiesForAEvent_SpecialtyList()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //   newEvent.Save();
-    //   string specialty1 = "Colorist";
-    //   Specialty newSpecialty1 = new Specialty(specialty1);
-    //   newSpecialty1.Save();
-    //   string specialty2 = "Barber";
-    //   Specialty newSpecialty2 = new Specialty(specialty2);
-    //   newSpecialty2.Save();
-    //   //Act
-    //   Event foundEvent = Event.Find(newEvent.GetId());
-    //   Specialty foundSpecialty1 = Specialty.Find(newSpecialty1.GetId());
-    //   Specialty foundSpecialty2 = Specialty.Find(newSpecialty2.GetId());
-    //   foundEvent.AddSpecialty(foundSpecialty1);
-    //   foundEvent.AddSpecialty(foundSpecialty2);
-    //
-    //   List<Specialty> result = newEvent.GetSpecialties();
-    //   List<Specialty> testList = new List<Specialty>{foundSpecialty1, foundSpecialty2};
+    //   List<Task> result = newEvent.GetSpecialties();
+    //   List<Task> testList = new List<Task>{foundTask1, foundTask2};
     //
     //   //Assert
     //   CollectionAssert.AreEqual(testList, result);

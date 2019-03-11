@@ -85,7 +85,7 @@ namespace EventPlanner.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO Events (name, event_date, event_location, menus_id)
+      cmd.CommandText = @"INSERT INTO events (name, event_date, event_location, menus_id)
                           VALUES (@eventName, @eventDate, @eventLocation, @menusId);";
       MySqlParameter eventName = new MySqlParameter();
       eventName.ParameterName = "@eventName";
@@ -171,35 +171,35 @@ namespace EventPlanner.Models
         return newEvent;
     }
 
-    // public List<Task> GetTasks()
-    // {
-    //   List<Task> allEventTasks = new List<Task> {};
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT *
-    //                         FROM tasks
-    //                        WHERE task_id IN (SELECT task_id FROM events_tasks WHERE events_id = @Event_id);";
-    //   MySqlParameter eventId = new MySqlParameter();
-    //   eventId.ParameterName = "@Event_id";
-    //   eventId.Value = this._id;
-    //   cmd.Parameters.Add(eventId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   while(rdr.Read())
-    //   {
-    //     int taskId = rdr.GetInt32(0);
-    //     string taskDescription = rdr.GetString(1);
-    //     DateTime plannedStartDateTime = rdr.GetDateTime(2);
-    //     Task newTask = new Task(taskDescription, plannedStartDateTime, taskId);
-    //     allEventTasks.Add(newTask);
-    //   }
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //   return allEventTasks;
-    // }
+    public List<Task> GetTasks()
+    {
+      List<Task> allEventTasks = new List<Task> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM tasks
+                           WHERE id IN (SELECT tasks_id FROM events_tasks WHERE events_id = @eventId);";
+      MySqlParameter eventId = new MySqlParameter();
+      eventId.ParameterName = "@eventId";
+      eventId.Value = this._id;
+      cmd.Parameters.Add(eventId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int taskId = rdr.GetInt32(0);
+        string taskDescription = rdr.GetString(1);
+        DateTime plannedStartDateTime = rdr.GetDateTime(2);
+        Task newTask = new Task(taskDescription, plannedStartDateTime, taskId);
+        allEventTasks.Add(newTask);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allEventTasks;
+    }
 
     public void Delete()
     {
@@ -237,97 +237,66 @@ namespace EventPlanner.Models
       }
     }
 
-      public void Edit(string newEventName, DateTime newEventDate, string newEventLocation, int newMenusId)
+    public void Edit(string newEventName, DateTime newEventDate, string newEventLocation, int newMenusId)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE events SET name = (@eventName), event_date = (@eventDate), event_location = (@eventLocation), menus_id = (@menusId)
+                           WHERE id = (@eventId);";
+      MySqlParameter eventNameParameter = new MySqlParameter();
+      eventNameParameter.ParameterName = "@eventName";
+      eventNameParameter.Value = newEventName;
+      cmd.Parameters.Add(eventNameParameter);
+      MySqlParameter eventDateParameter = new MySqlParameter();
+      eventDateParameter.ParameterName = "@eventDate";
+      eventDateParameter.Value = newEventDate;
+      cmd.Parameters.Add(eventDateParameter);
+      MySqlParameter eventLocationParameter = new MySqlParameter();
+      eventLocationParameter.ParameterName = "@eventLocation";
+      eventLocationParameter.Value = newEventLocation;
+      cmd.Parameters.Add(eventLocationParameter);
+      MySqlParameter menusIdParameter = new MySqlParameter();
+      menusIdParameter.ParameterName = "@menusId";
+      menusIdParameter.Value = newMenusId;
+      cmd.Parameters.Add(menusIdParameter);
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = this._id;
+      cmd.Parameters.Add(eventIdParameter);
+      cmd.ExecuteNonQuery();
+      _eventName = newEventName;
+      _eventDate = newEventDate;
+      _eventLocation = newEventLocation;
+      _menusId = newMenusId;
+      conn.Close();
+      if (conn != null)
       {
-        MySqlConnection conn = DB.Connection();
-        conn.Open();
-        var cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"UPDATE Events SET name = (@eventName), event_date = (@eventDate), event_location = (@eventLocation), menus_id = (@menusId)
-                             WHERE id = (@eventId);";
-        MySqlParameter eventNameParameter = new MySqlParameter();
-        eventNameParameter.ParameterName = "@eventName";
-        eventNameParameter.Value = newEventName;
-        cmd.Parameters.Add(eventNameParameter);
-        MySqlParameter eventDateParameter = new MySqlParameter();
-        eventDateParameter.ParameterName = "@eventDate";
-        eventDateParameter.Value = newEventDate;
-        cmd.Parameters.Add(eventDateParameter);
-        MySqlParameter eventLocationParameter = new MySqlParameter();
-        eventLocationParameter.ParameterName = "@eventLocation";
-        eventLocationParameter.Value = newEventLocation;
-        cmd.Parameters.Add(eventLocationParameter);
-        MySqlParameter menusIdParameter = new MySqlParameter();
-        menusIdParameter.ParameterName = "@menusId";
-        menusIdParameter.Value = newMenusId;
-        cmd.Parameters.Add(menusIdParameter);
-        MySqlParameter eventIdParameter = new MySqlParameter();
-        eventIdParameter.ParameterName = "@eventId";
-        eventIdParameter.Value = this._id;
-        cmd.Parameters.Add(eventIdParameter);
-        cmd.ExecuteNonQuery();
-        _eventName = newEventName;
-        _eventDate = newEventDate;
-        _eventLocation = newEventLocation;
-        _menusId = newMenusId;
-        conn.Close();
-        if (conn != null)
-        {
-          conn.Dispose();
-        }
+        conn.Dispose();
       }
+    }
 
-      // public void AddSpecialty(Specialty newSpecialty)
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"INSERT INTO Events_specialties (Events_id, specialties_id) VALUES (@EventId, @specialtyId);";
-      //   MySqlParameter specialtyIdParameter = new MySqlParameter();
-      //   specialtyIdParameter.ParameterName = "@specialtyId";
-      //   specialtyIdParameter.Value = newSpecialty.GetId();
-      //   cmd.Parameters.Add(specialtyIdParameter);
-      //   MySqlParameter EventIdParameter = new MySqlParameter();
-      //   EventIdParameter.ParameterName = "@EventId";
-      //   EventIdParameter.Value = this._id;
-      //   cmd.Parameters.Add(EventIdParameter);
-      //   cmd.ExecuteNonQuery();
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      // }
-      //
-      // public List<Specialty> GetSpecialties()
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"SELECT specialties.*
-      //                         FROM Events
-      //                         JOIN Events_specialties ON (Events.id = Events_specialties.Events_id)
-      //                         JOIN specialties ON (Events_specialties.specialties_id = specialties.id)
-      //                        WHERE Events.id = (@EventId);";
-      //   MySqlParameter EventIdParameter = new MySqlParameter();
-      //   EventIdParameter.ParameterName = "@EventId";
-      //   EventIdParameter.Value = this._id;
-      //   cmd.Parameters.Add(EventIdParameter);
-      //   MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-      //   List<Specialty> specialtyList = new List<Specialty>{};
-      //   while(rdr.Read())
-      //   {
-      //     int specialtyId = rdr.GetInt32(0);
-      //     string specialty= rdr.GetString(1);
-      //     Specialty newSpecialty = new Specialty(specialty, specialtyId);
-      //     specialtyList.Add(newSpecialty);
-      //   }
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //      conn.Dispose();
-      //   }
-      //   return specialtyList;
-      // }
+    public void AddTask(Task newTask)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO events_tasks (events_id, tasks_id) VALUES (@eventId, @taskId);";
+      MySqlParameter taskIdParameter = new MySqlParameter();
+      taskIdParameter.ParameterName = "@taskId";
+      taskIdParameter.Value = newTask.GetId();
+      cmd.Parameters.Add(taskIdParameter);
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = this._id;
+      cmd.Parameters.Add(eventIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
 
     public override bool Equals(System.Object otherEvent)
     {
