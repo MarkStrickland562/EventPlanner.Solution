@@ -211,26 +211,24 @@ namespace EventPlanner.Tests
       CollectionAssert.AreNotEqual(newList, resultList);
     }
 
-    // [TestMethod]
-    // public void DeleteAll_DeletesAllTasksFromDatabase()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //   newTask.Save();
-    //   Task.DeleteAll();
-    //
-    //   //Act
-    //   List<Task> newList = new List<Task> { newTask };
-    //   List<Task> resultList = Task.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
+    [TestMethod]
+    public void DeleteAll_DeletesAllTasksFromDatabase()
+    {
+      //Arrange
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+      Task.DeleteAll();
+
+      //Act
+      List<Task> newList = new List<Task> { newTask };
+      List<Task> resultList = Task.GetAll();
+    
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
+
     // [TestMethod]
     // public void Edit_UpdatesTaskToDatabase()
     // {

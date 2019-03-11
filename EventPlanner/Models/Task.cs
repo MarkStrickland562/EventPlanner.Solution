@@ -189,22 +189,21 @@ namespace EventPlanner.Models
       }
     }
 
-    // public static void DeleteAll()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM Tasks_tasks;
-    //                       DELETE FROM Tasks_invitees;
-    //                       DELETE FROM Tasks";
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
+    public static void DeleteAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks;
+                          DELETE FROM tasks";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     //   public void Edit(string newTaskName, DateTime newTaskDate, string newTaskLocation, int newMenusId)
     //   {
     //     MySqlConnection conn = DB.Connection();
