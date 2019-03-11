@@ -204,44 +204,34 @@ namespace EventPlanner.Models
       }
     }
 
-    //   public void Edit(string newTaskName, DateTime newTaskDate, string newTaskLocation, int newMenusId)
-    //   {
-    //     MySqlConnection conn = DB.Connection();
-    //     conn.Open();
-    //     var cmd = conn.CreateCommand() as MySqlCommand;
-    //     cmd.CommandText = @"UPDATE Tasks SET name = (@TaskName), Task_date = (@TaskDate), Task_location = (@TaskLocation), menus_id = (@menusId)
-    //                          WHERE id = (@TaskId);";
-    //     MySqlParameter TaskNameParameter = new MySqlParameter();
-    //     TaskNameParameter.ParameterName = "@TaskName";
-    //     TaskNameParameter.Value = newTaskName;
-    //     cmd.Parameters.Add(TaskNameParameter);
-    //     MySqlParameter TaskDateParameter = new MySqlParameter();
-    //     TaskDateParameter.ParameterName = "@TaskDate";
-    //     TaskDateParameter.Value = newTaskDate;
-    //     cmd.Parameters.Add(TaskDateParameter);
-    //     MySqlParameter TaskLocationParameter = new MySqlParameter();
-    //     TaskLocationParameter.ParameterName = "@TaskLocation";
-    //     TaskLocationParameter.Value = newTaskLocation;
-    //     cmd.Parameters.Add(TaskLocationParameter);
-    //     MySqlParameter menusIdParameter = new MySqlParameter();
-    //     menusIdParameter.ParameterName = "@menusId";
-    //     menusIdParameter.Value = newMenusId;
-    //     cmd.Parameters.Add(menusIdParameter);
-    //     MySqlParameter TaskIdParameter = new MySqlParameter();
-    //     TaskIdParameter.ParameterName = "@TaskId";
-    //     TaskIdParameter.Value = this._id;
-    //     cmd.Parameters.Add(TaskIdParameter);
-    //     cmd.ExecuteNonQuery();
-    //     _TaskName = newTaskName;
-    //     _TaskDate = newTaskDate;
-    //     _TaskLocation = newTaskLocation;
-    //     _menusId = newMenusId;
-    //     conn.Close();
-    //     if (conn != null)
-    //     {
-    //       conn.Dispose();
-    //     }
-    //   }
+    public void Edit(string newTaskDescription, DateTime newTaskPlannedStartDateTime)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE tasks SET task_description = (@taskDescription), planned_start_datetime = (@taskPlannedStartDateTime)
+                           WHERE id = (@taskId);";
+      MySqlParameter taskDescriptionParameter = new MySqlParameter();
+      taskDescriptionParameter.ParameterName = "@taskDescription";
+      taskDescriptionParameter.Value = newTaskDescription;
+      cmd.Parameters.Add(taskDescriptionParameter);
+      MySqlParameter taskPlannedStartDateTimeParameter = new MySqlParameter();
+      taskPlannedStartDateTimeParameter.ParameterName = "@taskPlannedStartDateTime";
+      taskPlannedStartDateTimeParameter.Value = newTaskPlannedStartDateTime;
+      cmd.Parameters.Add(taskPlannedStartDateTimeParameter);
+      MySqlParameter taskIdParameter = new MySqlParameter();
+      taskIdParameter.ParameterName = "@taskId";
+      taskIdParameter.Value = this._id;
+      cmd.Parameters.Add(taskIdParameter);
+      cmd.ExecuteNonQuery();
+      _taskDescription = newTaskDescription;
+      _taskPlannedStartDateTime = newTaskPlannedStartDateTime;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
 
       // public void AddSpecialty(Specialty newSpecialty)
       // {

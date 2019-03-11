@@ -224,37 +224,33 @@ namespace EventPlanner.Tests
       //Act
       List<Task> newList = new List<Task> { newTask };
       List<Task> resultList = Task.GetAll();
-    
+
       //Assert
       CollectionAssert.AreNotEqual(newList, resultList);
     }
 
-    // [TestMethod]
-    // public void Edit_UpdatesTaskToDatabase()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //   newTask.Save();
-    //
-    //   //Act
-    //   Task foundTask = Task.Find(newTask.GetId());
-    //   string newName = "Birthday Party";
-    //   DateTime newTaskDate = new DateTime(2019, 05, 03);
-    //   string newTaskLocation = "Saltys";
-    //   int newMenusId = 2;
-    //   foundTask.Edit(newName, newTaskDate, newTaskLocation, newMenusId);
-    //   Task updatedTask = Task.Find(newTask.GetId());
-    //
-    //   List<Task> result = Task.GetAll();
-    //   List<Task> testList = new List<Task>{updatedTask};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+    [TestMethod]
+    public void Edit_UpdatesTaskToDatabase()
+    {
+      //Arrange
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+
+      //Act
+      Task foundTask = Task.Find(newTask.GetId());
+      string newTaskDescription = "Get Ice";
+      DateTime newTaskPlannedStartDateTime = new DateTime(2019, 05, 03);
+      foundTask.Edit(newTaskDescription, newTaskPlannedStartDateTime);
+      Task updatedTask = Task.Find(newTask.GetId());
+
+      List<Task> result = Task.GetAll();
+      List<Task> testList = new List<Task>{updatedTask};
+    
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
 
     // [TestMethod]
     // public void Save_SavesTaskSpecialtyToDatabase_SpecialtyList()
