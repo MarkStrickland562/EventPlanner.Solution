@@ -34,6 +34,7 @@ namespace EventPlanner.Controllers
       Event tasks = event.GetTasks(eventId);
       Event invitees = event.GetInvitees(eventId);
       Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("event", event);
       model.Add("tasks", tasks);
       model.Add("invitees", invitees);
       return View(model);
@@ -96,7 +97,7 @@ namespace EventPlanner.Controllers
     public ActionResult Update(int eventId, string name, string name, DateTime eventDate, string eventLocation, int menuId)
     {
       Event event = Event.Find(eventId);
-      event.Edit(id, name, eventDate, eventLocation, menuId);
+      event.Edit(eventId, name, eventDate, eventLocation, menuId);
       return RedirectToAction("Index");
     }
   }
