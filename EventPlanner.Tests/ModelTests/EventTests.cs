@@ -252,13 +252,13 @@ namespace EventPlanner.Tests
 
       //Act
       Event foundEvent = Event.Find(newEvent.GetId());
-    
+
       //Assert
       Assert.AreEqual(newEvent, foundEvent);
     }
 
     // [TestMethod]
-    // public void GetClients_RetrievesAllClientsWithEvent_ClientList()
+    // public void GetTasks_RetrievesAllTasksWithEvent_TaskList()
     // {
     //   //Arrange, Act
     //   string name = "Betty Clark";
@@ -269,41 +269,43 @@ namespace EventPlanner.Tests
     //   string name1 = "Tom Jones";
     //   string gender1 = "Male";
     //   int EventId1 = newEvent.GetId();
-    //   Client newClient1 = new Client(name1, gender1, EventId1);
-    //   newClient1.Save();
+    //   Task newTask1 = new Task(name1, gender1, EventId1);
+    //   newTask1.Save();
     //
     //   string name2 = "Jane Doe";
     //   string gender2 = "Female";
     //   int EventId2 = newEvent.GetId();
-    //   Client newClient2 = new Client(name2, gender2, EventId2);
-    //   newClient2.Save();
+    //   Task newTask2 = new Task(name2, gender2, EventId2);
+    //   newTask2.Save();
     //
-    //   List<Client> newList = new List<Client> { newClient1, newClient2 };
+    //   List<Task> newList = new List<Task> { newTask1, newTask2 };
     //
-    //   List<Client> resultList = newEvent.GetClients();
+    //   List<Task> resultList = newEvent.GetTasks();
     //
     //   //Assert
     //   CollectionAssert.AreEqual(newList, resultList);
     // }
     //
-    // [TestMethod]
-    // public void Delete_DeletesEventFromDatabase()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //   newEvent.Save();
-    //   newEvent.Delete();
-    //
-    //   //Act
-    //   List<Event> newList = new List<Event> { newEvent };
-    //   List<Event> resultList = Event.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
+    [TestMethod]
+    public void Delete_DeletesEventFromDatabase()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+      newEvent.Delete();
+
+      //Act
+      List<Event> newList = new List<Event> { newEvent };
+      List<Event> resultList = Event.GetAll();
+
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
+    
     // [TestMethod]
     // public void DeleteAll_DeletesAllEventsFromDatabase()
     // {

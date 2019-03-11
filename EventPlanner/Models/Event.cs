@@ -171,62 +171,63 @@ namespace EventPlanner.Models
         return newEvent;
     }
 
-      // public List<Client> GetClients()
-      // {
-      //   List<Client> allEventClients = new List<Client> {};
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"SELECT * FROM Clients WHERE Events_id = @Event_id;";
-      //   MySqlParameter EventId = new MySqlParameter();
-      //   EventId.ParameterName = "@Event_id";
-      //   EventId.Value = this._id;
-      //   cmd.Parameters.Add(EventId);
-      //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-      //   while(rdr.Read())
-      //   {
-      //     int clientId = rdr.GetInt32(0);
-      //     string clientName = rdr.GetString(1);
-      //     string clientGender = rdr.GetString(2);
-      //     int clientEventId = rdr.GetInt32(3);
-      //     Client newClient = new Client(clientName, clientGender, clientEventId, clientId);
-      //     allEventClients.Add(newClient);
-      //   }
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      //   return allEventClients;
-      // }
-      //
-      // public void Delete()
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"DELETE FROM Events_specialties WHERE Events_id = (@searchid);
-      //                       UPDATE clients SET Events_id = NULL WHERE Events_id = (@searchId);
-      //                       DELETE FROM Events WHERE id = (@searchId);";
-      //   MySqlParameter searchId = new MySqlParameter();
-      //   searchId.ParameterName = "@searchId";
-      //   searchId.Value = this._id;
-      //   cmd.Parameters.Add(searchId);
-      //   cmd.ExecuteNonQuery();
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      // }
-      //
+    // public List<Task> GetTasks()
+    // {
+    //   List<Task> allEventTasks = new List<Task> {};
+    //   MySqlConnection conn = DB.Connection();
+    //   conn.Open();
+    //   var cmd = conn.CreateCommand() as MySqlCommand;
+    //   cmd.CommandText = @"SELECT *
+    //                         FROM tasks
+    //                        WHERE task_id IN (SELECT task_id FROM events_tasks WHERE events_id = @Event_id);";
+    //   MySqlParameter eventId = new MySqlParameter();
+    //   eventId.ParameterName = "@Event_id";
+    //   eventId.Value = this._id;
+    //   cmd.Parameters.Add(eventId);
+    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
+    //   while(rdr.Read())
+    //   {
+    //     int taskId = rdr.GetInt32(0);
+    //     string taskDescription = rdr.GetString(1);
+    //     DateTime plannedStartDateTime = rdr.GetDateTime(2);
+    //     Task newTask = new Task(taskDescription, plannedStartDateTime, taskId);
+    //     allEventTasks.Add(newTask);
+    //   }
+    //   conn.Close();
+    //   if (conn != null)
+    //   {
+    //     conn.Dispose();
+    //   }
+    //   return allEventTasks;
+    // }
+
+    public void Delete()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks WHERE events_id = (@searchid);
+                          DELETE FROM events_invitees WHERE events_id = (@searchId);
+                          DELETE FROM events WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = this._id;
+      cmd.Parameters.Add(searchId);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
       // public static void DeleteAll()
       // {
       //   MySqlConnection conn = DB.Connection();
       //   conn.Open();
       //   var cmd = conn.CreateCommand() as MySqlCommand;
       //   cmd.CommandText = @"DELETE FROM Events_specialties;
-      //                       UPDATE clients SET Events_id = NULL;
+      //                       UPDATE Tasks SET Events_id = NULL;
       //                       DELETE FROM Events";
       //   cmd.ExecuteNonQuery();
       //   conn.Close();
