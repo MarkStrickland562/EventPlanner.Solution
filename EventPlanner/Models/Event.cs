@@ -46,11 +46,11 @@ namespace EventPlanner.Models
       return _eventLocation;
     }
 
-      // public void SetEventLocation(string newEventLocation)
-      // {
-      //   _eventLocation = newEventLocation;
-      // }
-      //
+    public void SetEventLocation(string newEventLocation)
+    {
+      _eventLocation = newEventLocation;
+    }
+      
       // public int GetMenusId()
       // {
       //   return _menusId;

@@ -121,6 +121,25 @@ namespace EventPlanner.Tests
       Assert.AreEqual(eventLocation, result);
     }
 
+    [TestMethod]
+    public void SetEventLocation_SetEventLocation_String()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+
+      //Act
+      string updatedEventLocation = "Seattle";
+      newEvent.SetEventLocation(updatedEventLocation);
+      string result = newEvent.GetEventLocation();
+
+      //Assert
+      Assert.AreEqual(updatedEventLocation, result);
+    }
+    
     // [TestMethod]
     // public void Save_SavesEventToDatabase_EventList()
     // {
