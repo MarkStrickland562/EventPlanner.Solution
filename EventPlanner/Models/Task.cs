@@ -47,78 +47,69 @@ namespace EventPlanner.Models
       return _id;
     }
 
-    // public static void ClearAll()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM Tasks_tasks; DELETE FROM Tasks_invitees; DELETE FROM Tasks;";
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public void Save()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"INSERT INTO Tasks (name, Task_date, Task_location, menus_id)
-    //                       VALUES (@TaskName, @TaskDate, @TaskLocation, @menusId);";
-    //   MySqlParameter TaskName = new MySqlParameter();
-    //   TaskName.ParameterName = "@TaskName";
-    //   TaskName.Value = this._TaskName;
-    //   cmd.Parameters.Add(TaskName);
-    //   MySqlParameter TaskDate = new MySqlParameter();
-    //   TaskDate.ParameterName = "@TaskDate";
-    //   TaskDate.Value = this._TaskDate;
-    //   cmd.Parameters.Add(TaskDate);
-    //   MySqlParameter TaskLocation = new MySqlParameter();
-    //   TaskLocation.ParameterName = "@TaskLocation";
-    //   TaskLocation.Value = this._TaskLocation;
-    //   cmd.Parameters.Add(TaskLocation);
-    //   MySqlParameter menusId = new MySqlParameter();
-    //   menusId.ParameterName = "@menusId";
-    //   menusId.Value = this._menusId;
-    //   cmd.Parameters.Add(menusId);
-    //   cmd.ExecuteNonQuery();
-    //   _id = (int) cmd.LastInsertedId;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public static List<Task> GetAll()
-    // {
-    //   List<Task> allTasks = new List<Task> {};
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM Tasks;";
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   while(rdr.Read())
-    //   {
-    //     int TaskId = rdr.GetInt32(0);
-    //     string TaskName = rdr.GetString(1);
-    //     DateTime TaskDate = rdr.GetDateTime(2);
-    //     string TaskLocation = rdr.GetString(3);
-    //     int menusId = rdr.GetInt32(4);
-    //     Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId, TaskId);
-    //     allTasks.Add(newTask);
-    //   }
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //   return allTasks;
-    // }
-    //
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks;
+                          DELETE FROM tasks;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO Tasks (task_description, planned_start_datetime)
+                          VALUES (@taskDescription, @taskPlannedStartDateTime);";
+      MySqlParameter taskDescription = new MySqlParameter();
+      taskDescription.ParameterName = "@taskDescription";
+      taskDescription.Value = this._taskDescription;
+      cmd.Parameters.Add(taskDescription);
+      MySqlParameter taskPlannedStartDateTime = new MySqlParameter();
+      taskPlannedStartDateTime.ParameterName = "@taskPlannedStartDateTime";
+      taskPlannedStartDateTime.Value = this._taskPlannedStartDateTime;
+      cmd.Parameters.Add(taskPlannedStartDateTime);
+        cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public static List<Task> GetAll()
+    {
+      List<Task> allTasks = new List<Task> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM tasks;";
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int taskId = rdr.GetInt32(0);
+        string taskDescription = rdr.GetString(1);
+        DateTime taskPlannedStartDateTime = rdr.GetDateTime(2);
+        Task newTask = new Task(taskDescription, taskPlannedStartDateTime, taskId);
+        allTasks.Add(newTask);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allTasks;
+    }
+
     // public static Task Find(int id)
     // {
     //   MySqlConnection conn = DB.Connection();
@@ -310,20 +301,20 @@ namespace EventPlanner.Models
       //   return specialtyList;
       // }
 
-    // public override bool Equals(System.Object otherTask)
-    // {
-    //   if (!(otherTask is Task))
-    //   {
-    //     return false;
-    //   }
-    //   else
-    //   {
-    //     Task newTask = (Task) otherTask;
-    //     bool idEquality = this.GetId().Equals(newTask.GetId());
-    //     bool taskDescriptionEquality = this.GetTaskDescription().Equals(newTask.GetTaskDescription());
-    //     bool taskPlannedStartDateTimeEquality = this.GetTaskPlannedStartDateTime().Equals(newTask.GetTaskPlannedStartDateTime());
-    //     return (idEquality && taskDescriptionEquality && taskPlannedStartDateTimeEquality);
-    //   }
-    // }
+    public override bool Equals(System.Object otherTask)
+    {
+      if (!(otherTask is Task))
+      {
+        return false;
+      }
+      else
+      {
+        Task newTask = (Task) otherTask;
+        bool idEquality = this.GetId().Equals(newTask.GetId());
+        bool taskDescriptionEquality = this.GetTaskDescription().Equals(newTask.GetTaskDescription());
+        bool taskPlannedStartDateTimeEquality = this.GetTaskPlannedStartDateTime().Equals(newTask.GetTaskPlannedStartDateTime());
+        return (idEquality && taskDescriptionEquality && taskPlannedStartDateTimeEquality);
+      }
+    }
   }
 }

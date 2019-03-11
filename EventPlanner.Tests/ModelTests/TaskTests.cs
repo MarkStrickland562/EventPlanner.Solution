@@ -15,7 +15,7 @@ namespace EventPlanner.Tests
 
     public void Dispose()
     {
-//      Task.ClearAll();
+      Task.ClearAll();
     }
     [TestMethod]
     public void TaskConstructor_CreatesInstanceOfTask_Task()
@@ -108,52 +108,46 @@ namespace EventPlanner.Tests
       Assert.AreEqual(0, result);
     }
 
-    // [TestMethod]
-    // public void Save_SavesTaskToDatabase_TaskList()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //   newTask.Save();
-    //
-    //   //Act
-    //   List<Task> result = Task.GetAll();
-    //   List<Task> testList = new List<Task>{newTask};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetAll_ReturnsAllTaskObjects_TaskList()
-    // {
-    //   //Arrange
-    //   string TaskName1 = "July 4th BBQ";
-    //   DateTime TaskDate1 = new DateTime(2019, 04, 04);
-    //   string TaskLocation1 = "Capitol Hill";
-    //   int menusId1 = 1;
-    //   Task newTask1 = new Task(TaskName1, TaskDate1, TaskLocation1, menusId1);
-    //   newTask1.Save();
-    //
-    //   string TaskName2 = "Birthday Party";
-    //   DateTime TaskDate2 = new DateTime(2019, 05, 03);
-    //   string TaskLocation2 = "Saltys";
-    //   int menusId2 = 2;
-    //   Task newTask2 = new Task(TaskName2, TaskDate2, TaskLocation2, menusId2);
-    //   newTask2.Save();
-    //
-    //   List<Task> newList = new List<Task> { newTask1, newTask2};
-    //
-    //   //Act
-    //   List<Task> result = Task.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-    //
+    [TestMethod]
+    public void Save_SavesTaskToDatabase_TaskList()
+    {
+      //Arrange
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+
+      //Act
+      List<Task> result = Task.GetAll();
+      List<Task> testList = new List<Task>{newTask};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllTaskObjects_TaskList()
+    {
+      //Arrange
+      string taskDescription1 = "Setup Tables";
+      DateTime taskPlannedStartDateTime1 = new DateTime(2019, 04, 04);
+      Task newTask1 = new Task(taskDescription1, taskPlannedStartDateTime1);
+      newTask1.Save();
+
+      string taskDescription2 = "Ice Drinks";
+      DateTime taskPlannedStartDateTime2 = new DateTime(2019, 04, 04);
+      Task newTask2 = new Task(taskDescription2, taskPlannedStartDateTime2);
+      newTask2.Save();
+
+      List<Task> newList = new List<Task> { newTask1, newTask2};
+
+      //Act
+      List<Task> result = Task.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
     // [TestMethod]
     // public void Find_ReturnsTaskInDatabase_Task()
     // {
