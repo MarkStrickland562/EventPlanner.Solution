@@ -50,12 +50,12 @@ namespace EventPlanner.Models
     {
       _eventLocation = newEventLocation;
     }
-      
-      // public int GetMenusId()
-      // {
-      //   return _menusId;
-      // }
-      //
+
+    public int GetMenusId()
+    {
+      return _menusId;
+    }
+
       // public void SetMenusId(int newMenusId)
       // {
       //   _menusId = newMenusId;

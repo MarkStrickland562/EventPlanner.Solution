@@ -139,7 +139,23 @@ namespace EventPlanner.Tests
       //Assert
       Assert.AreEqual(updatedEventLocation, result);
     }
-    
+
+    [TestMethod]
+    public void GetMenusId_ReturnsMenusId_Int()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+
+      //Act
+      int result = newEvent.GetMenusId();
+
+      //Assert
+      Assert.AreEqual(menusId, result);
+    }
     // [TestMethod]
     // public void Save_SavesEventToDatabase_EventList()
     // {
