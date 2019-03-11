@@ -21,11 +21,11 @@ namespace EventPlanner.Models
       _id = id;
     }
 
-      // public string GetEventName()
-      // {
-      //   return _eventName;
-      // }
-      //
+    public string GetEventName()
+    {
+      return _eventName;
+    }
+
       // public void SetEventName(string newEventName)
       // {
       //   _eventName = newEventName;
