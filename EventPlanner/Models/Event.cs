@@ -36,11 +36,11 @@ namespace EventPlanner.Models
       return _eventDate;
     }
 
-      // public void SetEventDate(DateTime newEventDate)
-      // {
-      //   _eventDate = newEventDate;
-      // }
-      //
+    public void SetEventDate(DateTime newEventDate)
+    {
+      _eventDate = newEventDate;
+    }
+      
       // public string GetEventLocation()
       // {
       //   return _eventLocation;
