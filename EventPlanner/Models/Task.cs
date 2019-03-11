@@ -22,11 +22,11 @@ namespace EventPlanner.Models
       return _taskDescription;
     }
 
-    // public void SetTaskName(string newTaskName)
-    // {
-    //   _TaskName = newTaskName;
-    // }
-    //
+    public void SetTaskDescription(string newTaskDescription)
+    {
+      _taskDescription = newTaskDescription;
+    }
+
     // public DateTime GetTaskDate()
     // {
     //   return _TaskDate;
