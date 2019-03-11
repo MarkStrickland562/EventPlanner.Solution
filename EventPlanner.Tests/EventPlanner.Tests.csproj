@@ -13,4 +13,3 @@
     <ProjectReference Include="..\EventPlanner\EventPlanner.csproj" />
   </ItemGroup>
 </Project>
-
