@@ -169,26 +169,26 @@ namespace EventPlanner.Models
     // //   return allTaskTasks;
     // // }
     //
-    // public void Delete()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM Tasks_tasks WHERE Tasks_id = (@searchid);
-    //                       DELETE FROM Tasks_invitees WHERE Tasks_id = (@searchId);
-    //                       DELETE FROM Tasks WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = this._id;
-    //   cmd.Parameters.Add(searchId);
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
+
+    public void Delete()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks WHERE tasks_id = (@searchid);
+                          DELETE FROM tasks WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = this._id;
+      cmd.Parameters.Add(searchId);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     // public static void DeleteAll()
     // {
     //   MySqlConnection conn = DB.Connection();
