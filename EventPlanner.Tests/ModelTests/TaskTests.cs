@@ -88,100 +88,26 @@ namespace EventPlanner.Tests
       DateTime updatedTaskPlannedStartDateTime = new DateTime(2019, 05, 03);
       newTask.SetTaskPlannedStartDateTime(updatedTaskPlannedStartDateTime);
       DateTime result = newTask.GetTaskPlannedStartDateTime();
-    
+
       //Assert
       Assert.AreEqual(updatedTaskPlannedStartDateTime, result);
     }
 
-    // [TestMethod]
-    // public void GetTaskLocation_ReturnsTaskLocation_String()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //
-    //   //Act
-    //   string result = newTask.GetTaskLocation();
-    //
-    //   //Assert
-    //   Assert.AreEqual(TaskLocation, result);
-    // }
-    //
-    // [TestMethod]
-    // public void SetTaskLocation_SetTaskLocation_String()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //
-    //   //Act
-    //   string updatedTaskLocation = "Seattle";
-    //   newTask.SetTaskLocation(updatedTaskLocation);
-    //   string result = newTask.GetTaskLocation();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedTaskLocation, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetMenusId_ReturnsMenusId_Int()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //
-    //   //Act
-    //   int result = newTask.GetMenusId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(menusId, result);
-    // }
-    //
-    // [TestMethod]
-    // public void SetMenusId_SetMenusId_Int()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //
-    //   //Act
-    //   int updatedMenusId = 2;
-    //   newTask.SetMenusId(updatedMenusId);
-    //   int result = newTask.GetMenusId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedMenusId, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetId_ReturnsTaskId_Int()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //
-    //   //Act
-    //   int result = newTask.GetId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(0, result);
-    // }
-    //
+    [TestMethod]
+    public void GetId_ReturnsTaskId_Int()
+    {
+      //Arrange
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+
+      //Act
+      int result = newTask.GetId();
+
+      //Assert
+      Assert.AreEqual(0, result);
+    }
+
     // [TestMethod]
     // public void Save_SavesTaskToDatabase_TaskList()
     // {

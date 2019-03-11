@@ -41,12 +41,12 @@ namespace EventPlanner.Models
     {
       _taskPlannedStartDateTime = newTaskPlannedStartDateTime;
     }
-    
-    // public int GetId()
-    // {
-    //   return _id;
-    // }
-    //
+
+    public int GetId()
+    {
+      return _id;
+    }
+
     // public static void ClearAll()
     // {
     //   MySqlConnection conn = DB.Connection();
