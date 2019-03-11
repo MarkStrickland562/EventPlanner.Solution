@@ -10,12 +10,12 @@ namespace EventPlanner.Tests
   {
     public EventTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
     }
 
     public void Dispose()
     {
-//      Event.ClearAll();
+      Event.ClearAll();
     }
 
     [TestMethod]
@@ -193,46 +193,52 @@ namespace EventPlanner.Tests
       Assert.AreEqual(0, result);
     }
 
-    // [TestMethod]
-    // public void Save_SavesEventToDatabase_EventList()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //   newEvent.Save();
-    //
-    //   //Act
-    //   List<Event> result = Event.GetAll();
-    //   List<Event> testList = new List<Event>{newEvent};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetAll_ReturnsAllEventObjects_EventList()
-    // {
-    //   //Arrange
-    //   string name1 = "Betty Clark";
-    //   DateTime hireDate1 = new DateTime(2019, 01, 01);
-    //   Event newEvent1 = new Event(name1, hireDate1);
-    //   newEvent1.Save();
-    //
-    //   string name2 = "Sharon Smith";
-    //   DateTime hireDate2 = new DateTime(2019, 02, 28);
-    //   Event newEvent2 = new Event(name2, hireDate2);
-    //   newEvent2.Save();
-    //
-    //   List<Event> newList = new List<Event> { newEvent1, newEvent2};
-    //
-    //   //Act
-    //   List<Event> result = Event.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-    //
+    [TestMethod]
+    public void Save_SavesEventToDatabase_EventList()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      //Act
+      List<Event> result = Event.GetAll();
+      List<Event> testList = new List<Event>{newEvent};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllEventObjects_EventList()
+    {
+      //Arrange
+      string eventName1 = "July 4th BBQ";
+      DateTime eventDate1 = new DateTime(2019, 04, 04);
+      string eventLocation1 = "Capitol Hill";
+      int menusId1 = 1;
+      Event newEvent1 = new Event(eventName1, eventDate1, eventLocation1, menusId1);
+      newEvent1.Save();
+
+      string eventName2 = "Birthday Party";
+      DateTime eventDate2 = new DateTime(2019, 05, 03);
+      string eventLocation2 = "Saltys";
+      int menusId2 = 2;
+      Event newEvent2 = new Event(eventName2, eventDate2, eventLocation2, menusId2);
+      newEvent2.Save();
+
+      List<Event> newList = new List<Event> { newEvent1, newEvent2};
+
+      //Act
+      List<Event> result = Event.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
     // [TestMethod]
     // public void Find_ReturnsEventInDatabase_Event()
     // {

@@ -80,53 +80,64 @@ namespace EventPlanner.Models
       }
     }
 
-      // public void Save()
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"INSERT INTO Events (name, hire_date) VALUES (@name, @hireDate);";
-      //   MySqlParameter name = new MySqlParameter();
-      //   name.ParameterName = "@name";
-      //   name.Value = this._name;
-      //   cmd.Parameters.Add(name);
-      //   MySqlParameter hireDate = new MySqlParameter();
-      //   hireDate.ParameterName = "@hireDate";
-      //   hireDate.Value = this._hireDate;
-      //   cmd.Parameters.Add(hireDate);
-      //   cmd.ExecuteNonQuery();
-      //   _id = (int) cmd.LastInsertedId;
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      // }
-      //
-      // public static List<Event> GetAll()
-      // {
-      //   List<Event> allEvents = new List<Event> {};
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"SELECT * FROM Events;";
-      //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-      //   while(rdr.Read())
-      //   {
-      //     int EventId = rdr.GetInt32(0);
-      //     string EventName = rdr.GetString(1);
-      //     DateTime EventHireDate = rdr.GetDateTime(2);
-      //     Event newEvent = new Event(EventName, EventHireDate, EventId);
-      //     allEvents.Add(newEvent);
-      //   }
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      //   return allEvents;
-      // }
-      //
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO Events (name, event_date, event_location, menus_id)
+                          VALUES (@eventName, @eventDate, @eventLocation, @menusId);";
+      MySqlParameter eventName = new MySqlParameter();
+      eventName.ParameterName = "@eventName";
+      eventName.Value = this._eventName;
+      cmd.Parameters.Add(eventName);
+      MySqlParameter eventDate = new MySqlParameter();
+      eventDate.ParameterName = "@eventDate";
+      eventDate.Value = this._eventDate;
+      cmd.Parameters.Add(eventDate);
+      MySqlParameter eventLocation = new MySqlParameter();
+      eventLocation.ParameterName = "@eventLocation";
+      eventLocation.Value = this._eventLocation;
+      cmd.Parameters.Add(eventLocation);
+      MySqlParameter menusId = new MySqlParameter();
+      menusId.ParameterName = "@menusId";
+      menusId.Value = this._menusId;
+      cmd.Parameters.Add(menusId);
+      cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public static List<Event> GetAll()
+    {
+      List<Event> allEvents = new List<Event> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM events;";
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int eventId = rdr.GetInt32(0);
+        string eventName = rdr.GetString(1);
+        DateTime eventDate = rdr.GetDateTime(2);
+        string eventLocation = rdr.GetString(3);
+        int menusId = rdr.GetInt32(4);
+        Event newEvent = new Event(eventName, eventDate, eventLocation, menusId, eventId);
+        allEvents.Add(newEvent);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allEvents;
+    }
+
       // public static Event Find(int id)
       // {
       //   MySqlConnection conn = DB.Connection();
@@ -302,5 +313,22 @@ namespace EventPlanner.Models
       //   return specialtyList;
       // }
 
+    public override bool Equals(System.Object otherEvent)
+    {
+      if (!(otherEvent is Event))
+      {
+        return false;
+      }
+      else
+      {
+        Event newEvent = (Event) otherEvent;
+        bool idEquality = this.GetId().Equals(newEvent.GetId());
+        bool eventNameEquality = this.GetEventName().Equals(newEvent.GetEventName());
+        bool eventDateEquality = this.GetEventDate().Equals(newEvent.GetEventDate());
+        bool eventLocationEquality = this.GetEventLocation().Equals(newEvent.GetEventLocation());
+        bool menusIdEquality = this.GetMenusId().Equals(newEvent.GetMenusId());
+        return (idEquality && eventNameEquality && eventDateEquality && eventLocationEquality && menusIdEquality);
+      }
+    }
   }
 }
