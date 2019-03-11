@@ -67,7 +67,7 @@ namespace EventPlanner.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO Tasks (task_description, planned_start_datetime)
+      cmd.CommandText = @"INSERT INTO tasks (task_description, planned_start_datetime)
                           VALUES (@taskDescription, @taskPlannedStartDateTime);";
       MySqlParameter taskDescription = new MySqlParameter();
       taskDescription.ParameterName = "@taskDescription";
@@ -139,37 +139,6 @@ namespace EventPlanner.Models
         return newTask;
     }
 
-    // // public List<Task> GetTasks()
-    // // {
-    // //   List<Task> allTaskTasks = new List<Task> {};
-    // //   MySqlConnection conn = DB.Connection();
-    // //   conn.Open();
-    // //   var cmd = conn.CreateCommand() as MySqlCommand;
-    // //   cmd.CommandText = @"SELECT *
-    // //                         FROM tasks
-    // //                        WHERE task_id IN (SELECT task_id FROM Tasks_tasks WHERE Tasks_id = @Task_id);";
-    // //   MySqlParameter TaskId = new MySqlParameter();
-    // //   TaskId.ParameterName = "@Task_id";
-    // //   TaskId.Value = this._id;
-    // //   cmd.Parameters.Add(TaskId);
-    // //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    // //   while(rdr.Read())
-    // //   {
-    // //     int taskId = rdr.GetInt32(0);
-    // //     string taskDescription = rdr.GetString(1);
-    // //     DateTime plannedStartDateTime = rdr.GetDateTime(2);
-    // //     Task newTask = new Task(taskDescription, plannedStartDateTime, taskId);
-    // //     allTaskTasks.Add(newTask);
-    // //   }
-    // //   conn.Close();
-    // //   if (conn != null)
-    // //   {
-    // //     conn.Dispose();
-    // //   }
-    // //   return allTaskTasks;
-    // // }
-    //
-
     public void Delete()
     {
       MySqlConnection conn = DB.Connection();
@@ -233,58 +202,59 @@ namespace EventPlanner.Models
       }
     }
 
-      // public void AddSpecialty(Specialty newSpecialty)
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"INSERT INTO Tasks_specialties (Tasks_id, specialties_id) VALUES (@TaskId, @specialtyId);";
-      //   MySqlParameter specialtyIdParameter = new MySqlParameter();
-      //   specialtyIdParameter.ParameterName = "@specialtyId";
-      //   specialtyIdParameter.Value = newSpecialty.GetId();
-      //   cmd.Parameters.Add(specialtyIdParameter);
-      //   MySqlParameter TaskIdParameter = new MySqlParameter();
-      //   TaskIdParameter.ParameterName = "@TaskId";
-      //   TaskIdParameter.Value = this._id;
-      //   cmd.Parameters.Add(TaskIdParameter);
-      //   cmd.ExecuteNonQuery();
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      // }
-      //
-      // public List<Specialty> GetSpecialties()
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"SELECT specialties.*
-      //                         FROM Tasks
-      //                         JOIN Tasks_specialties ON (Tasks.id = Tasks_specialties.Tasks_id)
-      //                         JOIN specialties ON (Tasks_specialties.specialties_id = specialties.id)
-      //                        WHERE Tasks.id = (@TaskId);";
-      //   MySqlParameter TaskIdParameter = new MySqlParameter();
-      //   TaskIdParameter.ParameterName = "@TaskId";
-      //   TaskIdParameter.Value = this._id;
-      //   cmd.Parameters.Add(TaskIdParameter);
-      //   MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-      //   List<Specialty> specialtyList = new List<Specialty>{};
-      //   while(rdr.Read())
-      //   {
-      //     int specialtyId = rdr.GetInt32(0);
-      //     string specialty= rdr.GetString(1);
-      //     Specialty newSpecialty = new Specialty(specialty, specialtyId);
-      //     specialtyList.Add(newSpecialty);
-      //   }
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //      conn.Dispose();
-      //   }
-      //   return specialtyList;
-      // }
+    public void AddEvent(Event newEvent)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO events_tasks (events_id, tasks_id) VALUES (@eventId, @taskId);";
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = newEvent.GetId();
+      cmd.Parameters.Add(eventIdParameter);
+      MySqlParameter taskIdParameter = new MySqlParameter();
+      taskIdParameter.ParameterName = "@taskId";
+      taskIdParameter.Value = this._id;
+      cmd.Parameters.Add(taskIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public List<Event> GetEvents()
+    {
+      List<Event> allEventTasks = new List<Event> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM events
+                           WHERE id IN (SELECT events_id FROM events_tasks WHERE tasks_id = @taskId);";
+      MySqlParameter taskId = new MySqlParameter();
+      taskId.ParameterName = "@taskId";
+      taskId.Value = this._id;
+      cmd.Parameters.Add(taskId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int eventId = rdr.GetInt32(0);
+        string eventName = rdr.GetString(1);
+        DateTime eventDate = rdr.GetDateTime(2);
+        string eventLocation = rdr.GetString(3);
+        int menusId = rdr.GetInt32(4);
+        Event newEvent = new Event(eventName, eventDate, eventLocation, menusId, eventId);
+        allEventTasks.Add(newEvent);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allEventTasks;
+    }
 
     public override bool Equals(System.Object otherTask)
     {

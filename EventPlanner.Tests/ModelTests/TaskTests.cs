@@ -252,30 +252,34 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
-    // [TestMethod]
-    // public void Save_SavesTaskTaskToDatabase_TaskList()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Task newTask = new Task(name, hireDate);
-    //   newTask.Save();
-    //   string Task = "Colorist";
-    //   Task newTask = new Task(Task);
-    //   newTask.Save();
-    //
-    //   //Act
-    //   Task foundTask = Task.Find(newTask.GetId());
-    //   Task foundTask = Task.Find(newTask.GetId());
-    //   foundTask.AddTask(foundTask);
-    //
-    //   List<Task> result = newTask.GetTasks();
-    //   List<Task> testList = new List<Task>{foundTask};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
+    [TestMethod]
+    public void Save_SavesEventTaskToDatabase_EventList()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Task foundTask = Task.Find(newTask.GetId());
+      foundTask.AddEvent(foundEvent);
+
+      List<Event> result = foundTask.GetEvents();
+      List<Event> testList = new List<Event>{foundEvent};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
     // [TestMethod]
     // public void GetTasks_RetrievesAllTasksForATask_TaskList()
     // {
