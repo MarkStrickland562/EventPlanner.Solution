@@ -138,35 +138,39 @@ namespace EventPlanner.Models
       return allEvents;
     }
 
-      // public static Event Find(int id)
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"SELECT * FROM Events WHERE id = (@searchId);";
-      //   MySqlParameter searchId = new MySqlParameter();
-      //   searchId.ParameterName = "@searchId";
-      //   searchId.Value = id;
-      //   cmd.Parameters.Add(searchId);
-      //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-      //   int EventId = 0;
-      //   string EventName = "";
-      //   DateTime EventHireDate = new DateTime(1900, 1, 1);
-      //   while(rdr.Read())
-      //   {
-      //     EventId = rdr.GetInt32(0);
-      //     EventName = rdr.GetString(1);
-      //     EventHireDate = rdr.GetDateTime(2);
-      //   }
-      //   Event newEvent = new Event(EventName, EventHireDate, EventId);
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      //   return newEvent;
-      // }
-      //
+    public static Event Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM Events WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int eventId = 0;
+      string eventName = "";
+      DateTime eventDate = new DateTime(1900, 1, 1);
+      string eventLocation = "";
+      int menusId = 0;
+      while(rdr.Read())
+      {
+        eventId = rdr.GetInt32(0);
+        eventName = rdr.GetString(1);
+        eventDate = rdr.GetDateTime(2);
+        eventLocation = rdr.GetString(3);
+        menusId = rdr.GetInt32(4);
+      }
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId, eventId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+        return newEvent;
+    }
+
       // public List<Client> GetClients()
       // {
       //   List<Client> allEventClients = new List<Client> {};

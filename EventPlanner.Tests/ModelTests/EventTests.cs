@@ -239,22 +239,24 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    // [TestMethod]
-    // public void Find_ReturnsEventInDatabase_Event()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //   newEvent.Save();
-    //
-    //   //Act
-    //   Event foundEvent = Event.Find(newEvent.GetId());
-    //
-    //   //Assert
-    //   Assert.AreEqual(newEvent, foundEvent);
-    // }
-    //
+    [TestMethod]
+    public void Find_ReturnsEventInDatabase_Event()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+    
+      //Assert
+      Assert.AreEqual(newEvent, foundEvent);
+    }
+
     // [TestMethod]
     // public void GetClients_RetrievesAllClientsWithEvent_ClientList()
     // {
