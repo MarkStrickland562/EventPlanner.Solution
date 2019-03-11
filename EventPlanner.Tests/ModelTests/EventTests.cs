@@ -68,21 +68,23 @@ namespace EventPlanner.Tests
       Assert.AreEqual(updatedEventName, result);
     }
 
-    // [TestMethod]
-    // public void GetHireDate_ReturnsHireDate_DateTime()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //
-    //   //Act
-    //   DateTime result = newEvent.GetHireDate();
-    //
-    //   //Assert
-    //   Assert.AreEqual(hireDate, result);
-    // }
-    //
+    [TestMethod]
+    public void GetHireDate_ReturnsHireDate_DateTime()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+
+      //Act
+      DateTime result = newEvent.GetEventDate();
+
+      //Assert
+      Assert.AreEqual(eventDate, result);
+    }
+
     // [TestMethod]
     // public void SetHireDate_SetHireDate_DateTime()
     // {

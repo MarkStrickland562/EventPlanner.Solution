@@ -30,11 +30,11 @@ namespace EventPlanner.Models
     {
       _eventName = newEventName;
     }
-      
-    // public DateTime GetEventDate()
-    // {
-    //   return _eventDate;
-    // }
+
+    public DateTime GetEventDate()
+    {
+      return _eventDate;
+    }
 
       // public void SetEventDate(DateTime newEventDate)
       // {
