@@ -41,24 +41,24 @@ namespace MenuPlanner.Controllers
     [HttpPost("/menus/{menuId}/tasks/new")]
     public ActionResult AddMenuItem(int menuId, int menuItemId)
     {
-      Menu Menu = Menu.Find(menuId);
-      Menu.AddMenuItem(MenuItem.Find(taskId));
+      Menu menu = Menu.Find(menuId);
+      menu.AddMenuItem(MenuItem.Find(menuItemId));
       return RedirectToAction("Show");
     }
 
     [HttpPost("/menus/{menuId}/tasks/delete")]
-    public ActionResult DeleteTask(int menuId, int taskId)
+    public ActionResult DeleteMenuItem(int menuId, int menuItemId)
     {
-      Menu Menu = Menu.Find(menuId);
-      Menu.DeleteTask(Task.Find(taskId));
+      Menu menu = Menu.Find(menuId);
+      menu.DeleteMenuItem(MenuItem.Find(menuItemId));
       return RedirectToAction("Show");
     }
 
     [HttpPost("/menus/{menuId}/invitees/new")]
     public ActionResult AddInvitee(int menuId, int inviteeId)
     {
-      Menu Menu = Menu.Find(menuId);
-      Menu.AddTask(Invitee.Find(inviteeId));
+      Menu menu = Menu.Find(menuId);
+      menu.AddTask(Invitee.Find(inviteeId));
       return RedirectToAction("Show");
     }
 
@@ -66,7 +66,7 @@ namespace MenuPlanner.Controllers
     public ActionResult DeleteInvitee(int menuId, int inviteeId)
     {
       Menu Menu = Menu.Find(menuId);
-      Menu.DeleteTask(Invitee.Find(inviteeId));
+      menu.DeleteTask(Invitee.Find(inviteeId));
       return RedirectToAction("Show");
     }
 
@@ -95,7 +95,7 @@ namespace MenuPlanner.Controllers
     public ActionResult Update(int menuId, string menuTheme)
     {
       Menu Menu = Menu.Find(menuId);
-      Menu.Edit(menuId, menuTheme);
+      menu.Edit(menuId, menuTheme);
       return RedirectToAction("Index");
     }
   }
