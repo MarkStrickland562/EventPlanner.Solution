@@ -26,16 +26,16 @@ namespace EventPlanner.Models
       return _eventName;
     }
 
-      // public void SetEventName(string newEventName)
-      // {
-      //   _eventName = newEventName;
-      // }
-      //
-      // public DateTime GetEventDate()
-      // {
-      //   return _eventDate;
-      // }
-      //
+    public void SetEventName(string newEventName)
+    {
+      _eventName = newEventName;
+    }
+      
+    // public DateTime GetEventDate()
+    // {
+    //   return _eventDate;
+    // }
+
       // public void SetEventDate(DateTime newEventDate)
       // {
       //   _eventDate = newEventDate;
