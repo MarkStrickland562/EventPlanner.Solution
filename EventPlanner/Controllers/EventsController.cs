@@ -10,7 +10,7 @@ namespace EventPlanner.Controllers
     [HttpGet("/events")]
     public ActionResult Index()
     {
-      List<Events> allEvents = Event.GetAll();
+      List<Event> allEvents = Event.GetAll();
       return View(allEvents);
     }
 
@@ -47,7 +47,6 @@ namespace EventPlanner.Controllers
       event.AddTask(Task.Find(taskId));
       return RedirectToAction("Show");
     }
-
     [HttpPost("/events/{eventId}/tasks/delete")]
     public ActionResult DeleteTask(int eventId, int taskId)
     {
@@ -63,7 +62,6 @@ namespace EventPlanner.Controllers
       event.AddTask(Invitee.Find(inviteeId));
       return RedirectToAction("Show");
     }
-
     [HttpPost("/events/{eventId}/invitees/delete")]
     public ActionResult DeleteInvitee(int eventId, int inviteeId)
     {
@@ -89,7 +87,7 @@ namespace EventPlanner.Controllers
     public ActionResult Edit(int eventId)
     {
       Event event = Event.Find(eventId);
-      Dictionary<string, object) model = new Dictionary<string, object>();
+      Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("event", event);
       return View(model);
     }

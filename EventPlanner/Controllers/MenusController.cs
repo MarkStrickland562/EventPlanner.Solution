@@ -10,8 +10,8 @@ namespace MenuPlanner.Controllers
     [HttpGet("/menus")]
     public ActionResult Index()
     {
-      List<menus> allMenus = Menu.GetAll();
-      return View(allmenus);
+      List<Menu> allMenus = Menu.GetAll();
+      return View(allMenus);
     }
 
     [HttpGet("/menus/new")]
@@ -34,39 +34,22 @@ namespace MenuPlanner.Controllers
       Menu menuItems = Menu.GetMenuItems(menuId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menu", menu);
-      model.Add("menuItems", items);
+      model.Add("menuItems", menuItems);
       return View(model);
     }
 
-    [HttpPost("/menus/{menuId}/tasks/new")]
+    [HttpPost("/menus/{menuId}/menuItem/new")]
     public ActionResult AddMenuItem(int menuId, int menuItemId)
     {
       Menu menu = Menu.Find(menuId);
       menu.AddMenuItem(MenuItem.Find(menuItemId));
       return RedirectToAction("Show");
     }
-
-    [HttpPost("/menus/{menuId}/tasks/delete")]
+    [HttpPost("/menus/{menuId}/menuItem/delete")]
     public ActionResult DeleteMenuItem(int menuId, int menuItemId)
     {
       Menu menu = Menu.Find(menuId);
       menu.DeleteMenuItem(MenuItem.Find(menuItemId));
-      return RedirectToAction("Show");
-    }
-
-    [HttpPost("/menus/{menuId}/invitees/new")]
-    public ActionResult AddInvitee(int menuId, int inviteeId)
-    {
-      Menu menu = Menu.Find(menuId);
-      menu.AddTask(Invitee.Find(inviteeId));
-      return RedirectToAction("Show");
-    }
-
-    [HttpPost("/menus/{menuId}/invitees/delete")]
-    public ActionResult DeleteInvitee(int menuId, int inviteeId)
-    {
-      Menu Menu = Menu.Find(menuId);
-      menu.DeleteTask(Invitee.Find(inviteeId));
       return RedirectToAction("Show");
     }
 
@@ -86,15 +69,15 @@ namespace MenuPlanner.Controllers
     [HttpGet("/menus/{menuId}/edit")]
     public ActionResult Edit(int menuId)
     {
-      Menu Menu = Menu.Find(menuId);
-      Dictionary<string, object) model = new Dictionary<string, object>();
-      model.Add("Menu", Menu);
+      Menu menu = Menu.Find(menuId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("Menu", menu);
       return View(model);
     }
     [HttpGet("/menus/{menuId}/edit")]
     public ActionResult Update(int menuId, string menuTheme)
     {
-      Menu Menu = Menu.Find(menuId);
+      Menu menu = Menu.Find(menuId);
       menu.Edit(menuId, menuTheme);
       return RedirectToAction("Index");
     }
