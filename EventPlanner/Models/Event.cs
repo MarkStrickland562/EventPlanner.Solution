@@ -65,21 +65,21 @@ namespace EventPlanner.Models
     {
       return _id;
     }
-      
-      // public static void ClearAll()
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"DELETE FROM events_tasks; DELETE FROM events_invitees; DELETE FROM events;";
-      //   cmd.ExecuteNonQuery();
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      // }
-      //
+
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks; DELETE FROM events_invitees; DELETE FROM events;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
       // public void Save()
       // {
       //   MySqlConnection conn = DB.Connection();
