@@ -326,28 +326,32 @@ namespace EventPlanner.Tests
       CollectionAssert.AreNotEqual(newList, resultList);
     }
 
-    // [TestMethod]
-    // public void Edit_UpdatesEventToDatabase()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //   newEvent.Save();
-    //
-    //   //Act
-    //   Event foundEvent = Event.Find(newEvent.GetId());
-    //   string newName = "Betty C. Clark";
-    //   DateTime newHireDate = new DateTime(2019, 02, 28);
-    //   foundEvent.Edit(newName, newHireDate);
-    //   Event updatedEvent = Event.Find(newEvent.GetId());
-    //
-    //   List<Event> result = Event.GetAll();
-    //   List<Event> testList = new List<Event>{foundEvent};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+    [TestMethod]
+    public void Edit_UpdatesEventToDatabase()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      string newName = "Birthday Party";
+      DateTime newEventDate = new DateTime(2019, 05, 03);
+      string newEventLocation = "Saltys";
+      int newMenusId = 2;
+      foundEvent.Edit(newName, newEventDate, newEventLocation, newMenusId);
+      Event updatedEvent = Event.Find(newEvent.GetId());
+
+      List<Event> result = Event.GetAll();
+      List<Event> testList = new List<Event>{updatedEvent};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
 
     // [TestMethod]
     // public void Save_SavesEventSpecialtyToDatabase_SpecialtyList()
