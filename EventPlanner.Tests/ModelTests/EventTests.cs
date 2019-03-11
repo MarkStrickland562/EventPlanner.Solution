@@ -257,34 +257,42 @@ namespace EventPlanner.Tests
       Assert.AreEqual(newEvent, foundEvent);
     }
 
-    // [TestMethod]
-    // public void GetTasks_RetrievesAllTasksWithEvent_TaskList()
-    // {
-    //   //Arrange, Act
-    //   string eventName = "July 4th BBQ";
-    //   DateTime eventDate = new DateTime(2019, 04, 04);
-    //   string eventLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
-    //   newEvent.Save();
-    //
-    //   string taskDescription1 = "Setup Tables";
-    //   DateTime taskPlannedStartDateTime1 = new DateTime(2019, 04, 04);
-    //   Task newTask1 = new Task(taskDescription1, taskPlannedStartDateTime1);
-    //   newTask1.Save();
-    //
-    //   string taskDescription2 = "Ice Drinks";
-    //   DateTime taskPlannedStartDateTime2 = new DateTime(2019, 04, 04);
-    //   Task newTask2 = new Task(taskDescription2, taskPlannedStartDateTime2);
-    //   newTask2.Save();
-    //
-    //   List<Task> newList = new List<Task> { newTask1, newTask2 };
-    //
-    //   List<Task> resultList = newEvent.GetTasks();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, resultList);
-    // }
+    [TestMethod]
+    public void GetTasks_RetrievesAllTasksWithEvent_TaskList()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string taskDescription1 = "Setup Tables";
+      DateTime taskPlannedStartDateTime1 = new DateTime(2019, 04, 04);
+      Task newTask1 = new Task(taskDescription1, taskPlannedStartDateTime1);
+      newTask1.Save();
+
+      string taskDescription2 = "Ice Drinks";
+      DateTime taskPlannedStartDateTime2 = new DateTime(2019, 04, 04);
+      Task newTask2 = new Task(taskDescription2, taskPlannedStartDateTime2);
+      newTask2.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Task foundTask1 = Task.Find(newTask1.GetId());
+      Task foundTask2 = Task.Find(newTask2.GetId());
+      foundEvent.AddTask(foundTask1);
+      foundEvent.AddTask(foundTask2);
+
+      List<Task> newList = new List<Task> { newTask1, newTask2 };
+
+      //Act
+      List<Task> resultList = foundEvent.GetTasks();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, resultList);
+    }
 
     [TestMethod]
     public void Delete_DeletesEventFromDatabase()
@@ -376,37 +384,11 @@ namespace EventPlanner.Tests
 
       List<Task> result = newEvent.GetTasks();
       List<Task> testList = new List<Task>{foundTask};
-    
+
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
 
-    // [TestMethod]
-    // public void GetSpecialties_RetrievesAllSpecialtiesForAEvent_TaskList()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //   newEvent.Save();
-    //   string Task1 = "Colorist";
-    //   Task newTask1 = new Task(Task1);
-    //   newTask1.Save();
-    //   string Task2 = "Barber";
-    //   Task newTask2 = new Task(Task2);
-    //   newTask2.Save();
-    //   //Act
-    //   Event foundEvent = Event.Find(newEvent.GetId());
-    //   Task foundTask1 = Task.Find(newTask1.GetId());
-    //   Task foundTask2 = Task.Find(newTask2.GetId());
-    //   foundEvent.AddTask(foundTask1);
-    //   foundEvent.AddTask(foundTask2);
-    //
-    //   List<Task> result = newEvent.GetSpecialties();
-    //   List<Task> testList = new List<Task>{foundTask1, foundTask2};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+
   }
 }
