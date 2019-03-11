@@ -40,12 +40,12 @@ namespace EventPlanner.Models
     {
       _eventDate = newEventDate;
     }
-      
-      // public string GetEventLocation()
-      // {
-      //   return _eventLocation;
-      // }
-      //
+
+    public string GetEventLocation()
+    {
+      return _eventLocation;
+    }
+
       // public void SetEventLocation(string newEventLocation)
       // {
       //   _eventLocation = newEventLocation;
