@@ -91,7 +91,7 @@ namespace EventPlanner.Controllers
       model.Add("event", event);
       return View(model);
     }
-    [HttpGet("/events/{eventId}/edit")]
+    [HttpPost("/events/{eventId}/edit")]
     public ActionResult Update(int eventId, string name, string name, DateTime eventDate, string eventLocation, int menuId)
     {
       Event event = Event.Find(eventId);

@@ -89,7 +89,7 @@ namespace EventPlanner.Controllers
       model.Add("menuItem", menuItem);
       return View(model);
     }
-    [HttpGet("/menuItems/{menuItemId}/edit")]
+    [HttpPost("/menuItems/{menuItemId}/edit")]
     public ActionResult Update(int menuItemId, string menuItemDescription)
     {
       MenuItem menuItem = Menu.Find(menuItemId);

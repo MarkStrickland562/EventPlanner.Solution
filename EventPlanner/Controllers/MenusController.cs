@@ -74,7 +74,7 @@ namespace MenuPlanner.Controllers
       model.Add("Menu", menu);
       return View(model);
     }
-    [HttpGet("/menus/{menuId}/edit")]
+    [HttpPost("/menus/{menuId}/edit")]
     public ActionResult Update(int menuId, string menuTheme)
     {
       Menu menu = Menu.Find(menuId);
