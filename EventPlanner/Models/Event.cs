@@ -56,11 +56,11 @@ namespace EventPlanner.Models
       return _menusId;
     }
 
-      // public void SetMenusId(int newMenusId)
-      // {
-      //   _menusId = newMenusId;
-      // }
-      //
+    public void SetMenusId(int newMenusId)
+    {
+      _menusId = newMenusId;
+    }
+      
       // public int GetId()
       // {
       //   return _id;
