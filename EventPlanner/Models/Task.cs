@@ -27,11 +27,11 @@ namespace EventPlanner.Models
       _taskDescription = newTaskDescription;
     }
 
-    // public DateTime GetTaskDate()
-    // {
-    //   return _TaskDate;
-    // }
-    //
+    public DateTime GetTaskPlannedStartDateTime()
+    {
+      return _taskPlannedStartDateTime;
+    }
+
     // public void SetTaskDate(DateTime newTaskDate)
     // {
     //   _TaskDate = newTaskDate;
