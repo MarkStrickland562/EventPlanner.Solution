@@ -148,23 +148,21 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    // [TestMethod]
-    // public void Find_ReturnsTaskInDatabase_Task()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //   newTask.Save();
-    //
-    //   //Act
-    //   Task foundTask = Task.Find(newTask.GetId());
-    //
-    //   //Assert
-    //   Assert.AreEqual(newTask, foundTask);
-    // }
+    [TestMethod]
+    public void Find_ReturnsTaskInDatabase_Task()
+    {
+      //Arrange
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+
+      //Act
+      Task foundTask = Task.Find(newTask.GetId());
+
+      //Assert
+      Assert.AreEqual(newTask, foundTask);
+    }
 
     // [TestMethod]
     // public void GetTasks_RetrievesAllTasksWithTask_TaskList()

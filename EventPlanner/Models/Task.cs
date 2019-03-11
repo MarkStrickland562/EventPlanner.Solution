@@ -110,39 +110,35 @@ namespace EventPlanner.Models
       return allTasks;
     }
 
-    // public static Task Find(int id)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM Tasks WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = id;
-    //   cmd.Parameters.Add(searchId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   int TaskId = 0;
-    //   string TaskName = "";
-    //   DateTime TaskDate = new DateTime(1900, 1, 1);
-    //   string TaskLocation = "";
-    //   int menusId = 0;
-    //   while(rdr.Read())
-    //   {
-    //     TaskId = rdr.GetInt32(0);
-    //     TaskName = rdr.GetString(1);
-    //     TaskDate = rdr.GetDateTime(2);
-    //     TaskLocation = rdr.GetString(3);
-    //     menusId = rdr.GetInt32(4);
-    //   }
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId, TaskId);
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //     return newTask;
-    // }
-    //
+    public static Task Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM tasks WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int taskId = 0;
+      string taskDescription = "";
+      DateTime taskPlannedStartDateTime = new DateTime(1900, 1, 1);
+        while(rdr.Read())
+      {
+        taskId = rdr.GetInt32(0);
+        taskDescription = rdr.GetString(1);
+        taskPlannedStartDateTime = rdr.GetDateTime(2);
+        }
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime, taskId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+        return newTask;
+    }
+
     // // public List<Task> GetTasks()
     // // {
     // //   List<Task> allTaskTasks = new List<Task> {};
