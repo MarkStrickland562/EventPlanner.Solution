@@ -305,25 +305,27 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreNotEqual(newList, resultList);
     }
-    
-    // [TestMethod]
-    // public void DeleteAll_DeletesAllEventsFromDatabase()
-    // {
-    //   //Arrange
-    //   string name = "Betty Clark";
-    //   DateTime hireDate = new DateTime(2019, 01, 01);
-    //   Event newEvent = new Event(name, hireDate);
-    //   newEvent.Save();
-    //   Event.DeleteAll();
-    //
-    //   //Act
-    //   List<Event> newList = new List<Event> { newEvent };
-    //   List<Event> resultList = Event.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
+
+    [TestMethod]
+    public void DeleteAll_DeletesAllEventsFromDatabase()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+      Event.DeleteAll();
+
+      //Act
+      List<Event> newList = new List<Event> { newEvent };
+      List<Event> resultList = Event.GetAll();
+
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
+
     // [TestMethod]
     // public void Edit_UpdatesEventToDatabase()
     // {
@@ -346,7 +348,7 @@ namespace EventPlanner.Tests
     //   //Assert
     //   CollectionAssert.AreEqual(testList, result);
     // }
-    //
+
     // [TestMethod]
     // public void Save_SavesEventSpecialtyToDatabase_SpecialtyList()
     // {

@@ -221,22 +221,22 @@ namespace EventPlanner.Models
       }
     }
 
-      // public static void DeleteAll()
-      // {
-      //   MySqlConnection conn = DB.Connection();
-      //   conn.Open();
-      //   var cmd = conn.CreateCommand() as MySqlCommand;
-      //   cmd.CommandText = @"DELETE FROM Events_specialties;
-      //                       UPDATE Tasks SET Events_id = NULL;
-      //                       DELETE FROM Events";
-      //   cmd.ExecuteNonQuery();
-      //   conn.Close();
-      //   if (conn != null)
-      //   {
-      //     conn.Dispose();
-      //   }
-      // }
-      //
+    public static void DeleteAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks;
+                          DELETE FROM events_invitees;
+                          DELETE FROM events";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+      
       // public void Edit(string newName, DateTime newHireDate)
       // {
       //   MySqlConnection conn = DB.Connection();
