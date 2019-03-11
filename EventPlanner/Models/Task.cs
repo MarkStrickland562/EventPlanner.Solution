@@ -17,11 +17,11 @@ namespace EventPlanner.Models
       _id = id;
     }
 
-    // public string GetTaskName()
-    // {
-    //   return _TaskName;
-    // }
-    //
+    public string GetTaskDescription()
+    {
+      return _taskDescription;
+    }
+
     // public void SetTaskName(string newTaskName)
     // {
     //   _TaskName = newTaskName;

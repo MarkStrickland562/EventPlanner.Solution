@@ -10,7 +10,7 @@ namespace EventPlanner.Tests
   {
     public TaskTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
     }
 
     public void Dispose()
@@ -29,23 +29,21 @@ namespace EventPlanner.Tests
       Assert.AreEqual(typeof(Task), newTask.GetType());
     }
 
-    // [TestMethod]
-    // public void GetTaskName_ReturnsTaskName_String()
-    // {
-    //   //Arrange
-    //   string TaskName = "July 4th BBQ";
-    //   DateTime TaskDate = new DateTime(2019, 04, 04);
-    //   string TaskLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Task newTask = new Task(TaskName, TaskDate, TaskLocation, menusId);
-    //
-    //   //Act
-    //   string result = newTask.GetTaskName();
-    //
-    //   //Assert
-    //   Assert.AreEqual(TaskName, result);
-    // }
-    //
+    [TestMethod]
+    public void GetTaskDescription_ReturnsTaskDescription_String()
+    {
+      //Arrange
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+
+      //Act
+      string result = newTask.GetTaskDescription();
+
+      //Assert
+      Assert.AreEqual(taskDescription, result);
+    }
+
     // [TestMethod]
     // public void SetTaskName_SetTaskName_String()
     // {
