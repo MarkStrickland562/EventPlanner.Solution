@@ -224,6 +224,28 @@ namespace EventPlanner.Models
       }
     }
 
+    public void DeleteEvent(Event newEvent)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks WHERE events_id = (@eventId) and tasks_id = (@taskId);";
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = newEvent.GetId();
+      cmd.Parameters.Add(eventIdParameter);
+      MySqlParameter taskIdParameter = new MySqlParameter();
+      taskIdParameter.ParameterName = "@taskId";
+      taskIdParameter.Value = this._id;
+      cmd.Parameters.Add(taskIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public List<Event> GetEvents()
     {
       List<Event> allEventTasks = new List<Event> {};
