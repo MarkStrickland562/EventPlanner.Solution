@@ -47,13 +47,13 @@ namespace EventPlanner.Controllers
       selectedEvent.AddTask(Task.Find(taskId));
       return RedirectToAction("Show");
     }
-    // [HttpPost("/events/{eventId}/tasks/delete")]
-    // public ActionResult DeleteTask(int eventId, int taskId)
-    // {
-    //   Event selectedEvent = Event.Find(eventId);
-    //   selectedEvent.DeleteTask(Task.Find(taskId));
-    //   return RedirectToAction("Show");
-    // }
+    [HttpPost("/events/{eventId}/tasks/delete")]
+    public ActionResult DeleteTask(int eventId, int taskId)
+    {
+      Event selectedEvent = Event.Find(eventId);
+      selectedEvent.DeleteTask(Task.Find(taskId));
+      return RedirectToAction("Show");
+    }
 
     [HttpPost("/events/{eventId}/invitees/new")]
     public ActionResult AddInvitee(int eventId, int inviteeId)
@@ -62,13 +62,13 @@ namespace EventPlanner.Controllers
       selectedEvent.AddInvitee(Invitee.Find(inviteeId));
       return RedirectToAction("Show");
     }
-    // [HttpPost("/events/{eventId}/invitees/delete")]
-    // public ActionResult DeleteInvitee(int eventId, int inviteeId)
-    // {
-    //   Event selectedEvent = Event.Find(eventId);
-    //   selectedEvent.DeleteTask(Invitee.Find(inviteeId));
-    //   return RedirectToAction("Show");
-    // }
+    [HttpPost("/events/{eventId}/invitees/delete")]
+    public ActionResult DeleteInvitee(int eventId, int inviteeId)
+    {
+      Event selectedEvent = Event.Find(eventId);
+      selectedEvent.DeleteInvitee(Invitee.Find(inviteeId));
+      return RedirectToAction("Show");
+    }
 
     [HttpPost("/events/{eventId}/delete")]
     public ActionResult Delete(int eventId)
