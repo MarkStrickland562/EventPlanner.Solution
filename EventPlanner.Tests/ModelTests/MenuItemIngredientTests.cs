@@ -227,26 +227,26 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreNotEqual(newList, resultList);
     }
+
+    [TestMethod]
+    public void DeleteAll_DeletesAllMenuItemIngredientsFromDatabase()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId= 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+      newMenuItemIngredient.Save();
+      MenuItemIngredient.DeleteAll();
+
+      //Act
+      List<MenuItemIngredient> newList = new List<MenuItemIngredient> { newMenuItemIngredient };
+      List<MenuItemIngredient> resultList = MenuItemIngredient.GetAll();
+
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
     
-    // [TestMethod]
-    // public void DeleteAll_DeletesAllMenuItemIngredientsFromDatabase()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId= 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //   newMenuItemIngredient.Save();
-    //   MenuItemIngredient.DeleteAll();
-    //
-    //   //Act
-    //   List<MenuItemIngredient> newList = new List<MenuItemIngredient> { newMenuItemIngredient };
-    //   List<MenuItemIngredient> resultList = MenuItemIngredient.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
     // [TestMethod]
     // public void Edit_UpdatesMenuItemIngredientToDatabase()
     // {
