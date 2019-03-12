@@ -125,24 +125,24 @@ namespace EventPlanner.Tests
       //Assert
       Assert.AreEqual(newMenu, foundMenu);
     }
+
+    [TestMethod]
+    public void Delete_DeletesMenuFromDatabase()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      Menu newMenu = new Menu(menuTheme);
+      newMenu.Save();
+      newMenu.Delete();
+
+      //Act
+      List<Menu> newList = new List<Menu> { newMenu };
+      List<Menu> resultList = Menu.GetAll();
+
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
     
-    // [TestMethod]
-    // public void Delete_DeletesMenuFromDatabase()
-    // {
-    //   //Arrange
-    //   string menuTheme = "BBQ";
-    //   Menu newMenu = new Menu(menuTheme);
-    //   newMenu.Save();
-    //   newMenu.Delete();
-    //
-    //   //Act
-    //   List<Menu> newList = new List<Menu> { newMenu };
-    //   List<Menu> resultList = Menu.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
     // [TestMethod]
     // public void DeleteAll_DeletesAllMenusFromDatabase()
     // {
