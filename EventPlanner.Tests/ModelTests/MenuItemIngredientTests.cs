@@ -31,8 +31,24 @@ namespace EventPlanner.Tests
       Assert.AreEqual(typeof(MenuItemIngredient), newMenuItemIngredient.GetType());
     }
 
+    [TestMethod]
+    public void GetIngredientDescription_ReturnsIngredientDescription_String()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId = 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+
+      //Act
+      string result = newMenuItemIngredient.GetIngredientDescription();
+
+      //Assert
+      Assert.AreEqual(menuItemIngredientDescription, result);
+    }
+
     // [TestMethod]
-    // public void GetMenuItemIngredientDescription_ReturnsMenuItemIngredientDescription_String()
+    // public void SetIngredientDescription_SetIngredientDescription_String()
     // {
     //   //Arrange
     //   string menuItemIngredientDescription = "Avocadoes";
@@ -41,28 +57,12 @@ namespace EventPlanner.Tests
     //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
     //
     //   //Act
-    //   string result = newMenuItemIngredient.GetMenuItemIngredientDescription();
+    //   string updatedIngredientDescription = "Tomatoes";
+    //   newMenuItemIngredient.SetIngredientDescription(updatedIngredientDescription);
+    //   string result = newMenuItemIngredient.GetIngredientDescription();
     //
     //   //Assert
-    //   Assert.AreEqual(menuItemIngredientDescription, result);
-    // }
-    //
-    // [TestMethod]
-    // public void SetMenuItemIngredientDescription_SetMenuItemIngredientDescription_String()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId = 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //
-    //   //Act
-    //   string updatedMenuItemIngredientDescription = "Tomatoes";
-    //   newMenuItemIngredient.SetMenuItemIngredientDescription(updatedMenuItemIngredientDescription);
-    //   string result = newMenuItemIngredient.GetMenuItemIngredientDescription();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedMenuItemIngredientDescription, result);
+    //   Assert.AreEqual(updatedIngredientDescription, result);
     // }
     //
     // [TestMethod]
@@ -259,10 +259,10 @@ namespace EventPlanner.Tests
     //
     //   //Act
     //   MenuItemIngredient foundMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
-    //   string newMenuItemIngredientDescription = "Tomatoes";
+    //   string newIngredientDescription = "Tomatoes";
     //   int newMenuItemsId = 2;
     //   int newStoreId = 2;
-    //   foundMenuItemIngredient.Edit(newMenuItemIngredientDescription, newMenuItemsId, newStoreId);
+    //   foundMenuItemIngredient.Edit(newIngredientDescription, newMenuItemsId, newStoreId);
     //   MenuItemIngredient updatedMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
     //
     //   List<MenuItemIngredient> result = MenuItemIngredient.GetAll();

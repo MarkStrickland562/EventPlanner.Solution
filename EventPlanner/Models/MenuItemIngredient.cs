@@ -19,11 +19,11 @@ namespace EventPlanner.Models
       _id = id;
     }
 
-    // public string GetIngredientDescription()
-    // {
-    //   return _ingredientDescription;
-    // }
-    //
+    public string GetIngredientDescription()
+    {
+      return _ingredientDescription;
+    }
+    
     // public void SetIngredientDescription(string newIngredientDescription)
     // {
     //   _ingredientDescription = newIngredientDescription;
