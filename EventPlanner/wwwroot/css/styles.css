@@ -16,13 +16,29 @@ i.fa- {
 
 .wrapper {
     display: flex;
-    align-items: stretch;
+    width: 100%;
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#content {
+    width: calc(100% - 250px);
+    padding: 40px;
     min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #sidebar.active {
@@ -48,12 +64,13 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
-#sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
-    background: #7386D5;
+/* #sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;    background: #7386D5;
     color: #fff;
     transition: all 0.3s;
-}
+} */
 
 #sidebar .sidebar-header {
     padding: 20px;
@@ -90,9 +107,24 @@ ul ul a {
     background: #6d7fcc;
 }
 
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
+    }
+    #content {
+        width: 100%;
     }
     #sidebar.active {
         margin-left: 0;
