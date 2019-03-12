@@ -45,6 +45,6 @@ namespace EventPlanner
 
   public static class DBConfiguration
   {
-    public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner;";
+    public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
   }
 }

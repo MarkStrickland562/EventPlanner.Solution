@@ -22,7 +22,7 @@ namespace EventPlanner.Tests
     {
       ViewResult indexView = new HomeController().Index() as ViewResult;
       var result = indexView.ViewData.Model;
-      Assert.IsInstanceOfType(result, typeof(List<Events>));
+      Assert.IsInstanceOfType(result, typeof(List<Event>));
     }
 
   }

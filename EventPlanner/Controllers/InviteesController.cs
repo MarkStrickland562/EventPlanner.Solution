@@ -31,7 +31,7 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int inviteeId)
     {
       Invitee invitee = Invitee.Find(inviteeId);
-      Invitee events = Invitee.GetEvents(eventId);
+      List<Event> events = invitee.GetEvents();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("invitee", invitee);
       model.Add("events", events);
@@ -45,18 +45,19 @@ namespace EventPlanner.Controllers
       invitee.AddEvent(Event.Find(eventId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/invitees/{inviteeId}/event/new")]
-    public ActionResult DeleteEvent(int inviteeId, int eventId)
-    {
-      Invitee invitee = Invitee.Find(inviteeId);
-      invitee.DeleteEvent(Event.Find(eventId));
-      return RedirectToAction("Show");
-    }
+    // [HttpPost("/invitees/{inviteeId}/event/new")]
+    // public ActionResult DeleteEvent(int inviteeId, int eventId)
+    // {
+    //   Invitee invitee = Invitee.Find(inviteeId);
+    //   invitee.DeleteEvent(Event.Find(eventId));
+    //   return RedirectToAction("Show");
+    // }
 
     [HttpPost("/invitees/{inviteeId}/delete")]
     public ActionResult Delete(int inviteeId)
     {
-      Invitee.Delete(inviteeId);
+      Invitee invitee = Invitee.Find(inviteeId);
+      invitee.Delete();
       return RedirectToAction("Index");
     }
     [HttpPost("/invitees/delete")]
@@ -78,7 +79,7 @@ namespace EventPlanner.Controllers
     public ActionResult Update(int inviteeId, string inviteeName, string inviteeEmailAddress)
     {
       Invitee invitee = Invitee.Find(inviteeId);
-      invitee.Edit(inviteeId, inviteeName, inviteeEmailAddress);
+      invitee.Edit(inviteeName, inviteeEmailAddress);
       return RedirectToAction("Index");
     }
   }
