@@ -183,44 +183,44 @@ namespace EventPlanner.Models
         conn.Dispose();
       }
     }
-    
-    // public void Edit(string newIngredientDescription, int newMenuItemsId, int newStoreId)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"UPDATE menu_item_ingredients
-    //                          SET ingredient_description = (@ingredientDescription),
-    //                              menu_items_id = (@menuItemsId),
-    //                             store_id = (@storeId)
-    //                        WHERE id = (@menuItemIngredientId);";
-    //   MySqlParameter ingredientDescriptionParameter = new MySqlParameter();
-    //   ingredientDescriptionParameter.ParameterName = "@ingredientDescription";
-    //   ingredientDescriptionParameter.Value = newIngredientDescription;
-    //   cmd.Parameters.Add(ingredientDescriptionParameter);
-    //   MySqlParameter menuItemsIdParameter = new MySqlParameter();
-    //   menuItemsIdParameter.ParameterName = "@menuItemsId";
-    //   menuItemsIdParameter.Value = newMenuItemsId;
-    //   cmd.Parameters.Add(ingredientDescriptionParameter);
-    //   MySqlParameter storeIdParameter = new MySqlParameter();
-    //   storeIdParameter.ParameterName = "@storeId";
-    //   storeIdParameter.Value = newStoreId;
-    //   cmd.Parameters.Add(storeIdParameter);
-    //   MySqlParameter menuItemIngredientIdParameter = new MySqlParameter();
-    //   menuItemIngredientIdParameter.ParameterName = "@menuItemIngredientId";
-    //   menuItemIngredientIdParameter.Value = this._id;
-    //   cmd.Parameters.Add(menuItemIngredientIdParameter);
-    //   cmd.ExecuteNonQuery();
-    //   _ingredientDescription = newIngredientDescription;
-    //   _menuItemsId = newMenuItemsId;
-    //   _storeId = newStoreId;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
+
+    public void Edit(string newIngredientDescription, int newMenuItemsId, int newStoreId)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE menu_item_ingredients
+                             SET ingredient_description = (@ingredientDescription),
+                                 menu_items_id = (@menuItemsId),
+                                store_id = (@storeId)
+                           WHERE id = (@menuItemIngredientId);";
+      MySqlParameter ingredientDescriptionParameter = new MySqlParameter();
+      ingredientDescriptionParameter.ParameterName = "@ingredientDescription";
+      ingredientDescriptionParameter.Value = newIngredientDescription;
+      cmd.Parameters.Add(ingredientDescriptionParameter);
+      MySqlParameter menuItemsIdParameter = new MySqlParameter();
+      menuItemsIdParameter.ParameterName = "@menuItemsId";
+      menuItemsIdParameter.Value = newMenuItemsId;
+      cmd.Parameters.Add(menuItemsIdParameter);
+      MySqlParameter storeIdParameter = new MySqlParameter();
+      storeIdParameter.ParameterName = "@storeId";
+      storeIdParameter.Value = newStoreId;
+      cmd.Parameters.Add(storeIdParameter);
+      MySqlParameter menuItemIngredientIdParameter = new MySqlParameter();
+      menuItemIngredientIdParameter.ParameterName = "@menuItemIngredientId";
+      menuItemIngredientIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuItemIngredientIdParameter);
+      cmd.ExecuteNonQuery();
+      _ingredientDescription = newIngredientDescription;
+      _menuItemsId = newMenuItemsId;
+      _storeId = newStoreId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public override bool Equals(System.Object otherMenuItemIngredient)
     {
       if (!(otherMenuItemIngredient is MenuItemIngredient))

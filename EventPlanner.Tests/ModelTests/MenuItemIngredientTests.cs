@@ -246,30 +246,30 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreNotEqual(newList, resultList);
     }
-    
-    // [TestMethod]
-    // public void Edit_UpdatesMenuItemIngredientToDatabase()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId = 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //   newMenuItemIngredient.Save();
-    //
-    //   //Act
-    //   MenuItemIngredient foundMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
-    //   string newIngredientDescription = "Tomatoes";
-    //   int newMenuItemsId = 2;
-    //   int newStoreId = 2;
-    //   foundMenuItemIngredient.Edit(newIngredientDescription, newMenuItemsId, newStoreId);
-    //   MenuItemIngredient updatedMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
-    //
-    //   List<MenuItemIngredient> result = MenuItemIngredient.GetAll();
-    //   List<MenuItemIngredient> testList = new List<MenuItemIngredient>{updatedMenuItemIngredient};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+
+    [TestMethod]
+    public void Edit_UpdatesMenuItemIngredientToDatabase()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId = 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+      newMenuItemIngredient.Save();
+
+      //Act
+      MenuItemIngredient foundMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
+      string newIngredientDescription = "Tomatoes";
+      int newMenuItemsId = 2;
+      int newStoreId = 2;
+      foundMenuItemIngredient.Edit(newIngredientDescription, newMenuItemsId, newStoreId);
+      MenuItemIngredient updatedMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
+
+      List<MenuItemIngredient> result = MenuItemIngredient.GetAll();
+      List<MenuItemIngredient> testList = new List<MenuItemIngredient>{updatedMenuItemIngredient};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }
