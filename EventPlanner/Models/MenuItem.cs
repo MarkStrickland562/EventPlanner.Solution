@@ -15,11 +15,11 @@ namespace EventPlanner.Models
       _id = id;
     }
 
-    // public string GetMenuItemDesciption()
-    // {
-    //   return _menuItemDescription;
-    // }
-    //
+    public string GetMenuItemDesciption()
+    {
+      return _menuItemDescription;
+    }
+    
     // public void SetMenuItemDesciption(string newMenuItemDesciption)
     // {
     //   _menuItemDescription = newMenuItemDesciption;
