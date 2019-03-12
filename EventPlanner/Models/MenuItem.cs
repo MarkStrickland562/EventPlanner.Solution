@@ -15,21 +15,21 @@ namespace EventPlanner.Models
       _id = id;
     }
 
-    public string GetMenuItemDesciption()
+    public string GetMenuItemDescription()
     {
       return _menuItemDescription;
     }
-    
-    // public void SetMenuItemDesciption(string newMenuItemDesciption)
-    // {
-    //   _menuItemDescription = newMenuItemDesciption;
-    // }
-    //
-    // public int GetId()
-    // {
-    //   return _id;
-    // }
-    //
+
+    public void SetMenuItemDescription(string newMenuItemDescription)
+    {
+      _menuItemDescription = newMenuItemDescription;
+    }
+
+    public int GetId()
+    {
+      return _id;
+    }
+
     // public static void ClearAll()
     // {
     //   MySqlConnection conn = DB.Connection();
@@ -152,7 +152,7 @@ namespace EventPlanner.Models
     //   }
     // }
     //
-    // public void Edit(string newMenuItemDesciption)
+    // public void Edit(string newMenuItemDescription)
     // {
     //   MySqlConnection conn = DB.Connection();
     //   conn.Open();
@@ -161,14 +161,14 @@ namespace EventPlanner.Models
     //                        WHERE id = (@menuItemId);";
     //   MySqlParameter menuItemDescriptionParameter = new MySqlParameter();
     //   menuItemDescriptionParameter.ParameterName = "@menuItemDescription";
-    //   menuItemDescriptionParameter.Value = newMenuItemDesciption;
+    //   menuItemDescriptionParameter.Value = newMenuItemDescription;
     //   cmd.Parameters.Add(menuItemDescriptionParameter);
     //   MySqlParameter menuItemIdParameter = new MySqlParameter();
     //   menuItemIdParameter.ParameterName = "@menuItemId";
     //   menuItemIdParameter.Value = this._id;
     //   cmd.Parameters.Add(menuItemIdParameter);
     //   cmd.ExecuteNonQuery();
-    //   _menuItemDescription = newMenuItemDesciption;
+    //   _menuItemDescription = newMenuItemDescription;
     //   conn.Close();
     //   if (conn != null)
     //   {
@@ -238,7 +238,7 @@ namespace EventPlanner.Models
     //   {
     //     MenuItem newMenuItem = (MenuItem) otherMenuItem;
     //     bool idEquality = this.GetId().Equals(newMenuItem.GetId());
-    //     bool menuItemDescriptionEquality = this.GetMenuItemDesciption().Equals(newMenuItem.GetMenuItemDesciption());
+    //     bool menuItemDescriptionEquality = this.GetMenuItemDescription().Equals(newMenuItem.GetMenuItemDescription());
     //     return (idEquality && menuItemDescriptionEquality);
     //   }
     // }
