@@ -48,12 +48,12 @@ namespace EventPlanner.Models
     {
       _storeId = newStoreId;
     }
+
+    public int GetId()
+    {
+      return _id;
+    }
     
-    // public int GetId()
-    // {
-    //   return _id;
-    // }
-    //
     // public static void ClearAll()
     // {
     //   MySqlConnection conn = DB.Connection();
