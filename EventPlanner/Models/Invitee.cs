@@ -27,11 +27,11 @@ namespace EventPlanner.Models
       _inviteeName = newInviteeName;
     }
 
-    // public string GetinviteeEmailAddress()
-    // {
-    //   return _inviteeEmailAddress;
-    // }
-    //
+    public string GetInviteeEmailAddress()
+    {
+      return _inviteeEmailAddress;
+    }
+
     // public void GetinviteeEmailAddress_ReturnsinviteeEmailAddress_string(string newinviteeEmailAddress)
     // {
     //   _inviteeEmailAddress = newinviteeEmailAddress;

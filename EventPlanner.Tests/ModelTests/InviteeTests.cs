@@ -62,21 +62,21 @@ namespace EventPlanner.Tests
       Assert.AreEqual(updatedInviteeName, result);
     }
 
-    // [TestMethod]
-    // public void GetinviteeEmailAddress_ReturnsinviteeEmailAddress_string()
-    // {
-    //   //Arrange
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //
-    //   //Act
-    //   string result = newinvitee.GetinviteeEmailAddress();
-    //
-    //   //Assert
-    //   Assert.AreEqual(inviteeEmailAddress, result);
-    // }
-    //
+    [TestMethod]
+    public void GetInviteeEmailAddress_ReturnsInviteeEmailAddress_String()
+    {
+      //Arrange
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+
+      //Act
+      string result = newInvitee.GetInviteeEmailAddress();
+
+      //Assert
+      Assert.AreEqual(inviteeEmailAddress, result);
+    }
+    
     // [TestMethod]
     // public void SetinviteeEmailAddress_SetinviteeEmailAddress_string()
     // {
