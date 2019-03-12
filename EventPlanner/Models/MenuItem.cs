@@ -175,59 +175,58 @@ namespace EventPlanner.Models
         conn.Dispose();
       }
     }
-    
-    // public void AddMenu(Menu newMenu)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"INSERT INTO menus_menu_items (menus_id, menu_items_id) VALUES (@menuId, @menuItemId);";
-    //   MySqlParameter menuIdParameter = new MySqlParameter();
-    //   menuIdParameter.ParameterName = "@menuId";
-    //   menuIdParameter.Value = newMenu.GetId();
-    //   cmd.Parameters.Add(menuIdParameter);
-    //   MySqlParameter menuItemIdParameter = new MySqlParameter();
-    //   menuItemIdParameter.ParameterName = "@menuItemId";
-    //   menuItemIdParameter.Value = this._id;
-    //   cmd.Parameters.Add(menuItemIdParameter);
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public List<Menu> GetMenus()
-    // {
-    //   List<Menu> allMenus = new List<Menu> {};
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT *
-    //                         FROM menus
-    //                        WHERE id IN (SELECT menus_id FROM menus_menu_items WHERE menu_items_id = @menuItemId);";
-    //   MySqlParameter menuItemId = new MySqlParameter();
-    //   menuItemId.ParameterName = "@menuItemId";
-    //   menuItemId.Value = this._id;
-    //   cmd.Parameters.Add(menuItemId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   while(rdr.Read())
-    //   {
-    //     int menuId = rdr.GetInt32(0);
-    //     string menuTheme = rdr.GetString(1);
-    //     int menuItemsId = rdr.GetInt32(2);
-    //     Menu newMenu = new Menu(menuTheme, menusItemsId, menuId);
-    //     allMenus.Add(newMenu);
-    //   }
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //   return allMenus;
-    // }
-    //
+
+    public void AddMenu(Menu newMenu)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO menus_menu_items (menus_id, menu_items_id) VALUES (@menuId, @menuItemId);";
+      MySqlParameter menuIdParameter = new MySqlParameter();
+      menuIdParameter.ParameterName = "@menuId";
+      menuIdParameter.Value = newMenu.GetId();
+      cmd.Parameters.Add(menuIdParameter);
+      MySqlParameter menuItemIdParameter = new MySqlParameter();
+      menuItemIdParameter.ParameterName = "@menuItemId";
+      menuItemIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuItemIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public List<Menu> GetMenus()
+    {
+      List<Menu> allMenus = new List<Menu> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM menus
+                           WHERE id IN (SELECT menus_id FROM menus_menu_items WHERE menu_items_id = @menuItemId);";
+      MySqlParameter menuItemId = new MySqlParameter();
+      menuItemId.ParameterName = "@menuItemId";
+      menuItemId.Value = this._id;
+      cmd.Parameters.Add(menuItemId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int menuId = rdr.GetInt32(0);
+        string menuTheme = rdr.GetString(1);
+        Menu newMenu = new Menu(menuTheme, menuId);
+        allMenus.Add(newMenu);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allMenus;
+    }
+
     public override bool Equals(System.Object otherMenuItem)
     {
       if (!(otherMenuItem is MenuItem))

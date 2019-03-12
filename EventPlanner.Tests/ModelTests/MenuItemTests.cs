@@ -125,39 +125,39 @@ namespace EventPlanner.Tests
       Assert.AreEqual(newMenuItem, foundMenuItem);
     }
 
-    // [TestMethod]
-    // public void GetMenus_RetrievesAllMenusWithMenuItem_MenuList()
-    // {
-    //   //Arrange
-    //   string menuTheme1 = "BBQ";
-    //   int menusId1 = 1;
-    //   Menu newMenu1 = new Menu(menuTheme1, menusId1);
-    //   newMenu1.Save();
-    //
-    //   string menuTheme2 = "Mexican";
-    //   int menusId2 = 2;
-    //   Menu newMenu2 = new Menu(menuTheme2, menusId2);
-    //   newMenu2.Save();
-    //
-    //   string menuItemDescription = "Potato Salad";
-    //   MenuItem newMenuItem = new MenuItem(menuItemDescription);
-    //   newMenuItem.Save();
-    //
-    //   //Act
-    //   Menu foundMenu1 = Menu.Find(newMenu1.GetId());
-    //   Menu foundMenu2 = Menu.Find(newMenu2.GetId());
-    //   MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
-    //
-    //   foundMenuItem.AddMenu(foundMenu1);
-    //   foundMenuItem.AddMenu(foundMenu2);
-    //
-    //   List<Menu> newList = new List<Menu> { newMenu1, newMenu2 };
-    //   List<Menu> resultList = foundMenuItem.GetMenus();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, resultList);
-    // }
-    //
+    [TestMethod]
+    public void GetMenus_RetrievesAllMenusWithMenuItem_MenuList()
+    {
+      //Arrange
+      string menuTheme1 = "BBQ";
+      int menusId1 = 1;
+      Menu newMenu1 = new Menu(menuTheme1, menusId1);
+      newMenu1.Save();
+
+      string menuTheme2 = "Mexican";
+      int menusId2 = 2;
+      Menu newMenu2 = new Menu(menuTheme2, menusId2);
+      newMenu2.Save();
+
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+      newMenuItem.Save();
+
+      //Act
+      Menu foundMenu1 = Menu.Find(newMenu1.GetId());
+      Menu foundMenu2 = Menu.Find(newMenu2.GetId());
+      MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
+
+      foundMenuItem.AddMenu(foundMenu1);
+      foundMenuItem.AddMenu(foundMenu2);
+
+      List<Menu> newList = new List<Menu> { newMenu1, newMenu2 };
+      List<Menu> resultList = foundMenuItem.GetMenus();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, resultList);
+    }
+    
     [TestMethod]
     public void Delete_DeletesMenuItemFromDatabase()
     {
@@ -212,30 +212,30 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
-    
-    // [TestMethod]
-    // public void Save_SavesMenuMenuItemToDatabase_MenuList()
-    // {
-    //   //Arrange
-    //   string menuTheme = "BBQ";
-    //   int menusId = 1;
-    //   Menu newMenu = new Menu(menuTheme, menusId);
-    //   newMenu.Save();
-    //
-    //   string menuItemDescription = "Potato Salad";
-    //   MenuItem newMenuItem = new MenuItem(menuItemDescription);
-    //   newMenuItem.Save();
-    //
-    //   //Act
-    //   Menu foundMenu = Menu.Find(newMenu.GetId());
-    //   MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
-    //   foundMenuItem.AddMenu(foundMenu);
-    //
-    //   List<Menu> result = foundMenuItem.GetMenus();
-    //   List<Menu> testList = new List<Menu>{foundMenu};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+
+    [TestMethod]
+    public void Save_SavesMenuMenuItemToDatabase_MenuList()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      int menusId = 1;
+      Menu newMenu = new Menu(menuTheme, menusId);
+      newMenu.Save();
+
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+      newMenuItem.Save();
+
+      //Act
+      Menu foundMenu = Menu.Find(newMenu.GetId());
+      MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
+      foundMenuItem.AddMenu(foundMenu);
+
+      List<Menu> result = foundMenuItem.GetMenus();
+      List<Menu> testList = new List<Menu>{foundMenu};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }
