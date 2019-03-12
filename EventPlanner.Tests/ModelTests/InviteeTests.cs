@@ -203,24 +203,24 @@ namespace EventPlanner.Tests
     //   CollectionAssert.AreEqual(newList, resultList);
     // }
     //
-    // [TestMethod]
-    // public void Delete_DeletesinviteeFromDatabase()
-    // {
-    //   //Arrange
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //   newinvitee.Save();
-    //   newinvitee.Delete();
-    //
-    //   //Act
-    //   List<invitee> newList = new List<invitee> { newinvitee };
-    //   List<invitee> resultList = invitee.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
+    [TestMethod]
+    public void Delete_DeletesInviteeFromDatabase()
+    {
+      //Arrange
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+      newInvitee.Delete();
+
+      //Act
+      List<Invitee> newList = new List<Invitee> { newInvitee };
+      List<Invitee> resultList = Invitee.GetAll();
+
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
+
     // [TestMethod]
     // public void DeleteAll_DeletesAllinviteesFromDatabase()
     // {
