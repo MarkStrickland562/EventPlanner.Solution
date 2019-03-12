@@ -142,24 +142,24 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreNotEqual(newList, resultList);
     }
+
+    [TestMethod]
+    public void DeleteAll_DeletesAllStoresFromDatabase()
+    {
+      //Arrange
+      string storeName = "Costco";
+      Store newStore = new Store(storeName);
+      newStore.Save();
+      Store.DeleteAll();
+
+      //Act
+      List<Store> newList = new List<Store> { newStore };
+      List<Store> resultList = Store.GetAll();
+
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
     
-    // [TestMethod]
-    // public void DeleteAll_DeletesAllStoresFromDatabase()
-    // {
-    //   //Arrange
-    //   string storeName = "Costco";
-    //   Store newStore = new Store(storeName);
-    //   newStore.Save();
-    //   Store.DeleteAll();
-    //
-    //   //Act
-    //   List<Store> newList = new List<Store> { newStore };
-    //   List<Store> resultList = Store.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
     // [TestMethod]
     // public void Edit_UpdatesStoreToDatabase()
     // {
