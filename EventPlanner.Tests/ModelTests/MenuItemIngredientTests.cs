@@ -81,24 +81,24 @@ namespace EventPlanner.Tests
       Assert.AreEqual(menuItemsId, result);
     }
 
-    // [TestMethod]
-    // public void SetMenuItemsId_SetMenuItemsId_Int()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId = 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //
-    //   //Act
-    //   int updatedMenuItemsId = 2;
-    //   newMenuItemIngredient.SetMenuItemsId(updatedMenuItemsId);
-    //   string result = newMenuItemIngredient.GetMenuItemsId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedMenuItemsId, result);
-    // }
-    //
+    [TestMethod]
+    public void SetMenuItemsId_SetMenuItemsId_Int()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId = 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+
+      //Act
+      int updatedMenuItemsId = 2;
+      newMenuItemIngredient.SetMenuItemsId(updatedMenuItemsId);
+      int result = newMenuItemIngredient.GetMenuItemsId();
+
+      //Assert
+      Assert.AreEqual(updatedMenuItemsId, result);
+    }
+
     // [TestMethod]
     // public void GetStoreId_ReturnsStoreId_Int()
     // {
@@ -109,7 +109,7 @@ namespace EventPlanner.Tests
     //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
     //
     //   //Act
-    //   string result = newMenuItemIngredient.GetStoreId();
+    //   int result = newMenuItemIngredient.GetStoreId();
     //
     //   //Assert
     //   Assert.AreEqual(storeId, result);

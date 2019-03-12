@@ -34,11 +34,11 @@ namespace EventPlanner.Models
       return _menuItemsId;
     }
 
-    // public void SetMenuItemsId(int newMenuItemsId)
-    // {
-    //   _menuItemsId = newMenuItemsId;
-    // }
-    //
+    public void SetMenuItemsId(int newMenuItemsId)
+    {
+      _menuItemsId = newMenuItemsId;
+    }
+    
     // public int GetStoreId()
     // {
     //   return _storeId;
