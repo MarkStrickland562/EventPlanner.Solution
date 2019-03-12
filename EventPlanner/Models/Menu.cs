@@ -148,30 +148,30 @@ namespace EventPlanner.Models
         conn.Dispose();
       }
     }
-    
-    // public void Edit(string newMenuTheme)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"UPDATE menus SET menu_theme = (@menuTheme) WHERE id = (@menuId);";
-    //   MySqlParameter menuThemeParameter = new MySqlParameter();
-    //   menuThemeParameter.ParameterName = "@menuTheme";
-    //   menuThemeParameter.Value = newMenuTheme;
-    //   cmd.Parameters.Add(menuThemeParameter);
-    //   MySqlParameter menuIdParameter = new MySqlParameter();
-    //   menuIdParameter.ParameterName = "@menuId";
-    //   menuIdParameter.Value = this._id;
-    //   cmd.Parameters.Add(menuIdParameter);
-    //   cmd.ExecuteNonQuery();
-    //   _menuTheme = newmenuTheme;
-    //     conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
+
+    public void Edit(string newMenuTheme)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE menus SET menu_theme = (@menuTheme) WHERE id = (@menuId);";
+      MySqlParameter menuThemeParameter = new MySqlParameter();
+      menuThemeParameter.ParameterName = "@menuTheme";
+      menuThemeParameter.Value = newMenuTheme;
+      cmd.Parameters.Add(menuThemeParameter);
+      MySqlParameter menuIdParameter = new MySqlParameter();
+      menuIdParameter.ParameterName = "@menuId";
+      menuIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuIdParameter);
+      cmd.ExecuteNonQuery();
+      _menuTheme = newMenuTheme;
+        conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public override bool Equals(System.Object otherMenu)
     {
       if (!(otherMenu is Menu))

@@ -159,26 +159,26 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreNotEqual(newList, resultList);
     }
-    
-    // [TestMethod]
-    // public void Edit_UpdatesMenuToDatabase()
-    // {
-    //   //Arrange
-    //   string menuTheme = "BBQ";
-    //   Menu newMenu = new Menu(menuTheme);
-    //   newMenu.Save();
-    //
-    //   //Act
-    //   Menu foundMenu = Menu.Find(newMenu.GetId());
-    //   string newMenuTheme = "Mexican";
-    //   foundMenu.Edit(newMenuTheme);
-    //   Menu updatedMenu = Menu.Find(newMenu.GetId());
-    //
-    //   List<Menu> result = Menu.GetAll();
-    //   List<Menu> testList = new List<Menu>{updatedMenu};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+
+    [TestMethod]
+    public void Edit_UpdatesMenuToDatabase()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      Menu newMenu = new Menu(menuTheme);
+      newMenu.Save();
+
+      //Act
+      Menu foundMenu = Menu.Find(newMenu.GetId());
+      string newMenuTheme = "Mexican";
+      foundMenu.Edit(newMenuTheme);
+      Menu updatedMenu = Menu.Find(newMenu.GetId());
+
+      List<Menu> result = Menu.GetAll();
+      List<Menu> testList = new List<Menu>{updatedMenu};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }
