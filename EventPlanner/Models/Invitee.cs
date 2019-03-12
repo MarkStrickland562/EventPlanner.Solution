@@ -42,69 +42,69 @@ namespace EventPlanner.Models
       return _id;
     }
 
-    // public static void ClearAll()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM events_invitees;
-    //                       DELETE FROM invitees;";
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public void Save()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"INSERT INTO invitees (invitee_name, invitee_email_address)
-    //                       VALUES (@inviteeName, @inviteeEmailAddress);";
-    //   MySqlParameter inviteeName = new MySqlParameter();
-    //   inviteeName.ParameterName = "@inviteeName";
-    //   inviteeName.Value = this._inviteeName;
-    //   cmd.Parameters.Add(inviteeName);
-    //   MySqlParameter inviteeEmailAddress = new MySqlParameter();
-    //   inviteeEmailAddress.ParameterName = "@inviteeEmailAddress";
-    //   inviteeEmailAddress.Value = this._inviteeEmailAddress;
-    //   cmd.Parameters.Add(inviteeEmailAddress);
-    //     cmd.ExecuteNonQuery();
-    //   _id = (int) cmd.LastInsertedId;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public static List<invitee> GetAll()
-    // {
-    //   List<invitee> allinvitees = new List<invitee> {};
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM invitees;";
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   while(rdr.Read())
-    //   {
-    //     int inviteeId = rdr.GetInt32(0);
-    //     string inviteeName = rdr.GetString(1);
-    //     string inviteeEmailAddress = rdr.Getstring(2);
-    //     invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress, inviteeId);
-    //     allinvitees.Add(newinvitee);
-    //   }
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //   return allinvitees;
-    // }
-    //
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_invitees;
+                          DELETE FROM invitees;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO invitees (invitee_name, invitee_email_address)
+                          VALUES (@inviteeName, @inviteeEmailAddress);";
+      MySqlParameter inviteeName = new MySqlParameter();
+      inviteeName.ParameterName = "@inviteeName";
+      inviteeName.Value = this._inviteeName;
+      cmd.Parameters.Add(inviteeName);
+      MySqlParameter inviteeEmailAddress = new MySqlParameter();
+      inviteeEmailAddress.ParameterName = "@inviteeEmailAddress";
+      inviteeEmailAddress.Value = this._inviteeEmailAddress;
+      cmd.Parameters.Add(inviteeEmailAddress);
+      cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public static List<Invitee> GetAll()
+    {
+      List<Invitee> allInvitees = new List<Invitee> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM invitees;";
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int inviteeId = rdr.GetInt32(0);
+        string inviteeName = rdr.GetString(1);
+        string inviteeEmailAddress = rdr.GetString(2);
+        Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress, inviteeId);
+        allInvitees.Add(newInvitee);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allInvitees;
+    }
+
     // public static invitee Find(int id)
     // {
     //   MySqlConnection conn = DB.Connection();
@@ -251,20 +251,20 @@ namespace EventPlanner.Models
     //   return allEventinvitees;
     // }
     //
-    // public override bool Equals(System.Object otherinvitee)
-    // {
-    //   if (!(otherinvitee is invitee))
-    //   {
-    //     return false;
-    //   }
-    //   else
-    //   {
-    //     invitee newinvitee = (invitee) otherinvitee;
-    //     bool idEquality = this.GetId().Equals(newinvitee.GetId());
-    //     bool inviteeNameEquality = this.GetinviteeName().Equals(newinvitee.GetinviteeName());
-    //     bool inviteeEmailAddressEquality = this.GetinviteeEmailAddress().Equals(newinvitee.GetinviteeEmailAddress());
-    //     return (idEquality && inviteeNameEquality && inviteeEmailAddressEquality);
-    //   }
-    // }
+    public override bool Equals(System.Object otherInvitee)
+    {
+      if (!(otherInvitee is Invitee))
+      {
+        return false;
+      }
+      else
+      {
+        Invitee newInvitee = (Invitee) otherInvitee;
+        bool idEquality = this.GetId().Equals(newInvitee.GetId());
+        bool inviteeNameEquality = this.GetInviteeName().Equals(newInvitee.GetInviteeName());
+        bool inviteeEmailAddressEquality = this.GetInviteeEmailAddress().Equals(newInvitee.GetInviteeEmailAddress());
+        return (idEquality && inviteeNameEquality && inviteeEmailAddressEquality);
+      }
+    }
   }
 }

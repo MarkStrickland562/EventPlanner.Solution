@@ -10,12 +10,12 @@ namespace EventPlanner.Tests
   {
     public InviteeTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
     }
 
     public void Dispose()
     {
-//      Event.ClearAll();
+      Invitee.ClearAll();
     }
 
     [TestMethod]
@@ -101,7 +101,7 @@ namespace EventPlanner.Tests
       string inviteeName = "Jane Doe";
       string inviteeEmailAddress = "janedoe@mail.com";
       Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
-    
+
       //Act
       int result = newInvitee.GetId();
 
@@ -109,46 +109,46 @@ namespace EventPlanner.Tests
       Assert.AreEqual(0, result);
     }
 
-    // [TestMethod]
-    // public void Save_SavesinviteeToDatabase_inviteeList()
-    // {
-    //   //Arrange
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //   newinvitee.Save();
-    //
-    //   //Act
-    //   List<invitee> result = invitee.GetAll();
-    //   List<invitee> testList = new List<invitee>{newinvitee};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetAll_ReturnsAllinviteeObjects_inviteeList()
-    // {
-    //   //Arrange
-    //   string inviteeName1 = "Jane Doe";
-    //   string inviteeEmailAddress1 = "janedoe@mail.com";
-    //   invitee newinvitee1 = new invitee(inviteeName1, inviteeEmailAddress1);
-    //   newinvitee1.Save();
-    //
-    //   string inviteeName2 = "John Smith";
-    //   string inviteeEmailAddress2 = "janedoe@mail.com";
-    //   invitee newinvitee2 = new invitee(inviteeName2, inviteeEmailAddress2);
-    //   newinvitee2.Save();
-    //
-    //   List<invitee> newList = new List<invitee> { newinvitee1, newinvitee2};
-    //
-    //   //Act
-    //   List<invitee> result = invitee.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-    //
+    [TestMethod]
+    public void Save_SavesInviteeToDatabase_InviteeList()
+    {
+      //Arrange
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+
+      //Act
+      List<Invitee> result = Invitee.GetAll();
+      List<Invitee> testList = new List<Invitee>{newInvitee};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllInviteeObjects_InviteeList()
+    {
+      //Arrange
+      string inviteeName1 = "Jane Doe";
+      string inviteeEmailAddress1 = "janedoe@mail.com";
+      Invitee newInvitee1 = new Invitee(inviteeName1, inviteeEmailAddress1);
+      newInvitee1.Save();
+
+      string inviteeName2 = "John Smith";
+      string inviteeEmailAddress2 = "johnsmith@mail.com";
+      Invitee newInvitee2 = new Invitee(inviteeName2, inviteeEmailAddress2);
+      newInvitee2.Save();
+
+      List<Invitee> newList = new List<Invitee> { newInvitee1, newInvitee2};
+
+      //Act
+      List<Invitee> result = Invitee.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
     // [TestMethod]
     // public void Find_ReturnsinviteeInDatabase_invitee()
     // {
