@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Mvc;
-using MenuPlanner.Models;
+using EventPlanner.Models;
 
 namespace MenuPlanner.Controllers
 {
@@ -31,32 +31,33 @@ namespace MenuPlanner.Controllers
     public ActionResult Show(int menuId)
     {
       Menu menu = Menu.Find(menuId);
-      Menu menuItems = Menu.GetMenuItems(menuId);
+      // List<MenuItem> menuItems = Menu.GetMenuItems(menuId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menu", menu);
-      model.Add("menuItems", menuItems);
+      // model.Add("menuItems", menuItems);
       return View(model);
     }
 
-    [HttpPost("/menus/{menuId}/menuItem/new")]
-    public ActionResult AddMenuItem(int menuId, int menuItemId)
-    {
-      Menu menu = Menu.Find(menuId);
-      menu.AddMenuItem(MenuItem.Find(menuItemId));
-      return RedirectToAction("Show");
-    }
-    [HttpPost("/menus/{menuId}/menuItem/delete")]
-    public ActionResult DeleteMenuItem(int menuId, int menuItemId)
-    {
-      Menu menu = Menu.Find(menuId);
-      menu.DeleteMenuItem(MenuItem.Find(menuItemId));
-      return RedirectToAction("Show");
-    }
+    // [HttpPost("/menus/{menuId}/menuItem/new")]
+    // public ActionResult AddMenuItem(int menuId, int menuItemId)
+    // {
+    //   Menu menu = Menu.Find(menuId);
+    //   menu.AddMenuItem(MenuItem.Find(menuItemId));
+    //   return RedirectToAction("Show");
+    // }
+    // [HttpPost("/menus/{menuId}/menuItem/delete")]
+    // public ActionResult DeleteMenuItem(int menuId, int menuItemId)
+    // {
+    //   Menu menu = Menu.Find(menuId);
+    //   menu.DeleteMenuItem(MenuItem.Find(menuItemId));
+    //   return RedirectToAction("Show");
+    // }
 
     [HttpPost("/menus/{menuId}/delete")]
     public ActionResult Delete(int menuId)
     {
-      Menu.Delete(menuId);
+      Menu menu = Menu.Find(menuId);
+      menu.Delete();
       return RedirectToAction("Index");
     }
     [HttpPost("/menus/delete")]
@@ -78,7 +79,7 @@ namespace MenuPlanner.Controllers
     public ActionResult Update(int menuId, string menuTheme)
     {
       Menu menu = Menu.Find(menuId);
-      menu.Edit(menuId, menuTheme);
+      menu.Edit(menuTheme);
       return RedirectToAction("Index");
     }
   }

@@ -30,11 +30,11 @@ namespace EventPlanner.Controllers
     [HttpGet("/events/{eventId}")]
     public ActionResult Show(int eventId)
     {
-      Event event = Event.Find(eventId);
-      Event tasks = event.GetTasks(eventId);
-      Event invitees = event.GetInvitees(eventId);
+      Event selectedEvent = Event.Find(eventId);
+      List<Task> tasks = selectedEvent.GetTasks();
+      List<Invitee> invitees = selectedEvent.GetInvitees();
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("event", event);
+      model.Add("event", selectedEvent);
       model.Add("tasks", tasks);
       model.Add("invitees", invitees);
       return View(model);
@@ -43,37 +43,38 @@ namespace EventPlanner.Controllers
     [HttpPost("/events/{eventId}/tasks/new")]
     public ActionResult AddTask(int eventId, int taskId)
     {
-      Event event = Event.Find(eventId);
-      event.AddTask(Task.Find(taskId));
+      Event selectedEvent = Event.Find(eventId);
+      selectedEvent.AddTask(Task.Find(taskId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/events/{eventId}/tasks/delete")]
-    public ActionResult DeleteTask(int eventId, int taskId)
-    {
-      Event event = Event.Find(eventId);
-      event.DeleteTask(Task.Find(taskId));
-      return RedirectToAction("Show");
-    }
+    // [HttpPost("/events/{eventId}/tasks/delete")]
+    // public ActionResult DeleteTask(int eventId, int taskId)
+    // {
+    //   Event selectedEvent = Event.Find(eventId);
+    //   selectedEvent.DeleteTask(Task.Find(taskId));
+    //   return RedirectToAction("Show");
+    // }
 
     [HttpPost("/events/{eventId}/invitees/new")]
     public ActionResult AddInvitee(int eventId, int inviteeId)
     {
-      Event event = Event.Find(eventId);
-      event.AddTask(Invitee.Find(inviteeId));
+      Event selectedEvent = Event.Find(eventId);
+      selectedEvent.AddInvitee(Invitee.Find(inviteeId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/events/{eventId}/invitees/delete")]
-    public ActionResult DeleteInvitee(int eventId, int inviteeId)
-    {
-      Event event = Event.Find(eventId);
-      event.DeleteTask(Invitee.Find(inviteeId));
-      return RedirectToAction("Show");
-    }
+    // [HttpPost("/events/{eventId}/invitees/delete")]
+    // public ActionResult DeleteInvitee(int eventId, int inviteeId)
+    // {
+    //   Event selectedEvent = Event.Find(eventId);
+    //   selectedEvent.DeleteTask(Invitee.Find(inviteeId));
+    //   return RedirectToAction("Show");
+    // }
 
     [HttpPost("/events/{eventId}/delete")]
     public ActionResult Delete(int eventId)
     {
-      Event.Delete(eventId);
+      Event selectedEvent = Event.Find(eventId);
+      selectedEvent.Delete();
       return RedirectToAction("Index");
     }
     [HttpPost("/events/delete")]
@@ -86,16 +87,16 @@ namespace EventPlanner.Controllers
     [HttpGet("/events/{eventId}/edit")]
     public ActionResult Edit(int eventId)
     {
-      Event event = Event.Find(eventId);
+      Event selectedEvent = Event.Find(eventId);
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("event", event);
+      model.Add("event", selectedEvent);
       return View(model);
     }
     [HttpPost("/events/{eventId}/edit")]
-    public ActionResult Update(int eventId, string name, string name, DateTime eventDate, string eventLocation, int menuId)
+    public ActionResult Update(int eventId, string name, DateTime eventDate, string eventLocation, int menuId)
     {
-      Event event = Event.Find(eventId);
-      event.Edit(eventId, name, eventDate, eventLocation, menuId);
+      Event selectedEvent = Event.Find(eventId);
+      selectedEvent.Edit(name, eventDate, eventLocation, menuId);
       return RedirectToAction("Index");
     }
   }

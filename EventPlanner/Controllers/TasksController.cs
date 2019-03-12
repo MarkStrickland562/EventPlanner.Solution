@@ -31,7 +31,7 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int taskId)
     {
       Task task = Task.Find(taskId);
-      Task events = Task.GetEvents(eventId);
+      List<Event> events = task.GetEvents();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("task", task);
       model.Add("events", events);
@@ -45,18 +45,19 @@ namespace EventPlanner.Controllers
       task.AddEvent(Event.Find(eventId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/tasks/{taskId}/event/new")]
-    public ActionResult DeleteEvent(int taskId, int eventId)
-    {
-      Task task = Task.Find(taskId);
-      task.DeleteEvent(Event.Find(eventId));
-      return RedirectToAction("Show");
-    }
+    // [HttpPost("/tasks/{taskId}/event/new")]
+    // public ActionResult DeleteEvent(int taskId, int eventId)
+    // {
+    //   Task task = Task.Find(taskId);
+    //   task.DeleteEvent(Event.Find(eventId));
+    //   return RedirectToAction("Show");
+    // }
 
     [HttpPost("/tasks/{taskId}/delete")]
     public ActionResult Delete(int taskId)
     {
-      Task.Delete(taskId);
+      Task task = Task.Find(taskId);
+      task.Delete();
       return RedirectToAction("Index");
     }
     [HttpPost("/tasks/delete")]
@@ -78,7 +79,7 @@ namespace EventPlanner.Controllers
     public ActionResult Update(int taskId, string taskDescription, DateTime taskPlannedStartDateTime)
     {
       Task task = Task.Find(taskId);
-      task.Edit(taskId, taskDescription, taskPlannedStartDateTime);
+      task.Edit(taskDescription, taskPlannedStartDateTime);
       return RedirectToAction("Index");
     }
   }
