@@ -197,60 +197,60 @@ namespace EventPlanner.Models
       }
     }
 
-    // public void AddEvent(Event newEvent)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"INSERT INTO events_invitees (events_id, invitees_id) VALUES (@eventId, @inviteeId);";
-    //   MySqlParameter eventIdParameter = new MySqlParameter();
-    //   eventIdParameter.ParameterName = "@eventId";
-    //   eventIdParameter.Value = newEvent.GetId();
-    //   cmd.Parameters.Add(eventIdParameter);
-    //   MySqlParameter inviteeIdParameter = new MySqlParameter();
-    //   inviteeIdParameter.ParameterName = "@inviteeId";
-    //   inviteeIdParameter.Value = this._id;
-    //   cmd.Parameters.Add(inviteeIdParameter);
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public List<Event> GetEvents()
-    // {
-    //   List<Event> allEventinvitees = new List<Event> {};
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT *
-    //                         FROM events
-    //                        WHERE id IN (SELECT events_id FROM events_invitees WHERE invitees_id = @inviteeId);";
-    //   MySqlParameter inviteeId = new MySqlParameter();
-    //   inviteeId.ParameterName = "@inviteeId";
-    //   inviteeId.Value = this._id;
-    //   cmd.Parameters.Add(inviteeId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   while(rdr.Read())
-    //   {
-    //     int eventId = rdr.GetInt32(0);
-    //     string eventName = rdr.GetString(1);
-    //     string eventDate = rdr.Getstring(2);
-    //     string eventLocation = rdr.GetString(3);
-    //     int menusId = rdr.GetInt32(4);
-    //     Event newEvent = new Event(eventName, eventDate, eventLocation, menusId, eventId);
-    //     allEventinvitees.Add(newEvent);
-    //   }
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //   return allEventinvitees;
-    // }
-    //
+    public void AddEvent(Event newEvent)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO events_invitees (events_id, invitees_id) VALUES (@eventId, @inviteeId);";
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = newEvent.GetId();
+      cmd.Parameters.Add(eventIdParameter);
+      MySqlParameter inviteeIdParameter = new MySqlParameter();
+      inviteeIdParameter.ParameterName = "@inviteeId";
+      inviteeIdParameter.Value = this._id;
+      cmd.Parameters.Add(inviteeIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public List<Event> GetEvents()
+    {
+      List<Event> allEventInvitees = new List<Event> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM events
+                           WHERE id IN (SELECT events_id FROM events_invitees WHERE invitees_id = @inviteeId);";
+      MySqlParameter inviteeId = new MySqlParameter();
+      inviteeId.ParameterName = "@inviteeId";
+      inviteeId.Value = this._id;
+      cmd.Parameters.Add(inviteeId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int eventId = rdr.GetInt32(0);
+        string eventName = rdr.GetString(1);
+        DateTime eventDate = rdr.GetDateTime(2);
+        string eventLocation = rdr.GetString(3);
+        int menusId = rdr.GetInt32(4);
+        Event newEvent = new Event(eventName, eventDate, eventLocation, menusId, eventId);
+        allEventInvitees.Add(newEvent);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allEventInvitees;
+    }
+
     public override bool Equals(System.Object otherInvitee)
     {
       if (!(otherInvitee is Invitee))

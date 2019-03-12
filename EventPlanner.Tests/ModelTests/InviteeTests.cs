@@ -165,44 +165,44 @@ namespace EventPlanner.Tests
       Assert.AreEqual(newInvitee, foundInvitee);
     }
 
-    // [TestMethod]
-    // public void GetEvents_RetrievesAllEventsWithinvitee_EventList()
-    // {
-    //   //Arrange
-    //   string eventName1 = "July 4th BBQ";
-    //   string eventDate1 = "janedoe@mail.com";
-    //   string eventLocation1 = "Capitol Hill";
-    //   int menusId1 = 1;
-    //   Event newEvent1 = new Event(eventName1, eventDate1, eventLocation1, menusId1);
-    //   newEvent1.Save();
-    //
-    //   string eventName2 = "Birthday Party";
-    //   string eventDate2 = new string(2019, 05, 03);
-    //   string eventLocation2 = "Saltys";
-    //   int menusId2 = 2;
-    //   Event newEvent2 = new Event(eventName2, eventDate2, eventLocation2, menusId2);
-    //   newEvent2.Save();
-    //
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //   newinvitee.Save();
-    //
-    //   //Act
-    //   Event foundEvent1 = Event.Find(newEvent1.GetId());
-    //   Event foundEvent2 = Event.Find(newEvent2.GetId());
-    //   invitee foundinvitee = invitee.Find(newinvitee.GetId());
-    //
-    //   foundinvitee.AddEvent(foundEvent1);
-    //   foundinvitee.AddEvent(foundEvent2);
-    //
-    //   List<Event> newList = new List<Event> { newEvent1, newEvent2 };
-    //   List<Event> resultList = foundinvitee.GetEvents();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, resultList);
-    // }
-    //
+    [TestMethod]
+    public void GetEvents_RetrievesAllEventsWithInvitee_EventList()
+    {
+      //Arrange
+      string eventName1 = "July 4th BBQ";
+      DateTime eventDate1 = new DateTime(2019, 07, 04);
+      string eventLocation1 = "Capitol Hill";
+      int menusId1 = 1;
+      Event newEvent1 = new Event(eventName1, eventDate1, eventLocation1, menusId1);
+      newEvent1.Save();
+
+      string eventName2 = "Birthday Party";
+      DateTime eventDate2 = new DateTime(2019, 05, 03);
+      string eventLocation2 = "Saltys";
+      int menusId2 = 2;
+      Event newEvent2 = new Event(eventName2, eventDate2, eventLocation2, menusId2);
+      newEvent2.Save();
+
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+
+      //Act
+      Event foundEvent1 = Event.Find(newEvent1.GetId());
+      Event foundEvent2 = Event.Find(newEvent2.GetId());
+      Invitee foundInvitee = Invitee.Find(newInvitee.GetId());
+
+      foundInvitee.AddEvent(foundEvent1);
+      foundInvitee.AddEvent(foundEvent2);
+
+      List<Event> newList = new List<Event> { newEvent1, newEvent2 };
+      List<Event> resultList = foundInvitee.GetEvents();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, resultList);
+    }
+
     [TestMethod]
     public void Delete_DeletesInviteeFromDatabase()
     {
@@ -262,32 +262,32 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
-    // [TestMethod]
-    // public void Save_SavesEventinviteeToDatabase_EventList()
-    // {
-    //   //Arrange
-    //   string eventName = "July 4th BBQ";
-    //   string eventDate = "janedoe@mail.com";
-    //   string eventLocation = "Capitol Hill";
-    //   int menusId = 1;
-    //   Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
-    //   newEvent.Save();
-    //
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //   newinvitee.Save();
-    //
-    //   //Act
-    //   Event foundEvent = Event.Find(newEvent.GetId());
-    //   invitee foundinvitee = invitee.Find(newinvitee.GetId());
-    //   foundinvitee.AddEvent(foundEvent);
-    //
-    //   List<Event> result = foundinvitee.GetEvents();
-    //   List<Event> testList = new List<Event>{foundEvent};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+    [TestMethod]
+    public void Save_SavesEventInviteeToDatabase_EventList()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 07, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Invitee foundInvitee = Invitee.Find(newInvitee.GetId());
+      foundInvitee.AddEvent(foundEvent);
+
+      List<Event> result = foundInvitee.GetEvents();
+      List<Event> testList = new List<Event>{foundEvent};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }
