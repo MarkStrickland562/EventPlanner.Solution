@@ -192,27 +192,27 @@ namespace EventPlanner.Tests
       CollectionAssert.AreNotEqual(newList, resultList);
     }
 
-    // [TestMethod]
-    // public void Edit_UpdatesMenuItemToDatabase()
-    // {
-    //   //Arrange
-    //   string menuItemDescription = "Potato Salad";
-    //   MenuItem newMenuItem = new MenuItem(menuItemDescription);
-    //   newMenuItem.Save();
-    //
-    //   //Act
-    //   MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
-    //   string newMenuItemDescription = "Baked Beans";
-    //   foundMenuItem.Edit(newMenuItemDescription);
-    //   MenuItem updatedMenuItem = MenuItem.Find(newMenuItem.GetId());
-    //
-    //   List<MenuItem> result = MenuItem.GetAll();
-    //   List<MenuItem> testList = new List<MenuItem>{updatedMenuItem};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
+    [TestMethod]
+    public void Edit_UpdatesMenuItemToDatabase()
+    {
+      //Arrange
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+      newMenuItem.Save();
+
+      //Act
+      MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
+      string newMenuItemDescription = "Baked Beans";
+      foundMenuItem.Edit(newMenuItemDescription);
+      MenuItem updatedMenuItem = MenuItem.Find(newMenuItem.GetId());
+
+      List<MenuItem> result = MenuItem.GetAll();
+      List<MenuItem> testList = new List<MenuItem>{updatedMenuItem};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+    
     // [TestMethod]
     // public void Save_SavesMenuMenuItemToDatabase_MenuList()
     // {

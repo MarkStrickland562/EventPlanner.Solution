@@ -151,31 +151,31 @@ namespace EventPlanner.Models
         conn.Dispose();
       }
     }
+
+    public void Edit(string newMenuItemDescription)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE menu_items SET menu_item_description = (@menuItemDescription)
+                           WHERE id = (@menuItemId);";
+      MySqlParameter menuItemDescriptionParameter = new MySqlParameter();
+      menuItemDescriptionParameter.ParameterName = "@menuItemDescription";
+      menuItemDescriptionParameter.Value = newMenuItemDescription;
+      cmd.Parameters.Add(menuItemDescriptionParameter);
+      MySqlParameter menuItemIdParameter = new MySqlParameter();
+      menuItemIdParameter.ParameterName = "@menuItemId";
+      menuItemIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuItemIdParameter);
+      cmd.ExecuteNonQuery();
+      _menuItemDescription = newMenuItemDescription;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
     
-    // public void Edit(string newMenuItemDescription)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"UPDATE menu_items SET menu_item_description = (@menuItemDescription)
-    //                        WHERE id = (@menuItemId);";
-    //   MySqlParameter menuItemDescriptionParameter = new MySqlParameter();
-    //   menuItemDescriptionParameter.ParameterName = "@menuItemDescription";
-    //   menuItemDescriptionParameter.Value = newMenuItemDescription;
-    //   cmd.Parameters.Add(menuItemDescriptionParameter);
-    //   MySqlParameter menuItemIdParameter = new MySqlParameter();
-    //   menuItemIdParameter.ParameterName = "@menuItemId";
-    //   menuItemIdParameter.Value = this._id;
-    //   cmd.Parameters.Add(menuItemIdParameter);
-    //   cmd.ExecuteNonQuery();
-    //   _menuItemDescription = newMenuItemDescription;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
     // public void AddMenu(Menu newMenu)
     // {
     //   MySqlConnection conn = DB.Connection();
