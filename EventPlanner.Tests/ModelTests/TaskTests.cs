@@ -288,5 +288,34 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
+
+    [TestMethod]
+    public void Delete_DeletesEventTaskFromDatabase()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Task foundTask = Task.Find(newTask.GetId());
+      foundTask.AddEvent(foundEvent);
+
+      List<Event> result = foundTask.GetEvents();
+      foundTask.DeleteEvent(foundEvent);
+      List<Event> testList = foundTask.GetEvents();
+
+      //Assert
+      CollectionAssert.AreNotEqual(testList, result);
+    }
   }
 }
