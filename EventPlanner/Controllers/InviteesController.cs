@@ -45,13 +45,13 @@ namespace EventPlanner.Controllers
       invitee.AddEvent(Event.Find(eventId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/invitees/{inviteeId}/event/new")]
-    public ActionResult DeleteEvent(int inviteeId, int eventId)
-    {
-      Invitee invitee = Invitee.Find(inviteeId);
-      invitee.DeleteEvent(Event.Find(eventId));
-      return RedirectToAction("Show");
-    }
+    // [HttpPost("/invitees/{inviteeId}/event/new")]
+    // public ActionResult DeleteEvent(int inviteeId, int eventId)
+    // {
+    //   Invitee invitee = Invitee.Find(inviteeId);
+    //   invitee.DeleteEvent(Event.Find(eventId));
+    //   return RedirectToAction("Show");
+    // }
 
     [HttpPost("/invitees/{inviteeId}/delete")]
     public ActionResult Delete(int inviteeId)

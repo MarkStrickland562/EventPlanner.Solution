@@ -10,13 +10,19 @@ namespace EventPlanner.Tests
   [TestClass]
   public class EventsControllerTest : IDisposable
   {
-    public EventTest()
+    public EventsControllerTest()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
     }
     public void Dispose()
     {
       Event.ClearAll();
+      Invitee.ClearAll();
+      Menu.ClearAll();
+      MenuItem.ClearAll();
+      MenuItemIngredient.ClearAll();
+      Store.ClearAll();
+      Task.ClearAll();
     }
 
     [TestMethod]
@@ -51,7 +57,8 @@ namespace EventPlanner.Tests
     // {
     //   Event newEvent = new Event("TestName", (new DateTime(2019, 12, 31, 21, 30, 0, DateTimeKind.Utc)), "TestLocation", 1);
     //   newEvent.Save();
-    //   ActionResult show = new EventsController().Show(newEvent.GetId());
+    //   EventsController controller = new EventsController();
+    //   ViewResult result = controller.Show(count);
     //   Assert.AreEqual(3, show.Count);
     // }
 

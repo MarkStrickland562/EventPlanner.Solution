@@ -10,7 +10,7 @@ namespace EventPlanner.Controllers
     [HttpGet("/menuItemIngredients")]
     public ActionResult Index()
     {
-      Event allMenuItemIngredients = MenuItemIngredient.GetAll();
+      List<MenuItemIngredient> allMenuItemIngredients = MenuItemIngredient.GetAll();
       return View(allMenuItemIngredients);
     }
 
@@ -31,27 +31,27 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int menuItemIngredientId)
     {
       MenuItemIngredient menuItemIngredient = MenuItemIngredient.Find(menuItemIngredientId);
-      List<MenuItem> menuItems = MenuItemIngredient.GetMenuItem(menuItemIngredientId);
+      // List<MenuItem> menuItems = MenuItemIngredient.GetMenuItem(menuItemIngredientId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menuItemIngredient", menuItemIngredient);
-      model.Add("menuItems", menuItems);
+      // model.Add("menuItems", menuItems);
       return View(model);
     }
 
-    [HttpPost("/menuItemIngredients/{menuItemIngredientId}/items/new")]
-    public ActionResult AddMenuItem(int menuItemIngredientId, int menuItemId)
-    {
-      MenuItemIngredient menuItemIngredient = MenuItemIngredient.Find(menuItemIngredientId);
-      menuItemIngredient.AddMenuItem(Menu.Find(menuItemId));
-      return RedirectToAction("Show");
-    }
-    [HttpPost("/menuItemIngredients/{menuItemIngredientId}/items/new")]
-    public ActionResult DeleteMenuItem(int menuItemIngredientId, int menuItemId)
-    {
-      MenuItemIngredient menuItemIngredient = MenuItemIngredient.Find(menuItemIngredientId);
-      menuItemIngredient.DeleteMenuItem(Menu.Find(menuItemId));
-      return RedirectToAction("Show");
-    }
+    // [HttpPost("/menuItemIngredients/{menuItemIngredientId}/items/new")]
+    // public ActionResult AddMenuItem(int menuItemIngredientId, int menuItemId)
+    // {
+    //   MenuItemIngredient menuItemIngredient = MenuItemIngredient.Find(menuItemIngredientId);
+    //   menuItemIngredient.AddMenuItem(Menu.Find(menuItemId));
+    //   return RedirectToAction("Show");
+    // }
+    // [HttpPost("/menuItemIngredients/{menuItemIngredientId}/items/new")]
+    // public ActionResult DeleteMenuItem(int menuItemIngredientId, int menuItemId)
+    // {
+    //   MenuItemIngredient menuItemIngredient = MenuItemIngredient.Find(menuItemIngredientId);
+    //   menuItemIngredient.DeleteMenuItem(Menu.Find(menuItemId));
+    //   return RedirectToAction("Show");
+    // }
 
     [HttpPost("/menuItemIngredients/{menuItemIngredientId}/delete")]
     public ActionResult Delete(int menuItemIngredientId)
@@ -78,7 +78,7 @@ namespace EventPlanner.Controllers
     [HttpPost("/menuItemIngredients/{menuItemIngredientId}/edit")]
     public ActionResult Update(int menuItemIngredientId, string ingredientDescription, int menuItemId, int storeId)
     {
-      MenuItemIngredient menuItemIngredient = Menu.Find(menuItemIngredientId);
+      MenuItemIngredient menuItemIngredient = MenuItemIngredient.Find(menuItemIngredientId);
       menuItemIngredient.Edit(ingredientDescription, menuItemId, storeId);
       return RedirectToAction("Index");
     }
