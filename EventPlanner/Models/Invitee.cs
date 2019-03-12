@@ -105,35 +105,35 @@ namespace EventPlanner.Models
       return allInvitees;
     }
 
-    // public static invitee Find(int id)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM invitees WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = id;
-    //   cmd.Parameters.Add(searchId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   int inviteeId = 0;
-    //   string inviteeName = "";
-    //   string inviteeEmailAddress = new string(1900, 1, 1);
-    //     while(rdr.Read())
-    //   {
-    //     inviteeId = rdr.GetInt32(0);
-    //     inviteeName = rdr.GetString(1);
-    //     inviteeEmailAddress = rdr.Getstring(2);
-    //     }
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress, inviteeId);
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //     return newinvitee;
-    // }
-    //
+    public static Invitee Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM invitees WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int inviteeId = 0;
+      string inviteeName = "";
+      string inviteeEmailAddress = "";
+      while(rdr.Read())
+      {
+        inviteeId = rdr.GetInt32(0);
+        inviteeName = rdr.GetString(1);
+        inviteeEmailAddress = rdr.GetString(2);
+        }
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress, inviteeId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+        return newInvitee;
+    }
+
     // public void Delete()
     // {
     //   MySqlConnection conn = DB.Connection();

@@ -149,22 +149,22 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    // [TestMethod]
-    // public void Find_ReturnsinviteeInDatabase_invitee()
-    // {
-    //   //Arrange
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //   newinvitee.Save();
-    //
-    //   //Act
-    //   invitee foundinvitee = invitee.Find(newinvitee.GetId());
-    //
-    //   //Assert
-    //   Assert.AreEqual(newinvitee, foundinvitee);
-    // }
-    //
+    [TestMethod]
+    public void Find_ReturnsInviteeInDatabase_Invitee()
+    {
+      //Arrange
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+
+      //Act
+      Invitee foundInvitee = Invitee.Find(newInvitee.GetId());
+
+      //Assert
+      Assert.AreEqual(newInvitee, foundInvitee);
+    }
+
     // [TestMethod]
     // public void GetEvents_RetrievesAllEventsWithinvitee_EventList()
     // {
