@@ -124,6 +124,21 @@ Query OK, 0 row affected (0.00 sec)
 | Micaela Jawor | [MicaelaDJ](https://github.com/MicaelaDJ) | [micaelajawor@yahoo.com](mailto:micaelajawor@yahoo.com) |
 | Shawn Lunsford | [LondresRi](https://github.com/LondresRi) |  [lunsford.sk@gmail.com](mailto:lunsford.sk@gmail.com) |
 
+## Credits
+
+| | Clara Munro | Mark Strickland | Micaela Jawor | Shawn Lunsford |
+|-|:-----------:|:---------------:|:-------------:|:--------------:|
+| **Design** |
+| Core Mechanics | |◈| | |
+| User Interface |◈| |◈| |
+| **Programming** |
+| Back-End | |◈| |◈|
+| Front-End |◈| |◈| |
+| Refractoring | | | | |
+| **Quality Assurance** |
+| Documentation | |◈| |◈|
+| Testing | |◈| |◈|
+
 ## Support and contact details
 
 If you have any feedback or concerns, please contact any of the contributors (see above).
