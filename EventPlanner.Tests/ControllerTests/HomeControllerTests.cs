@@ -10,20 +10,20 @@ namespace EventPlanner.Tests
   public class HomeControllerTest
   {
 
-    [TestMethod]
-    public void Index_ReturnsCorrectView_True()
-    {
-      HomeController controller = new HomeController();
-      Assert.IsInstanceOfType(controller.Index(), typeof(ViewResult));
-    }
-
-    [TestMethod]
-    public void Index_HasCorrectModelType_EventsList()
-    {
-      ViewResult indexView = new HomeController().Index() as ViewResult;
-      var result = indexView.ViewData.Model;
-      Assert.IsInstanceOfType(result, typeof(List<Events>));
-    }
+    // [TestMethod]
+    // public void Index_ReturnsCorrectView_True()
+    // {
+    //   HomeController controller = new HomeController();
+    //   Assert.IsInstanceOfType(controller.Index(), typeof(ViewResult));
+    // }
+    //
+    // [TestMethod]
+    // public void Index_HasCorrectModelType_EventsList()
+    // {
+    //   ViewResult indexView = new HomeController().Index() as ViewResult;
+    //   var result = indexView.ViewData.Model;
+    //   Assert.IsInstanceOfType(result, typeof(List<Events>));
+    // }
 
   }
 }
