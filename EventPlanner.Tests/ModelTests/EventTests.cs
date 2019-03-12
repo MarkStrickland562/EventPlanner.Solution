@@ -295,6 +295,43 @@ namespace EventPlanner.Tests
     }
 
     [TestMethod]
+    public void GetInvitees_RetrievesAllInviteesWithEvent_InviteeList()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string inviteeName1 = "Jane Doe";
+      string inviteeEmailAddress1 = "janedoe@mail.com";
+      Invitee newInvitee1 = new Invitee(inviteeName1, inviteeEmailAddress1);
+      newInvitee1.Save();
+
+      string inviteeName2 = "John Smith";
+      string inviteeEmailAddress2 = "johnsmith@yahoo.com";
+      Invitee newInvitee2 = new Invitee(inviteeName2, inviteeEmailAddress2);
+      newInvitee2.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Invitee foundInvitee1 = Invitee.Find(newInvitee1.GetId());
+      Invitee foundInvitee2 = Invitee.Find(newInvitee2.GetId());
+      foundEvent.AddInvitee(foundInvitee1);
+      foundEvent.AddInvitee(foundInvitee2);
+
+      List<Invitee> newList = new List<Invitee> { newInvitee1, newInvitee2 };
+
+      //Act
+      List<Invitee> resultList = foundEvent.GetInvitees();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, resultList);
+    }
+
+    [TestMethod]
     public void Delete_DeletesEventFromDatabase()
     {
       //Arrange
@@ -389,6 +426,32 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
+    [TestMethod]
+    public void Save_SavesEventInviteeToDatabase_InviteeList()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
 
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Invitee foundInvitee = Invitee.Find(newInvitee.GetId());
+      foundEvent.AddInvitee(foundInvitee);
+
+      List<Invitee> result = newEvent.GetInvitees();
+      List<Invitee> testList = new List<Invitee>{foundInvitee};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }

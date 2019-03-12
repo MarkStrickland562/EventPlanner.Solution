@@ -201,6 +201,36 @@ namespace EventPlanner.Models
       return allEventTasks;
     }
 
+    public List<Invitee> GetInvitees()
+    {
+      List<Invitee> allEventInvitees = new List<Invitee> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM invitees
+                           WHERE id IN (SELECT invitees_id FROM events_invitees WHERE events_id = @eventId);";
+      MySqlParameter eventId = new MySqlParameter();
+      eventId.ParameterName = "@eventId";
+      eventId.Value = this._id;
+      cmd.Parameters.Add(eventId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int inviteeId = rdr.GetInt32(0);
+        string inviteeName = rdr.GetString(1);
+        string inviteeEmailAddress = rdr.GetString(2);
+        Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress, inviteeId);
+        allEventInvitees.Add(newInvitee);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allEventInvitees;
+    }
+
     public void Delete()
     {
       MySqlConnection conn = DB.Connection();
@@ -286,6 +316,28 @@ namespace EventPlanner.Models
       taskIdParameter.ParameterName = "@taskId";
       taskIdParameter.Value = newTask.GetId();
       cmd.Parameters.Add(taskIdParameter);
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = this._id;
+      cmd.Parameters.Add(eventIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public void AddInvitee(Invitee newInvitee)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO events_invitees (events_id, invitees_id) VALUES (@eventId, @inviteeId);";
+      MySqlParameter inviteeIdParameter = new MySqlParameter();
+      inviteeIdParameter.ParameterName = "@inviteeId";
+      inviteeIdParameter.Value = newInvitee.GetId();
+      cmd.Parameters.Add(inviteeIdParameter);
       MySqlParameter eventIdParameter = new MySqlParameter();
       eventIdParameter.ParameterName = "@eventId";
       eventIdParameter.Value = this._id;
