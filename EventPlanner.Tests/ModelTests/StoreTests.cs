@@ -29,20 +29,20 @@ namespace EventPlanner.Tests
       Assert.AreEqual(typeof(Store), newStore.GetType());
     }
 
-    // [TestMethod]
-    // public void GetStoreName_ReturnsStoreName_String()
-    // {
-    //   //Arrange
-    //   string storeName = "Costco";
-    //   Store newStore = new Store(storeName);
-    //
-    //   //Act
-    //   string result = newStore.GetStoreName();
-    //
-    //   //Assert
-    //   Assert.AreEqual(storeName, result);
-    // }
-    //
+    [TestMethod]
+    public void GetStoreName_ReturnsStoreName_String()
+    {
+      //Arrange
+      string storeName = "Costco";
+      Store newStore = new Store(storeName);
+
+      //Act
+      string result = newStore.GetStoreName();
+
+      //Assert
+      Assert.AreEqual(storeName, result);
+    }
+    
     // [TestMethod]
     // public void SetStoreName_SetStoreName_String()
     // {
