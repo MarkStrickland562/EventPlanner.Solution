@@ -223,6 +223,28 @@ namespace EventPlanner.Models
       return allMenuItems;
     }
 
+    public void DeleteMenuItem(MenuItem newMenuItem)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM menus_menu_items WHERE menus_id = (@menuId) AND menu_items_id = (@menuItemsId);";
+      MySqlParameter menuItemsIdParameter = new MySqlParameter();
+      menuItemsIdParameter.ParameterName = "@menuItemsId";
+      menuItemsIdParameter.Value = newMenuItem.GetId();
+      cmd.Parameters.Add(menuItemsIdParameter);
+      MySqlParameter menuIdParameter = new MySqlParameter();
+      menuIdParameter.ParameterName = "@menuId";
+      menuIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public override bool Equals(System.Object otherMenu)
     {
       if (!(otherMenu is Menu))

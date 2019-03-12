@@ -205,5 +205,30 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
+
+    [TestMethod]
+    public void Delete_DeletesMenuMenuItemFromDatabase()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      int menusId = 1;
+      Menu newMenu = new Menu(menuTheme, menusId);
+      newMenu.Save();
+
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+      newMenuItem.Save();
+
+      //Act
+      Menu foundMenu = Menu.Find(newMenu.GetId());
+      MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
+      foundMenu.AddMenuItem(foundMenuItem);
+      List<MenuItem> testList = new List<MenuItem>{foundMenuItem};
+      foundMenu.DeleteMenuItem(foundMenuItem);
+      List<MenuItem> result = foundMenu.GetMenuItems();
+
+      //Assert
+      CollectionAssert.AreNotEqual(testList, result);
+    }
   }
 }
