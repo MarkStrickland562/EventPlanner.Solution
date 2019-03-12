@@ -42,24 +42,24 @@ namespace EventPlanner.Tests
       //Assert
       Assert.AreEqual(storeName, result);
     }
+
+    [TestMethod]
+    public void SetStoreName_SetStoreName_String()
+    {
+      //Arrange
+      string storeName = "Costco";
+
+      Store newStore = new Store(storeName);
+
+      //Act
+      string updatedStoreName = "QFC";
+      newStore.SetStoreName(updatedStoreName);
+      string result = newStore.GetStoreName();
+
+      //Assert
+      Assert.AreEqual(updatedStoreName, result);
+    }
     
-    // [TestMethod]
-    // public void SetStoreName_SetStoreName_String()
-    // {
-    //   //Arrange
-    //   string storeName = "Costco";
-    //
-    //   Store newStore = new Store(storeName);
-    //
-    //   //Act
-    //   string updatedStoreName = "QFC";
-    //   newStore.SetStoreName(updatedStoreName);
-    //   string result = newStore.GetStoreName();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedStoreName, result);
-    // }
-    //
     // [TestMethod]
     // public void GetId_ReturnsStoreId_Int()
     // {

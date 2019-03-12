@@ -19,12 +19,12 @@ namespace EventPlanner.Models
     {
       return _storeName;
     }
+
+    public void SetStoreName(string newStoreName)
+    {
+      _storeName = newStoreName;
+    }
     
-    // public void SetStoreName(string newStoreName)
-    // {
-    //   _storeName = newStoreName;
-    // }
-    //
     // public int GetId()
     // {
     //   return _id;
