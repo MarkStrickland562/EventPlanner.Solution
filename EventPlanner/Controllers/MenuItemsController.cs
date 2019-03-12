@@ -10,7 +10,7 @@ namespace EventPlanner.Controllers
     [HttpGet("/menuItems")]
     public ActionResult Index()
     {
-      List<menus> allMenuItems = MenuItems.GetAll();
+      List<MenuItems> allMenuItems = MenuItems.GetAll();
       return View(allMenuItems);
     }
 
@@ -30,8 +30,8 @@ namespace EventPlanner.Controllers
     [HttpGet("/menuItems/{menuItemId}")]
     public ActionResult Show(int menuItemId)
     {
-      MenuItem menuItem = Menu.Find(menuItemId);
-      MenuItem menuItemIngredients = Menu.GetMenuItemIngredients(menuItemId);
+      MenuItem menuItem = MenuItem.Find(menuItemId);
+      MenuItem menuItemIngredients = MenuItem.GetMenuItemIngredients(menuItemId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menuItem", menuItem);
       model.Add("menuItemIngredients", menuItemIngredients);
