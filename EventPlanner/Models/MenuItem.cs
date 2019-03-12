@@ -30,92 +30,92 @@ namespace EventPlanner.Models
       return _id;
     }
 
-    // public static void ClearAll()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM menus_menu_items;
-    //                       DELETE FROM menu_item_ingredients;
-    //                       DELETE FROM menu_items;";
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public void Save()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"INSERT INTO menu_items (menu_item_description)
-    //                       VALUES (@menuItemDescription);";
-    //   MySqlParameter menuItemDescription = new MySqlParameter();
-    //   menuItemDescription.ParameterName = "@menuItemDescription";
-    //   menuItemDescription.Value = this._menuItemDescription;
-    //   cmd.Parameters.Add(menuItemDescription);
-    //   cmd.ExecuteNonQuery();
-    //   _id = (int) cmd.LastInsertedId;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public static List<MenuItem> GetAll()
-    // {
-    //   List<MenuItem> allMenuItems = new List<MenuItem> {};
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM menu_items;";
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   while(rdr.Read())
-    //   {
-    //     int menuItemId = rdr.GetInt32(0);
-    //     string menuItemDescription = rdr.GetString(1);
-    //     MenuItem newMenuItem = new MenuItem(menuItemDescription, menuItemId);
-    //     allMenuItems.Add(newMenuItem);
-    //   }
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //   return allMenuItems;
-    // }
-    //
-    // public static MenuItem Find(int id)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM menu_items WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = id;
-    //   cmd.Parameters.Add(searchId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   int menuItemId = 0;
-    //   string menuItemDescription = "";
-    //   while(rdr.Read())
-    //   {
-    //     menuItemId = rdr.GetInt32(0);
-    //     menuItemDescription = rdr.GetString(1);
-    //   }
-    //   MenuItem newMenuItem = new MenuItem(menuItemDescription, menuItemId);
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //     return newMenuItem;
-    // }
-    //
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM menus_menu_items;
+                          DELETE FROM menu_item_ingredients;
+                          DELETE FROM menu_items;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO menu_items (menu_item_description)
+                          VALUES (@menuItemDescription);";
+      MySqlParameter menuItemDescription = new MySqlParameter();
+      menuItemDescription.ParameterName = "@menuItemDescription";
+      menuItemDescription.Value = this._menuItemDescription;
+      cmd.Parameters.Add(menuItemDescription);
+      cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public static List<MenuItem> GetAll()
+    {
+      List<MenuItem> allMenuItems = new List<MenuItem> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM menu_items;";
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int menuItemId = rdr.GetInt32(0);
+        string menuItemDescription = rdr.GetString(1);
+        MenuItem newMenuItem = new MenuItem(menuItemDescription, menuItemId);
+        allMenuItems.Add(newMenuItem);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allMenuItems;
+    }
+
+    public static MenuItem Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM menu_items WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int menuItemId = 0;
+      string menuItemDescription = "";
+      while(rdr.Read())
+      {
+        menuItemId = rdr.GetInt32(0);
+        menuItemDescription = rdr.GetString(1);
+      }
+      MenuItem newMenuItem = new MenuItem(menuItemDescription, menuItemId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+        return newMenuItem;
+    }
+
     // public void Delete()
     // {
     //   MySqlConnection conn = DB.Connection();
@@ -228,19 +228,19 @@ namespace EventPlanner.Models
     //   return allMenus;
     // }
     //
-    // public override bool Equals(System.Object otherMenuItem)
-    // {
-    //   if (!(otherMenuItem is MenuItem))
-    //   {
-    //     return false;
-    //   }
-    //   else
-    //   {
-    //     MenuItem newMenuItem = (MenuItem) otherMenuItem;
-    //     bool idEquality = this.GetId().Equals(newMenuItem.GetId());
-    //     bool menuItemDescriptionEquality = this.GetMenuItemDescription().Equals(newMenuItem.GetMenuItemDescription());
-    //     return (idEquality && menuItemDescriptionEquality);
-    //   }
-    // }
+    public override bool Equals(System.Object otherMenuItem)
+    {
+      if (!(otherMenuItem is MenuItem))
+      {
+        return false;
+      }
+      else
+      {
+        MenuItem newMenuItem = (MenuItem) otherMenuItem;
+        bool idEquality = this.GetId().Equals(newMenuItem.GetId());
+        bool menuItemDescriptionEquality = this.GetMenuItemDescription().Equals(newMenuItem.GetMenuItemDescription());
+        return (idEquality && menuItemDescriptionEquality);
+      }
+    }
   }
 }

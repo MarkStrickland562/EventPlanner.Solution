@@ -15,7 +15,7 @@ namespace EventPlanner.Tests
 
     public void Dispose()
     {
-//      MenuItem.ClearAll();
+      MenuItem.ClearAll();
     }
 
     [TestMethod]
@@ -58,58 +58,58 @@ namespace EventPlanner.Tests
       //Assert
       Assert.AreEqual(updatedMenuItemDescription, result);
     }
-    
-    // [TestMethod]
-    // public void GetId_ReturnsMenuItemId_Int()
-    // {
-    //   //Arrange
-    //   string menuItemDescription = "Potato Salad";
-    //   MenuItem newMenuItem = new MenuItem(menuItemDescription);
-    //
-    //   //Act
-    //   int result = newMenuItem.GetId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(0, result);
-    // }
-    //
-    // [TestMethod]
-    // public void Save_SavesMenuItemToDatabase_MenuItemList()
-    // {
-    //   //Arrange
-    //   string menuItemDescription = "Potato Salad";
-    //   MenuItem newMenuItem = new MenuItem(menuItemDescription);
-    //   newMenuItem.Save();
-    //
-    //   //Act
-    //   List<MenuItem> result = MenuItem.GetAll();
-    //   List<MenuItem> testList = new List<MenuItem>{newMenuItem};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetAll_ReturnsAllMenuItemObjects_MenuItemList()
-    // {
-    //   //Arrange
-    //   string menuItemDescription1 = "Potato Salad";
-    //   MenuItem newMenuItem1 = new MenuItem(menuItemDescription11);
-    //   newMenuItem1.Save();
-    //
-    //   string menuItemDescription2 = "Baked Beans";
-    //   MenuItem newMenuItem2 = new MenuItem(menuItemDescription22);
-    //   newMenuItem2.Save();
-    //
-    //   List<MenuItem> newList = new List<MenuItem> { newMenuItem1, newMenuItem2};
-    //
-    //   //Act
-    //   List<MenuItem> result = MenuItem.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-    //
+
+    [TestMethod]
+    public void GetId_ReturnsMenuItemId_Int()
+    {
+      //Arrange
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+
+      //Act
+      int result = newMenuItem.GetId();
+
+      //Assert
+      Assert.AreEqual(0, result);
+    }
+
+    [TestMethod]
+    public void Save_SavesMenuItemToDatabase_MenuItemList()
+    {
+      //Arrange
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+      newMenuItem.Save();
+
+      //Act
+      List<MenuItem> result = MenuItem.GetAll();
+      List<MenuItem> testList = new List<MenuItem>{newMenuItem};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllMenuItemObjects_MenuItemList()
+    {
+      //Arrange
+      string menuItemDescription1 = "Potato Salad";
+      MenuItem newMenuItem1 = new MenuItem(menuItemDescription1);
+      newMenuItem1.Save();
+
+      string menuItemDescription2 = "Baked Beans";
+      MenuItem newMenuItem2 = new MenuItem(menuItemDescription2);
+      newMenuItem2.Save();
+
+      List<MenuItem> newList = new List<MenuItem> { newMenuItem1, newMenuItem2};
+
+      //Act
+      List<MenuItem> result = MenuItem.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
     // [TestMethod]
     // public void Find_ReturnsMenuItemInDatabase_MenuItem()
     // {
