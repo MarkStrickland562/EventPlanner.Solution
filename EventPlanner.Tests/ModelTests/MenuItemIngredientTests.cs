@@ -10,12 +10,12 @@ namespace EventPlanner.Tests
   {
     public MenuItemIngredientTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
     }
 
     public void Dispose()
     {
-//      MenuItemIngredient.ClearAll();
+      MenuItemIngredient.ClearAll();
     }
 
     [TestMethod]
@@ -149,49 +149,49 @@ namespace EventPlanner.Tests
       Assert.AreEqual(0, result);
     }
 
-    // [TestMethod]
-    // public void Save_SavesMenuItemIngredientToDatabase_MenuItemIngredientList()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId = 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //   newMenuItemIngredient.Save();
-    //
-    //   //Act
-    //   List<MenuItemIngredient> result = MenuItemIngredient.GetAll();
-    //   List<MenuItemIngredient> testList = new List<MenuItemIngredient>{newMenuItemIngredient};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetAll_ReturnsAllMenuItemIngredientObjects_MenuItemIngredientList()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription1 = "Avocadoes";
-    //   int menuItemsId1 = 1;
-    //   int storeId1 = 1;
-    //   MenuItemIngredient newMenuItemIngredient1 = new MenuItemIngredient(menuItemIngredientDescription1, menuItemsId1, storeId1);
-    //   newMenuItemIngredient1.Save();
-    //
-    //   string menuItemIngredientDescription2 = "Tomatoes";
-    //   int menuItemsId2 = 2;
-    //   int storeId2 = 2;
-    //   MenuItemIngredient newMenuItemIngredient2 = new MenuItemIngredient(menuItemIngredientDescription2, menuItemsId2, storeId2);
-    //   newMenuItemIngredient2.Save();
-    //
-    //   List<MenuItemIngredient> newList = new List<MenuItemIngredient> { newMenuItemIngredient1, newMenuItemIngredient2};
-    //
-    //   //Act
-    //   List<MenuItemIngredient> result = MenuItemIngredient.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-    //
+    [TestMethod]
+    public void Save_SavesMenuItemIngredientToDatabase_MenuItemIngredientList()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId = 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+      newMenuItemIngredient.Save();
+
+      //Act
+      List<MenuItemIngredient> result = MenuItemIngredient.GetAll();
+      List<MenuItemIngredient> testList = new List<MenuItemIngredient>{newMenuItemIngredient};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllMenuItemIngredientObjects_MenuItemIngredientList()
+    {
+      //Arrange
+      string menuItemIngredientDescription1 = "Avocadoes";
+      int menuItemsId1 = 1;
+      int storeId1 = 1;
+      MenuItemIngredient newMenuItemIngredient1 = new MenuItemIngredient(menuItemIngredientDescription1, menuItemsId1, storeId1);
+      newMenuItemIngredient1.Save();
+
+      string menuItemIngredientDescription2 = "Tomatoes";
+      int menuItemsId2 = 2;
+      int storeId2 = 2;
+      MenuItemIngredient newMenuItemIngredient2 = new MenuItemIngredient(menuItemIngredientDescription2, menuItemsId2, storeId2);
+      newMenuItemIngredient2.Save();
+
+      List<MenuItemIngredient> newList = new List<MenuItemIngredient> { newMenuItemIngredient1, newMenuItemIngredient2};
+
+      //Act
+      List<MenuItemIngredient> result = MenuItemIngredient.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
     // [TestMethod]
     // public void Find_ReturnsMenuItemIngredientInDatabase_MenuItemIngredient()
     // {
