@@ -328,6 +328,28 @@ namespace EventPlanner.Models
       }
     }
 
+    public void DeleteTask(Task newTask)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_tasks WHERE events_id = (@eventId) AND tasks_id = (@taskId);";
+      MySqlParameter taskIdParameter = new MySqlParameter();
+      taskIdParameter.ParameterName = "@taskId";
+      taskIdParameter.Value = newTask.GetId();
+      cmd.Parameters.Add(taskIdParameter);
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = this._id;
+      cmd.Parameters.Add(eventIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public void AddInvitee(Invitee newInvitee)
     {
       MySqlConnection conn = DB.Connection();
@@ -348,6 +370,57 @@ namespace EventPlanner.Models
       {
         conn.Dispose();
       }
+    }
+
+    public void DeleteInvitee(Invitee newInvitee)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_invitees WHERE events_id = (@eventId) AND invitees_id = (@inviteeId);";
+      MySqlParameter inviteeIdParameter = new MySqlParameter();
+      inviteeIdParameter.ParameterName = "@inviteeId";
+      inviteeIdParameter.Value = newInvitee.GetId();
+      cmd.Parameters.Add(inviteeIdParameter);
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = this._id;
+      cmd.Parameters.Add(eventIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public List<Menu> GetMenu()
+    {
+      List<Menu> allMenus = new List<Menu> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM menus
+                           WHERE id = (SELECT menus_id FROM events WHERE id = @eventId);";
+      MySqlParameter eventId = new MySqlParameter();
+      eventId.ParameterName = "@eventId";
+      eventId.Value = this._id;
+      cmd.Parameters.Add(eventId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int menusId = rdr.GetInt32(0);
+        string menuTheme = rdr.GetString(1);
+        Menu newMenu = new Menu(menuTheme, menusId);
+        allMenus.Add(newMenu);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allMenus;
     }
 
     public override bool Equals(System.Object otherEvent)

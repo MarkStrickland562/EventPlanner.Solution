@@ -157,7 +157,7 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreEqual(newList, resultList);
     }
-    
+
     [TestMethod]
     public void Delete_DeletesMenuItemFromDatabase()
     {
@@ -237,5 +237,32 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
+
+    [TestMethod]
+    public void Delete_DeletesMenuMenuItemFromDatabase()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      int menusId = 1;
+      Menu newMenu = new Menu(menuTheme, menusId);
+      newMenu.Save();
+
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+      newMenuItem.Save();
+
+      //Act
+      Menu foundMenu = Menu.Find(newMenu.GetId());
+      MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
+      foundMenuItem.AddMenu(foundMenu);
+
+      List<Menu> testList = new List<Menu>{foundMenu};
+      foundMenuItem.DeleteMenu(foundMenu);
+      List<Menu> result = foundMenuItem.GetMenus();
+
+      //Assert
+      CollectionAssert.AreNotEqual(testList, result);
+    }
+  
   }
 }
