@@ -168,35 +168,35 @@ namespace EventPlanner.Models
       }
     }
 
-    // public void Edit(string newinviteeName, string newinviteeEmailAddress)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"UPDATE invitees SET invitee_name = (@inviteeName), invitee_email_address = (@inviteeEmailAddress)
-    //                        WHERE id = (@inviteeId);";
-    //   MySqlParameter inviteeNameParameter = new MySqlParameter();
-    //   inviteeNameParameter.ParameterName = "@inviteeName";
-    //   inviteeNameParameter.Value = newinviteeName;
-    //   cmd.Parameters.Add(inviteeNameParameter);
-    //   MySqlParameter inviteeEmailAddressParameter = new MySqlParameter();
-    //   inviteeEmailAddressParameter.ParameterName = "@inviteeEmailAddress";
-    //   inviteeEmailAddressParameter.Value = newinviteeEmailAddress;
-    //   cmd.Parameters.Add(inviteeEmailAddressParameter);
-    //   MySqlParameter inviteeIdParameter = new MySqlParameter();
-    //   inviteeIdParameter.ParameterName = "@inviteeId";
-    //   inviteeIdParameter.Value = this._id;
-    //   cmd.Parameters.Add(inviteeIdParameter);
-    //   cmd.ExecuteNonQuery();
-    //   _inviteeName = newinviteeName;
-    //   _inviteeEmailAddress = newinviteeEmailAddress;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
+    public void Edit(string newInviteeName, string newInviteeEmailAddress)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE invitees SET invitee_name = (@inviteeName), invitee_email_address = (@inviteeEmailAddress)
+                           WHERE id = (@inviteeId);";
+      MySqlParameter inviteeNameParameter = new MySqlParameter();
+      inviteeNameParameter.ParameterName = "@inviteeName";
+      inviteeNameParameter.Value = newInviteeName;
+      cmd.Parameters.Add(inviteeNameParameter);
+      MySqlParameter inviteeEmailAddressParameter = new MySqlParameter();
+      inviteeEmailAddressParameter.ParameterName = "@inviteeEmailAddress";
+      inviteeEmailAddressParameter.Value = newInviteeEmailAddress;
+      cmd.Parameters.Add(inviteeEmailAddressParameter);
+      MySqlParameter inviteeIdParameter = new MySqlParameter();
+      inviteeIdParameter.ParameterName = "@inviteeId";
+      inviteeIdParameter.Value = this._id;
+      cmd.Parameters.Add(inviteeIdParameter);
+      cmd.ExecuteNonQuery();
+      _inviteeName = newInviteeName;
+      _inviteeEmailAddress = newInviteeEmailAddress;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     // public void AddEvent(Event newEvent)
     // {
     //   MySqlConnection conn = DB.Connection();

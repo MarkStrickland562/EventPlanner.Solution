@@ -221,47 +221,47 @@ namespace EventPlanner.Tests
       CollectionAssert.AreNotEqual(newList, resultList);
     }
 
-    // [TestMethod]
-    // public void DeleteAll_DeletesAllinviteesFromDatabase()
-    // {
-    //   //Arrange
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //   newinvitee.Save();
-    //   invitee.DeleteAll();
-    //
-    //   //Act
-    //   List<invitee> newList = new List<invitee> { newinvitee };
-    //   List<invitee> resultList = invitee.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreNotEqual(newList, resultList);
-    // }
-    //
-    // [TestMethod]
-    // public void Edit_UpdatesinviteeToDatabase()
-    // {
-    //   //Arrange
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //   newinvitee.Save();
-    //
-    //   //Act
-    //   invitee foundinvitee = invitee.Find(newinvitee.GetId());
-    //   string newinviteeName = "John Smith";
-    //   string newinviteeEmailAddress = new string(2019, 05, 03);
-    //   foundinvitee.Edit(newinviteeName, newinviteeEmailAddress);
-    //   invitee updatedinvitee = invitee.Find(newinvitee.GetId());
-    //
-    //   List<invitee> result = invitee.GetAll();
-    //   List<invitee> testList = new List<invitee>{updatedinvitee};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
+    [TestMethod]
+    public void DeleteAll_DeletesAllinviteesFromDatabase()
+    {
+      //Arrange
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+      Invitee.DeleteAll();
+
+      //Act
+      List<Invitee> newList = new List<Invitee> { newInvitee };
+      List<Invitee> resultList = Invitee.GetAll();
+
+      //Assert
+      CollectionAssert.AreNotEqual(newList, resultList);
+    }
+
+    [TestMethod]
+    public void Edit_UpdatesInviteeToDatabase()
+    {
+      //Arrange
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+
+      //Act
+      Invitee foundInvitee = Invitee.Find(newInvitee.GetId());
+      string newInviteeName = "John Smith";
+      string newInviteeEmailAddress = "johnsmith@yahoo.com";
+      foundInvitee.Edit(newInviteeName, newInviteeEmailAddress);
+      Invitee updatedInvitee = Invitee.Find(newInvitee.GetId());
+
+      List<Invitee> result = Invitee.GetAll();
+      List<Invitee> testList = new List<Invitee>{updatedInvitee};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
     // [TestMethod]
     // public void Save_SavesEventinviteeToDatabase_EventList()
     // {
