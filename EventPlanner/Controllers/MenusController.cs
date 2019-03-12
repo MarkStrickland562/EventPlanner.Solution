@@ -31,27 +31,27 @@ namespace MenuPlanner.Controllers
     public ActionResult Show(int menuId)
     {
       Menu menu = Menu.Find(menuId);
-      // List<MenuItem> menuItems = Menu.GetMenuItems(menuId);
+      List<MenuItem> menuItems = menu.GetMenuItems();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menu", menu);
-      // model.Add("menuItems", menuItems);
+      model.Add("menuItems", menuItems);
       return View(model);
     }
 
-    // [HttpPost("/menus/{menuId}/menuItem/new")]
-    // public ActionResult AddMenuItem(int menuId, int menuItemId)
-    // {
-    //   Menu menu = Menu.Find(menuId);
-    //   menu.AddMenuItem(MenuItem.Find(menuItemId));
-    //   return RedirectToAction("Show");
-    // }
-    // [HttpPost("/menus/{menuId}/menuItem/delete")]
-    // public ActionResult DeleteMenuItem(int menuId, int menuItemId)
-    // {
-    //   Menu menu = Menu.Find(menuId);
-    //   menu.DeleteMenuItem(MenuItem.Find(menuItemId));
-    //   return RedirectToAction("Show");
-    // }
+    [HttpPost("/menus/{menuId}/menuItem/new")]
+    public ActionResult AddMenuItem(int menuId, int menuItemId)
+    {
+      Menu menu = Menu.Find(menuId);
+      menu.AddMenuItem(MenuItem.Find(menuItemId));
+      return RedirectToAction("Show");
+    }
+    [HttpPost("/menus/{menuId}/menuItem/delete")]
+    public ActionResult DeleteMenuItem(int menuId, int menuItemId)
+    {
+      Menu menu = Menu.Find(menuId);
+      menu.DeleteMenuItem(MenuItem.Find(menuItemId));
+      return RedirectToAction("Show");
+    }
 
     [HttpPost("/menus/{menuId}/delete")]
     public ActionResult Delete(int menuId)
