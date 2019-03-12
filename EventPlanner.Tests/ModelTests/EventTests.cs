@@ -427,6 +427,35 @@ namespace EventPlanner.Tests
     }
 
     [TestMethod]
+    public void Delete_DeletesTaskFromEventFromDatabase()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string taskDescription = "Setup Tables";
+      DateTime taskPlannedStartDateTime = new DateTime(2019, 04, 04);
+      Task newTask = new Task(taskDescription, taskPlannedStartDateTime);
+      newTask.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Task foundTask = Task.Find(newTask.GetId());
+      foundEvent.AddTask(foundTask);
+
+      List<Task> testList = new List<Task>{foundTask};
+      foundEvent.DeleteTask(foundTask);
+      List<Task> result = foundEvent.GetTasks();
+
+      //Assert
+      CollectionAssert.AreNotEqual(testList, result);
+    }
+
+    [TestMethod]
     public void Save_SavesEventInviteeToDatabase_InviteeList()
     {
       //Arrange
@@ -452,6 +481,35 @@ namespace EventPlanner.Tests
 
       //Assert
       CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void Delete_DeletesInviteeFromEventFromDatabase()
+    {
+      //Arrange
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+      int menusId = 1;
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+      newInvitee.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Invitee foundInvitee = Invitee.Find(newInvitee.GetId());
+      foundEvent.AddInvitee(foundInvitee);
+
+      List<Invitee> testList = new List<Invitee>{foundInvitee};
+      foundEvent.DeleteInvitee(foundInvitee);
+      List<Invitee> result = foundEvent.GetInvitees();
+
+      //Assert
+      CollectionAssert.AreNotEqual(testList, result);
     }
 
     [TestMethod]
