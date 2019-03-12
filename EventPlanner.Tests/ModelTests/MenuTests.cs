@@ -41,38 +41,38 @@ namespace EventPlanner.Tests
       //Assert
       Assert.AreEqual(menuTheme, result);
     }
+
+    [TestMethod]
+    public void SetMenuTheme_SetMenuTheme_String()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+
+      Menu newMenu = new Menu(menuTheme);
+
+      //Act
+      string updatedMenuTheme = "Mexican";
+      newMenu.SetMenuTheme(updatedMenuTheme);
+      string result = newMenu.GetMenuTheme();
+
+      //Assert
+      Assert.AreEqual(updatedMenuTheme, result);
+    }
+
+    [TestMethod]
+    public void GetId_ReturnsMenuId_Int()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      Menu newMenu = new Menu(menuTheme);
+
+      //Act
+      int result = newMenu.GetId();
+
+      //Assert
+      Assert.AreEqual(0, result);
+    }
     
-    // [TestMethod]
-    // public void SetMenuTheme_SetMenuTheme_String()
-    // {
-    //   //Arrange
-    //   string menuTheme = "BBQ";
-    //
-    //   Menu newMenu = new Menu(menuTheme);
-    //
-    //   //Act
-    //   string updatedMenuTheme = "Mexican";
-    //   newMenu.SetMenuTheme(updatedMenuTheme);
-    //   string result = newMenu.GetMenuTheme();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedMenuTheme, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetId_ReturnsMenuId_Int()
-    // {
-    //   //Arrange
-    //   string menuTheme = "BBQ";
-    //   Menu newMenu = new Menu(menuTheme);
-    //
-    //   //Act
-    //   int result = newMenu.GetId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(0, result);
-    // }
-    //
     // [TestMethod]
     // public void Save_SavesMenuToDatabase_MenuList()
     // {

@@ -20,17 +20,17 @@ namespace EventPlanner.Models
     {
       return _menuTheme;
     }
+
+    public void SetMenuTheme(string newMenuTheme)
+    {
+      _menuTheme = newMenuTheme;
+    }
+
+    public int GetId()
+    {
+      return _id;
+    }
     
-    // public void SetMenuTheme(string newMenuTheme)
-    // {
-    //   _menuTheme = newmenuTheme;
-    // }
-    //
-    // public int GetId()
-    // {
-    //   return _id;
-    // }
-    //
     // public static void ClearAll()
     // {
     //   MySqlConnection conn = DB.Connection();
