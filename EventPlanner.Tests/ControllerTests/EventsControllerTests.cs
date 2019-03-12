@@ -10,6 +10,10 @@ namespace EventPlanner.Tests
   [TestClass]
   public class EventsControllerTest : IDisposable
   {
+    public EventTest()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
+    }
     public void Dispose()
     {
       Event.ClearAll();
@@ -36,7 +40,7 @@ namespace EventPlanner.Tests
       Assert.IsInstanceOfType(newView, typeof(ViewResult));
     }
     [TestMethod]
-    public void Create_CreatesNewInstanceOfStylist_True()
+    public void Create_CreatesNewInstanceOfEvent_True()
     {
       ActionResult createPost = new EventsController().Create("TestName", (new DateTime(2019, 12, 31, 21, 30, 0, DateTimeKind.Utc)), "TestLocation", 1);
       Assert.IsInstanceOfType(createPost, typeof(ActionResult));
@@ -49,6 +53,15 @@ namespace EventPlanner.Tests
     //   newEvent.Save();
     //   ActionResult show = new EventsController().Show(newEvent.GetId());
     //   Assert.AreEqual(3, show.Count);
+    // }
+
+    // [TestMethod]
+    // public void AddTask_AddInstanceOfTaskForEvent_True()
+    // {
+    //   Event newEvent = new Event ("TestName", (new DateTime(2019, 12, 31, 21, 30, 0, DateTimeKind.Utc)), "TestLocation", 1);
+    //   event.Save();
+    //   ActionResult showPost = new EventsController().AddTask(event.GetId());
+    //   Assert.IsInstanceOfType(showPost, typeof(ActionResult));
     // }
 
     [TestMethod]
