@@ -110,22 +110,22 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnsStoreInDatabase_Store()
+    {
+      //Arrange
+      string storeName = "Costco";
+      Store newStore = new Store(storeName);
+      newStore.Save();
+
+      //Act
+      Store foundStore = Store.Find(newStore.GetId());
+
+      //Assert
+      Assert.AreEqual(newStore, foundStore);
+    }
     
-    // [TestMethod]
-    // public void Find_ReturnsStoreInDatabase_Store()
-    // {
-    //   //Arrange
-    //   string storeName = "Costco";
-    //   Store newStore = new Store(storeName);
-    //   newStore.Save();
-    //
-    //   //Act
-    //   Store foundStore = Store.Find(newStore.GetId());
-    //
-    //   //Assert
-    //   Assert.AreEqual(newStore, foundStore);
-    // }
-    //
     // [TestMethod]
     // public void Delete_DeletesStoreFromDatabase()
     // {

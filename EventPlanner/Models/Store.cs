@@ -87,33 +87,33 @@ namespace EventPlanner.Models
       return allStores;
     }
 
-    // public static Store Find(int id)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM stores WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = id;
-    //   cmd.Parameters.Add(searchId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   int storeId = 0;
-    //   string storeName = "";
-    //   while(rdr.Read())
-    //   {
-    //     storeId = rdr.GetInt32(0);
-    //     storeName = rdr.GetString(1);
-    //   }
-    //   Store newStore = new Store(storeName, storeId);
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //     return newStore;
-    // }
-    //
+    public static Store Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM stores WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int storeId = 0;
+      string storeName = "";
+      while(rdr.Read())
+      {
+        storeId = rdr.GetInt32(0);
+        storeName = rdr.GetString(1);
+      }
+      Store newStore = new Store(storeName, storeId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+        return newStore;
+    }
+    
     // public void Delete()
     // {
     //   MySqlConnection conn = DB.Connection();
