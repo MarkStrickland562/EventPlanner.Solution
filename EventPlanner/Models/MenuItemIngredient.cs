@@ -23,12 +23,12 @@ namespace EventPlanner.Models
     {
       return _ingredientDescription;
     }
+
+    public void SetIngredientDescription(string newIngredientDescription)
+    {
+      _ingredientDescription = newIngredientDescription;
+    }
     
-    // public void SetIngredientDescription(string newIngredientDescription)
-    // {
-    //   _ingredientDescription = newIngredientDescription;
-    // }
-    //
     // public string GetMenuItemsId()
     // {
     //   return _menuItemsId;

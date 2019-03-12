@@ -47,24 +47,24 @@ namespace EventPlanner.Tests
       Assert.AreEqual(menuItemIngredientDescription, result);
     }
 
-    // [TestMethod]
-    // public void SetIngredientDescription_SetIngredientDescription_String()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId = 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //
-    //   //Act
-    //   string updatedIngredientDescription = "Tomatoes";
-    //   newMenuItemIngredient.SetIngredientDescription(updatedIngredientDescription);
-    //   string result = newMenuItemIngredient.GetIngredientDescription();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedIngredientDescription, result);
-    // }
-    //
+    [TestMethod]
+    public void SetIngredientDescription_SetIngredientDescription_String()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId = 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+
+      //Act
+      string updatedIngredientDescription = "Tomatoes";
+      newMenuItemIngredient.SetIngredientDescription(updatedIngredientDescription);
+      string result = newMenuItemIngredient.GetIngredientDescription();
+
+      //Assert
+      Assert.AreEqual(updatedIngredientDescription, result);
+    }
+    
     // [TestMethod]
     // public void GetMenuItemsId_ReturnsMenuItemsId_Int()
     // {
