@@ -9,21 +9,24 @@ namespace EventPlanner.Tests
   [TestClass]
   public class HomeControllerTest
   {
+    public EventTest()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
+    }
+    [TestMethod]
+    public void Index_ReturnsCorrectView_True()
+    {
+      HomeController controller = new HomeController();
+      Assert.IsInstanceOfType(controller.Index(), typeof(ViewResult));
+    }
 
-    // [TestMethod]
-    // public void Index_ReturnsCorrectView_True()
-    // {
-    //   HomeController controller = new HomeController();
-    //   Assert.IsInstanceOfType(controller.Index(), typeof(ViewResult));
-    // }
-    //
-    // [TestMethod]
-    // public void Index_HasCorrectModelType_EventsList()
-    // {
-    //   ViewResult indexView = new HomeController().Index() as ViewResult;
-    //   var result = indexView.ViewData.Model;
-    //   Assert.IsInstanceOfType(result, typeof(List<Events>));
-    // }
+    [TestMethod]
+    public void Index_HasCorrectModelType_EventsList()
+    {
+      ViewResult indexView = new HomeController().Index() as ViewResult;
+      var result = indexView.ViewData.Model;
+      Assert.IsInstanceOfType(result, typeof(List<Event>));
+    }
 
   }
 }
