@@ -116,26 +116,26 @@ namespace EventPlanner.Models
         return newMenuItem;
     }
 
-    // public void Delete()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM menus_menu_items WHERE menu_items_id = (@searchId);
-    //                       DELETE FROM menu_item_ingredients WHERE menu_items_id = (@searchId);
-    //                       DELETE FROM menu_items WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = this._id;
-    //   cmd.Parameters.Add(searchId);
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
+    public void Delete()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM menus_menu_items WHERE menu_items_id = (@searchId);
+                          DELETE FROM menu_item_ingredients WHERE menu_items_id = (@searchId);
+                          DELETE FROM menu_items WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = this._id;
+      cmd.Parameters.Add(searchId);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+    
     // public static void DeleteAll()
     // {
     //   MySqlConnection conn = DB.Connection();

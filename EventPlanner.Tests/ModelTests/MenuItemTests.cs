@@ -110,21 +110,21 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    // [TestMethod]
-    // public void Find_ReturnsMenuItemInDatabase_MenuItem()
-    // {
-    //   //Arrange
-    //   string menuItemDescription = "Potato Salad";
-    //   MenuItem newMenuItem = new MenuItem(menuItemDescription);
-    //   newMenuItem.Save();
-    //
-    //   //Act
-    //   MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
-    //
-    //   //Assert
-    //   Assert.AreEqual(newMenuItem, foundMenuItem);
-    // }
-    //
+    [TestMethod]
+    public void Find_ReturnsMenuItemInDatabase_MenuItem()
+    {
+      //Arrange
+      string menuItemDescription = "Potato Salad";
+      MenuItem newMenuItem = new MenuItem(menuItemDescription);
+      newMenuItem.Save();
+
+      //Act
+      MenuItem foundMenuItem = MenuItem.Find(newMenuItem.GetId());
+
+      //Assert
+      Assert.AreEqual(newMenuItem, foundMenuItem);
+    }
+    
     // [TestMethod]
     // public void GetMenus_RetrievesAllMenusWithMenuItem_MenuList()
     // {
