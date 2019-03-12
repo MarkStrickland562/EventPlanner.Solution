@@ -10,7 +10,7 @@ namespace EventPlanner.Controllers
     [HttpGet("/stores")]
     public ActionResult Index()
     {
-      Store allStores = Store.GetAll();
+      List<Store> allStores = Store.GetAll();
       return View(allStores);
     }
 
@@ -40,7 +40,7 @@ namespace EventPlanner.Controllers
     public ActionResult Delete(int storeId)
     {
       Store store = Store.Find(storeId);
-      Store.Delete();
+      store.Delete();
       return RedirectToAction("Index");
     }
     [HttpPost("/stores/delete")]
