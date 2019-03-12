@@ -88,33 +88,33 @@ namespace EventPlanner.Models
       return allMenus;
     }
 
-    // public static Menu Find(int id)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM menus WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = id;
-    //   cmd.Parameters.Add(searchId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   int menuId = 0;
-    //   string menuTheme = "";
-    //   while(rdr.Read())
-    //   {
-    //     menuId = rdr.GetInt32(0);
-    //     menuTheme = rdr.GetString(1);
-    //   }
-    //   Menu newMenu = new Menu(menuTheme, menuId);
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //     return newMenu;
-    // }
-    //
+    public static Menu Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM menus WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int menuId = 0;
+      string menuTheme = "";
+      while(rdr.Read())
+      {
+        menuId = rdr.GetInt32(0);
+        menuTheme = rdr.GetString(1);
+      }
+      Menu newMenu = new Menu(menuTheme, menuId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+        return newMenu;
+    }
+    
     // public void Delete()
     // {
     //   MySqlConnection conn = DB.Connection();
