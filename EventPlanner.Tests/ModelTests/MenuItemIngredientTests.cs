@@ -114,25 +114,25 @@ namespace EventPlanner.Tests
       //Assert
       Assert.AreEqual(storeId, result);
     }
-    
-    // [TestMethod]
-    // public void SetStoreId_SetStoreId_Int()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId = 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //
-    //   //Act
-    //   int updatedStoreId = 2;
-    //   newMenuItemIngredient.SetStoreId(updatedStoreId);
-    //   string result = newMenuItemIngredient.GetStoreId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedStoreId, result);
-    // }
-    //
+
+    [TestMethod]
+    public void SetStoreId_SetStoreId_Int()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId = 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+
+      //Act
+      int updatedStoreId = 2;
+      newMenuItemIngredient.SetStoreId(updatedStoreId);
+      int result = newMenuItemIngredient.GetStoreId();
+
+      //Assert
+      Assert.AreEqual(updatedStoreId, result);
+    }
+
     // [TestMethod]
     // public void GetId_ReturnsMenuItemIngredientId_Int()
     // {
