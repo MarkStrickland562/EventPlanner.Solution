@@ -9,6 +9,10 @@ namespace EventPlanner.Tests
   [TestClass]
   public class HomeControllerTest
   {
+    public HomeControllerTest()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
+    }
 
     [TestMethod]
     public void Index_ReturnsCorrectView_True()
@@ -16,7 +20,6 @@ namespace EventPlanner.Tests
       HomeController controller = new HomeController();
       Assert.IsInstanceOfType(controller.Index(), typeof(ViewResult));
     }
-
     [TestMethod]
     public void Index_HasCorrectModelType_EventsList()
     {
