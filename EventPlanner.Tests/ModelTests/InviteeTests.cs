@@ -30,21 +30,21 @@ namespace EventPlanner.Tests
       Assert.AreEqual(typeof(Invitee), newInvitee.GetType());
     }
 
-    // [TestMethod]
-    // public void GetinviteeName_ReturnsinviteeName_String()
-    // {
-    //   //Arrange
-    //   string inviteeName = "Jane Doe";
-    //   string inviteeEmailAddress = "janedoe@mail.com";
-    //   invitee newinvitee = new invitee(inviteeName, inviteeEmailAddress);
-    //
-    //   //Act
-    //   string result = newinvitee.GetinviteeName();
-    //
-    //   //Assert
-    //   Assert.AreEqual(inviteeName, result);
-    // }
-    //
+    [TestMethod]
+    public void GetInviteeName_ReturnsInviteeName_String()
+    {
+      //Arrange
+      string inviteeName = "Jane Doe";
+      string inviteeEmailAddress = "janedoe@mail.com";
+      Invitee newInvitee = new Invitee(inviteeName, inviteeEmailAddress);
+
+      //Act
+      string result = newInvitee.GetInviteeName();
+
+      //Assert
+      Assert.AreEqual(inviteeName, result);
+    }
+
     // [TestMethod]
     // public void SetinviteeName_SetinviteeName_String()
     // {

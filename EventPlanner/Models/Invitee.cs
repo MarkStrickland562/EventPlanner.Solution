@@ -17,11 +17,11 @@ namespace EventPlanner.Models
       _id = id;
     }
 
-    // public string GetinviteeName()
-    // {
-    //   return _inviteeName;
-    // }
-    //
+    public string GetInviteeName()
+    {
+      return _inviteeName;
+    }
+
     // public void SetinviteeName(string newinviteeName)
     // {
     //   _inviteeName = newinviteeName;
