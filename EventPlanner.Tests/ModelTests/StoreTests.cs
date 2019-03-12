@@ -8,15 +8,14 @@ namespace EventPlanner.Tests
   [TestClass]
   public class StoreTest : IDisposable
   {
-
-    public EventTest()
+    public StoreTest()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_test;";
     }
 
     public void Dispose()
     {
-      Event.ClearAll();
+//      Event.ClearAll();
     }
 
 
