@@ -22,11 +22,11 @@ namespace EventPlanner.Models
       return _inviteeName;
     }
 
-    // public void SetinviteeName(string newinviteeName)
-    // {
-    //   _inviteeName = newinviteeName;
-    // }
-    //
+    public void SetInviteeName(string newInviteeName)
+    {
+      _inviteeName = newInviteeName;
+    }
+
     // public string GetinviteeEmailAddress()
     // {
     //   return _inviteeEmailAddress;
