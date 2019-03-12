@@ -38,12 +38,12 @@ namespace EventPlanner.Models
     {
       _menuItemsId = newMenuItemsId;
     }
+
+    public int GetStoreId()
+    {
+      return _storeId;
+    }
     
-    // public int GetStoreId()
-    // {
-    //   return _storeId;
-    // }
-    //
     // public void SetStoreId(int newStoreId)
     // {
     //   _storeId = newStoreId;
