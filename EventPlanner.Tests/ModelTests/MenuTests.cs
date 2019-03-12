@@ -28,20 +28,20 @@ namespace EventPlanner.Tests
       Assert.AreEqual(typeof(Menu), newMenu.GetType());
     }
 
-    // [TestMethod]
-    // public void GetMenuTheme_ReturnsMenuTheme_String()
-    // {
-    //   //Arrange
-    //   string menuTheme = "BBQ";
-    //   Menu newMenu = new Menu(menuTheme);
-    //
-    //   //Act
-    //   string result = newMenu.GetMenuTheme();
-    //
-    //   //Assert
-    //   Assert.AreEqual(menuTheme, result);
-    // }
-    //
+    [TestMethod]
+    public void GetMenuTheme_ReturnsMenuTheme_String()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      Menu newMenu = new Menu(menuTheme);
+
+      //Act
+      string result = newMenu.GetMenuTheme();
+
+      //Assert
+      Assert.AreEqual(menuTheme, result);
+    }
+    
     // [TestMethod]
     // public void SetMenuTheme_SetMenuTheme_String()
     // {

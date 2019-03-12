@@ -16,11 +16,11 @@ namespace EventPlanner.Models
       _id = id;
     }
 
-    // public string GetMenuTheme()
-    // {
-    //   return _menuTheme;
-    // }
-    //
+    public string GetMenuTheme()
+    {
+      return _menuTheme;
+    }
+    
     // public void SetMenuTheme(string newMenuTheme)
     // {
     //   _menuTheme = newmenuTheme;
