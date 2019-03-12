@@ -30,31 +30,30 @@
    <div class="wrapper">
             <!-- Sidebar Holder -->
         <nav id="sidebar">
-              <div class="sidebar-header">
-                <h3>+</h3>
-                </div>
-
+            <button type="button" id="closeNav">
+                <svg class="fas fa-times"></svg>
+            </button>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#">EVENTS</a>
+                <a href="/events">EVENTS<br><h3 id="logo">+</h3></a>
             </li>
             <li>
-                <a href="#">MENUS</a>
+                <a href="/menus">MENUS<br><i class="fas fa-utensils"></i></a>
             </li>
             <li>
-                <a href="#">DISHES</a>
+                <a href="/dishes">DISHES<br><i class="fas fa-utensils"></i></a>
             </li>
             <li>
-                <a href="#">INGREDIENTS</a>
+                <a href="/ingredients">FOODS<br><i class="fas fa-utensils"></i></a>
             </li>
             <li>
-                <a href="#">STORES</a>
+                <a href="/stores">STORES<br><i class="fas fa-shopping-cart"></i></a>
             </li>
              <li>
-                <a href="#">TASKS</a>
+                <a href="/tasks">TASKS<br><i class="fas fa-check"></i></a>
             </li>
              <li>
-                <a href="#">INVITES</a>
+                <a href="/invites">INVITES<br><i class="fas fa-at"></i></a>
             </li>
         </ul>
     </nav>
@@ -65,9 +64,8 @@
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                                <i class="glyphicon glyphicon-align-left"></i>
-                                <span>HAMBURGER</span>
+                            <button type="button" id="sidebarCollapse">
+                                <svg class="fas fa-bars"></svg>
                             </button>
                         </div>
 
@@ -79,30 +77,25 @@
                         </div>
                     </div>
                 </nav>
-                @RenderBody()
-                @Html.Partial("Footer")
+                <div id="main-content">
+                    @RenderBody()
+                </div>
+                    @Html.Partial("Footer")
             </div>
-        </div>
+    </div>
 
 <script>$(document).ready(function () {
-  $('#sidebar').mCustomScrollbar({
-    theme: 'minimal'
-  });
 
   $('#sidebarCollapse').on('click', function () {
     // open or close navbar
     $('#sidebar').toggleClass('active');
     // close dropdowns
     $('#content').toggleClass('active');
-    $('.collapse.in').toggleClass('in');
-    // and also adjust aria-expanded attributes we use for the open/closed arrows
-    // in our CSS
-    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
   });
 
-  $('#sidebarCollapse').on('click', function () {
-    // open or close navbar
-
+  $('#closeNav').on('click', function () {
+        $('#sidebar').toggleClass('active');
+         $('#content').toggleClass('active');
   });
 
 });</script>
