@@ -146,30 +146,30 @@ namespace EventPlanner.Models
         conn.Dispose();
       }
     }
+
+    public void Edit(string newStoreName)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE stores SET store_name = (@storeName) WHERE id = (@storeId);";
+      MySqlParameter storeNameParameter = new MySqlParameter();
+      storeNameParameter.ParameterName = "@storeName";
+      storeNameParameter.Value = newStoreName;
+      cmd.Parameters.Add(storeNameParameter);
+      MySqlParameter storeIdParameter = new MySqlParameter();
+      storeIdParameter.ParameterName = "@storeId";
+      storeIdParameter.Value = this._id;
+      cmd.Parameters.Add(storeIdParameter);
+      cmd.ExecuteNonQuery();
+      _storeName = newStoreName;
+        conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
     
-    // public void Edit(string newStoreName)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"UPDATE stores SET store_name = (@storeName) WHERE id = (@storeId);";
-    //   MySqlParameter storeNameParameter = new MySqlParameter();
-    //   storeNameParameter.ParameterName = "@storeName";
-    //   storeNameParameter.Value = newStoreName;
-    //   cmd.Parameters.Add(storeNameParameter);
-    //   MySqlParameter storeIdParameter = new MySqlParameter();
-    //   storeIdParameter.ParameterName = "@storeId";
-    //   storeIdParameter.Value = this._id;
-    //   cmd.Parameters.Add(storeIdParameter);
-    //   cmd.ExecuteNonQuery();
-    //   _storeName = newStoreName;
-    //     conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
     public override bool Equals(System.Object otherStore)
     {
       if (!(otherStore is Store))
