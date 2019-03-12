@@ -10,6 +10,10 @@ namespace EventPlanner.Tests
   [TestClass]
   public class EventsControllerTest : IDisposable
   {
+    public EventTest()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
+    }
     public void Dispose()
     {
       Event.ClearAll();
