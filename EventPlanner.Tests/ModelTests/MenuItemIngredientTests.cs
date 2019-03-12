@@ -192,23 +192,23 @@ namespace EventPlanner.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    // [TestMethod]
-    // public void Find_ReturnsMenuItemIngredientInDatabase_MenuItemIngredient()
-    // {
-    //   //Arrange
-    //   string menuItemIngredientDescription = "Avocadoes";
-    //   int menuItemsId = 1;
-    //   int storeId = 1;
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
-    //   newMenuItemIngredient.Save();
-    //
-    //   //Act
-    //   MenuItemIngredient foundMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
-    //
-    //   //Assert
-    //   Assert.AreEqual(newMenuItemIngredient, foundMenuItemIngredient);
-    // }
-    //
+    [TestMethod]
+    public void Find_ReturnsMenuItemIngredientInDatabase_MenuItemIngredient()
+    {
+      //Arrange
+      string menuItemIngredientDescription = "Avocadoes";
+      int menuItemsId = 1;
+      int storeId = 1;
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(menuItemIngredientDescription, menuItemsId, storeId);
+      newMenuItemIngredient.Save();
+
+      //Act
+      MenuItemIngredient foundMenuItemIngredient = MenuItemIngredient.Find(newMenuItemIngredient.GetId());
+
+      //Assert
+      Assert.AreEqual(newMenuItemIngredient, foundMenuItemIngredient);
+    }
+    
     // [TestMethod]
     // public void Delete_DeletesMenuItemIngredientFromDatabase()
     // {

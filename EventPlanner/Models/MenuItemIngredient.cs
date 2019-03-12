@@ -121,37 +121,37 @@ namespace EventPlanner.Models
       return allMenuItemIngredients;
     }
 
-    // public static MenuItemIngredient Find(int id)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM menu_item_ingredients WHERE id = (@searchId);";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = id;
-    //   cmd.Parameters.Add(searchId);
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   int menuItemIngredientId = 0;
-    //   string ingredientDescription = "";
-    //   int menuItemsId = 0;
-    //   int storeId = 0;
-    //   while(rdr.Read())
-    //   {
-    //     menuItemIngredientId = rdr.GetInt32(0);
-    //     ingredientDescription = rdr.GetString(1);
-    //     menuItemsId = rdr.GetInt32(2);
-    //     storeId = rdr.GetInt32();
-    //   }
-    //   MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(ingredientDescription, menuItemsId, storeId, menuItemIngredientId);
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //     return newMenuItemIngredient;
-    // }
-    //
+    public static MenuItemIngredient Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM menu_item_ingredients WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int menuItemIngredientId = 0;
+      string ingredientDescription = "";
+      int menuItemsId = 0;
+      int storeId = 0;
+      while(rdr.Read())
+      {
+        menuItemIngredientId = rdr.GetInt32(0);
+        ingredientDescription = rdr.GetString(1);
+        menuItemsId = rdr.GetInt32(2);
+        storeId = rdr.GetInt32(3);
+      }
+      MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(ingredientDescription, menuItemsId, storeId, menuItemIngredientId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+        return newMenuItemIngredient;
+    }
+
     // public void Delete()
     // {
     //   MySqlConnection conn = DB.Connection();
