@@ -169,7 +169,7 @@ namespace EventPlanner.Models
         conn.Dispose();
       }
     }
-    
+
     public override bool Equals(System.Object otherStore)
     {
       if (!(otherStore is Store))
@@ -183,6 +183,11 @@ namespace EventPlanner.Models
         bool storeNameEquality = this.GetStoreName().Equals(newStore.GetStoreName());
         return (idEquality && storeNameEquality);
       }
+    }
+
+    public override int GetHashCode()
+    {
+      return this.GetId().GetHashCode();
     }
   }
 }

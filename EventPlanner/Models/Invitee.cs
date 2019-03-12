@@ -266,5 +266,10 @@ namespace EventPlanner.Models
         return (idEquality && inviteeNameEquality && inviteeEmailAddressEquality);
       }
     }
+
+    public override int GetHashCode()
+    {
+      return this.GetId().GetHashCode();
+    }
   }
 }
