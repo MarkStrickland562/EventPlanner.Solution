@@ -29,64 +29,64 @@ namespace EventPlanner.Models
     {
       return _id;
     }
-    
-    // public static void ClearAll()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM stores;";
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public void Save()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"INSERT INTO stores (store_name)
-    //                       VALUES (@storeName);";
-    //   MySqlParameter storeName = new MySqlParameter();
-    //   storeName.ParameterName = "@storeName";
-    //   storeName.Value = this._storeName;
-    //   cmd.Parameters.Add(storeName);
-    //   cmd.ExecuteNonQuery();
-    //   _id = (int) cmd.LastInsertedId;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
-    //
-    // public static List<Store> GetAll()
-    // {
-    //   List<Store> allStores = new List<Store> {};
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"SELECT * FROM stores;";
-    //   var rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //   while(rdr.Read())
-    //   {
-    //     int storeId = rdr.GetInt32(0);
-    //     string storeName = rdr.GetString(1);
-    //     Store newStore = new Store(storeName, storeId);
-    //     allStores.Add(newStore);
-    //   }
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    //   return allStores;
-    // }
-    //
+
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM stores;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO stores (store_name)
+                          VALUES (@storeName);";
+      MySqlParameter storeName = new MySqlParameter();
+      storeName.ParameterName = "@storeName";
+      storeName.Value = this._storeName;
+      cmd.Parameters.Add(storeName);
+      cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public static List<Store> GetAll()
+    {
+      List<Store> allStores = new List<Store> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM stores;";
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int storeId = rdr.GetInt32(0);
+        string storeName = rdr.GetString(1);
+        Store newStore = new Store(storeName, storeId);
+        allStores.Add(newStore);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allStores;
+    }
+
     // public static Store Find(int id)
     // {
     //   MySqlConnection conn = DB.Connection();
@@ -170,19 +170,19 @@ namespace EventPlanner.Models
     //   }
     // }
     //
-    // public override bool Equals(System.Object otherStore)
-    // {
-    //   if (!(otherStore is Store))
-    //   {
-    //     return false;
-    //   }
-    //   else
-    //   {
-    //     Store newStore = (Store) otherStore;
-    //     bool idEquality = this.GetId().Equals(newStore.GetId());
-    //     bool storeNameEquality = this.GetStoreName().Equals(newStore.GetStoreName());
-    //     return (idEquality && storeNameEquality);
-    //   }
-    // }
+    public override bool Equals(System.Object otherStore)
+    {
+      if (!(otherStore is Store))
+      {
+        return false;
+      }
+      else
+      {
+        Store newStore = (Store) otherStore;
+        bool idEquality = this.GetId().Equals(newStore.GetId());
+        bool storeNameEquality = this.GetStoreName().Equals(newStore.GetStoreName());
+        return (idEquality && storeNameEquality);
+      }
+    }
   }
 }
