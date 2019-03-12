@@ -28,23 +28,23 @@ namespace EventPlanner.Models
     {
       _ingredientDescription = newIngredientDescription;
     }
-    
-    // public string GetMenuItemsId()
-    // {
-    //   return _menuItemsId;
-    // }
-    //
-    // public void SetMenuItemsId(string newMenuItemsId)
+
+    public int GetMenuItemsId()
+    {
+      return _menuItemsId;
+    }
+
+    // public void SetMenuItemsId(int newMenuItemsId)
     // {
     //   _menuItemsId = newMenuItemsId;
     // }
     //
-    // public string GetStoreId()
+    // public int GetStoreId()
     // {
     //   return _storeId;
     // }
     //
-    // public void SetStoreId(string newStoreId)
+    // public void SetStoreId(int newStoreId)
     // {
     //   _storeId = newStoreId;
     // }
