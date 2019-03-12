@@ -15,8 +15,9 @@ namespace EventPlanner.Tests
 
     public void Dispose()
     {
-//      Event.ClearAll();
+      Menu.ClearAll();
     }
+
     [TestMethod]
     public void menuConstructor_CreatesInstanceOfMenu_Menu()
     {
@@ -72,44 +73,44 @@ namespace EventPlanner.Tests
       //Assert
       Assert.AreEqual(0, result);
     }
-    
-    // [TestMethod]
-    // public void Save_SavesMenuToDatabase_MenuList()
-    // {
-    //   //Arrange
-    //   string menuTheme = "BBQ";
-    //   Menu newMenu = new Menu(menuTheme);
-    //   newMenu.Save();
-    //
-    //   //Act
-    //   List<Menu> result = Menu.GetAll();
-    //   List<Menu> testList = new List<Menu>{newMenu};
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetAll_ReturnsAllMenuObjects_MenuList()
-    // {
-    //   //Arrange
-    //   string menuTheme1 = "BBQ";
-    //   Menu newMenu1 = new Menu(menuTheme1);
-    //   newMenu1.Save();
-    //
-    //   string menuTheme2 = "John Smith";
-    //   Menu newMenu2 = new Menu(menuTheme2);
-    //   newMenu2.Save();
-    //
-    //   List<Menu> newList = new List<Menu> { newMenu1, newMenu2};
-    //
-    //   //Act
-    //   List<Menu> result = Menu.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-    //
+
+    [TestMethod]
+    public void Save_SavesMenuToDatabase_MenuList()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      Menu newMenu = new Menu(menuTheme);
+      newMenu.Save();
+
+      //Act
+      List<Menu> result = Menu.GetAll();
+      List<Menu> testList = new List<Menu>{newMenu};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllMenuObjects_MenuList()
+    {
+      //Arrange
+      string menuTheme1 = "BBQ";
+      Menu newMenu1 = new Menu(menuTheme1);
+      newMenu1.Save();
+
+      string menuTheme2 = "John Smith";
+      Menu newMenu2 = new Menu(menuTheme2);
+      newMenu2.Save();
+
+      List<Menu> newList = new List<Menu> { newMenu1, newMenu2};
+
+      //Act
+      List<Menu> result = Menu.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
     // [TestMethod]
     // public void Find_ReturnsMenuInDatabase_Menu()
     // {
