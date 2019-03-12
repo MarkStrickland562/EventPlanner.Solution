@@ -350,6 +350,35 @@ namespace EventPlanner.Models
       }
     }
 
+    public Menu GetMenu()
+    {
+      List<Menu> allMenus = new List<Menu> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM menus
+                           WHERE id = (SELECT menus_id FROM events WHERE id = @eventId);";
+      MySqlParameter eventId = new MySqlParameter();
+      eventId.ParameterName = "@eventId";
+      eventId.Value = this._id;
+      cmd.Parameters.Add(eventId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int menusId = rdr.GetInt32(0);
+        string menuTheme = rdr.GetString(1);
+        Menu newMenu = new Menu(menuTheme, menuId);
+        allMenus.Add(newMenu);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allMenus;
+    }
+    
     public override bool Equals(System.Object otherEvent)
     {
       if (!(otherEvent is Event))

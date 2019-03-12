@@ -453,5 +453,31 @@ namespace EventPlanner.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
+
+    [TestMethod]
+    public void GetMenu_RetrievesEventMenuFromDatabase_MenuList()
+    {
+      //Arrange
+      string menuTheme = "BBQ";
+      Menu newMenu = new Menu(menuTheme);
+      newMenu.Save();
+      int menusId = newMenu.GetId();
+
+      string eventName = "July 4th BBQ";
+      DateTime eventDate = new DateTime(2019, 04, 04);
+      string eventLocation = "Capitol Hill";
+
+      Event newEvent = new Event(eventName, eventDate, eventLocation, menusId);
+      newEvent.Save();
+
+      //Act
+      Event foundEvent = Event.Find(newEvent.GetId());
+      Menu foundMenu = Menu.Find(newMenu.GetId());
+      List<Menu> result = foundEvent.GetMenu();
+      List<Menu> testList = new List<Menu>{foundMenu};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }
