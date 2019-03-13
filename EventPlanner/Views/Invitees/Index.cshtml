@@ -10,9 +10,9 @@
     @foreach (var invites in Model)
     {
       <ul class="list-group list-group-horizontal">
-        <li class="list-group-item"><a href='/invites/@invites.GetId()'>@invites.GetInviteeName()</a></li>
-        <li class="list-group-item"><a href="/invites/@invites.GetId()/edit">EDIT</a></li>
-        <li class="list-group-item"><a href='/invites/@invites.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+        <li class="list-group-item"><a href='/invitees/@invites.GetId()'>@invites.GetInviteeName()</a></li>
+        <li class="list-group-item"><a href="/invitees/@invites.GetId()/edit">EDIT</a></li>
+        <li class="list-group-item"><a href='/invitees/@invites.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
       </ul>
     }
 }
