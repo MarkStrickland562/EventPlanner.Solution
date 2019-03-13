@@ -129,12 +129,18 @@ Query OK, 0 row affected (0.00 sec)
 | | Clara Munro | Mark Strickland | Micaela Jawor | Shawn Lunsford |
 |-|:-----------:|:---------------:|:-------------:|:--------------:|
 | **Design** |
-| Core Mechanics | |◈| | |
+| Core Mechanics | |◈| |◈|
+| Databases | |◈| | |
 | User Interface |◈| |◈| |
 | **Programming** |
 | Back-End | |◈| |◈|
 | Front-End |◈| |◈| |
-| Refractoring | | | | |
+| Integration |◈|◈| | |
+| Refractoring | | | |◈|
+| **Visuals** | | | | |
+| Wire Frame |◈| |◈| |
+| CSS Styling |◈| |◈| |
+| Graphics Management | | |◈| |
 | **Quality Assurance** |
 | Documentation | |◈| |◈|
 | Testing | |◈| |◈|
@@ -145,7 +151,7 @@ If you have any feedback or concerns, please contact any of the contributors (se
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright (C) 2019 Clara Munro, Mark Strickland, Micaela Jawor, Shawn Lunsford. All Rights Reserved.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright (C) 2019 [Clara Munro](https://github.com/claramunro), [Mark Strickland](https://github.com/MarkStrickland562), [Micaela Jawor](https://github.com/MarkStrickland562), [Shawn Lunsford](https://github.com/LondresRi). All Rights Reserved.
 ```
 MIT License
 

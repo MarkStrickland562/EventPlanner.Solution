@@ -71,8 +71,10 @@ namespace EventPlanner.Controllers
     public ActionResult Edit(int menuId)
     {
       Menu menu = Menu.Find(menuId);
+      List<MenuItem> menuItems = menu.GetMenuItems();
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("Menu", menu);
+      model.Add("menu", menu);
+      model.Add("menuItems", menuItems);
       return View(model);
     }
     [HttpPost("/menus/{menuId}/edit")]
