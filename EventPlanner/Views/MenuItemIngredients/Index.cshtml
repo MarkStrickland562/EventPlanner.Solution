@@ -2,9 +2,25 @@
   Layout = "_Layout";
 }
 
-<div class="container">
-  <h1>INGREDIENTS LIST</h1>
-    <a href="/menuItemIngredients/new">new ingredients</a>
-    <a href="/menuItemIngredients/{id}">show ingredients</a>
-    <a href="/menuItemIngredients/{id}/edit">edit ingredients</a>
-</div>
+<h1 id="pageTitle">INGREDIENTS LIST</h1>
+<br>
+  
+  @if (Model.Count != 0)
+{
+    @foreach (var menuItemIngreidents in Model)
+    {
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"><a href='/menuItemIngreidents/@menuItemIngreidents.GetId()'>@menuItemIngreidents.GetIngredientDescription()</a></li>
+        <li class="list-group-item"><a href="/menuItemIngreidents/@menuItemIngreidents.GetId()/edit">EDIT</a></li>
+        <li class="list-group-item"><a href='/menuItemIngreidents/@menuItemIngreidents.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+      </ul>
+    }
+}
+
+
+  <hr>
+  <br>
+  <div class="container">
+  <a href="/menuItemIngredients/new">new ingredient</a>
+   <br>
+  </div>
