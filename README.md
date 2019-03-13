@@ -19,16 +19,53 @@ An event planning web application to assist in organizing venues, menus, food, a
 
 ## Specifications
 
-| Behavior | Input | Output |
-|----------|:-----:|:------:|
-
 | Scenario 01 |             |
 |------------:|:------------|
-| Behavior    | |
-| Input       | |
-| Output      | |
-| Notes       | |
-| Completion  | |
+| Behavior    | As an event planner, I need to be able to see a list of events |
+| Input       | Click on view events |
+| Output      | Return list of all events |
+| Notes       | Events should display some details about them |
+| Completion  | False |
+
+| Scenario 02 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add an event |
+| Input       | Click on add/new events, submit form |
+| Output      | Return new event form, creates new instance on submit |
+| Notes       | Will create one event at a time |
+| Completion  | False |
+
+| Scenario 02 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to set the menu for an event |
+| Input       | On new event form, set event menu|
+| Output      | Return new event list, with menu set to that event |
+| Notes       | One menu for an event |
+| Completion  | False |
+
+| Scenario 04 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete a single event |
+| Input       | Click on delete/remove event |
+| Output      | Delete selected event, return to event list |
+| Notes       | Will delete one event at a time |
+| Completion  | False |
+
+| Scenario 05 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete all events |
+| Input       | Click on delete/remove events |
+| Output      | Delete all events, return to event list |
+| Notes       | Will delete all events at one time |
+| Completion  | False |
+
+| Scenario 06 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add tasks to an event|
+| Input       | Select task for an event |
+| Output      | Add given task to event, return to event list |
+| Notes       | Will add one task at a time |
+| Completion  | False |
 
 ## Setup and Use
 
