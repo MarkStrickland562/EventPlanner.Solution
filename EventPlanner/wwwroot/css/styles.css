@@ -143,7 +143,36 @@ a, a:hover {
 
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: rgb(37, 207, 128);
+    color: #c99de8;
+}
+
+.fa-plus {
+  color: #3da599;
+}
+
+.fa-book-open {
+  font-size: 30px;
+  color: #c41e3d;
+}
+
+.fa-utensils {
+  color: #da394a;
+}
+
+.fa-check {
+  color: #ffc857;
+}
+
+.fa-at {
+  color: #ef798a;
+}
+
+.fa-shopping-cart {
+  color: #ea8c55;
+}
+
+.fa-seedling {
+  color: #ff696d;
 }
 
 
@@ -178,35 +207,6 @@ ul ul a {
 
 .fa-utensils, .fa-check, .fa-at, .fa-shopping-cart, .fa-seedling, .fa-plus {
   font-size: 3rem;
-}
-
-.fa-plus {
-  color: #3da599;
-}
-
-.fa-book-open {
-  font-size: 30px;
-  color: #c41e3d;
-}
-
-.fa-utensils {
-  color: #da394a;
-}
-
-.fa-check {
-  color: #ffc857;
-}
-
-.fa-at {
-  color: #ef798a;
-}
-
-.fa-shopping-cart {
-  color: #ea8c55;
-}
-
-.fa-seedling {
-  color: #ff696d;
 }
 
 #closeNav {

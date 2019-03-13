@@ -18,7 +18,8 @@
 
   <label for="menuId">Menu:</label>
   <input type="text" name="menuId" value="@Model["selectedEvent"].GetMenusId()" required>
-  THIS NEEDS TO BE A NAME AND HAVE A DROPDOWN
+  <select type="text" name="menuId" value="@Model["selectedEvent"].GetMenusId()" required>
+  </select>
 
   <button type="submit">Update</button>
 </form>

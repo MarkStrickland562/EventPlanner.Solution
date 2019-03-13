@@ -1,4 +1,10 @@
-
+$(document).ready(function() {
+  // $(this).scrollTop(0);
+  $("li").click(function() {
+    $("li").removeClass("active");
+    $(this).addClass("active");
+  });
+});
 
 // document.getElementById(document).ready(function () {
 
