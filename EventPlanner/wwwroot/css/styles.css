@@ -147,36 +147,33 @@ a, a:hover {
 }
 
 .fa-plus {
-  color: #3da599;
+  color: #3da599 !important;
 }
 
 .fa-book-open {
   font-size: 30px;
-  color: #c41e3d;
+  color: #c41e3d !important;
 }
 
 .fa-utensils {
-  color: #da394a;
+  color: #da394a !important;
 }
 
 .fa-check {
-  color: #ffc857;
+  color: #ffc857 !important;
 }
 
 .fa-at {
-  color: #ef798a;
+  color: #ef798a !important;
 }
 
 .fa-shopping-cart {
-  color: #ea8c55;
+  color: #ea8c55 !important;
 }
 
 .fa-seedling {
-  color: #ff696d;
+  color: #ff696d !important;
 }
-
-
-
 
 ul ul a {
     font-size: 0.9em !important;

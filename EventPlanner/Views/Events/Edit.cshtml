@@ -11,13 +11,13 @@
   <label for="name">Name:</label>
   <input type="text" name="name" value="@Model["selectedEvent"].GetEventName()" required>
 
-  <label for="eventDate">Date:</label>
+  <label for="eventDate">Date <i class="fas fa-calendar-alt"></i></label>
   <input type="text" name="eventDate" value="@Model["selectedEvent"].GetEventDate()" required>
 
-  <label for="eventLocation">Location:</label>
+  <label for="eventLocation">Location <i class="fas fa-map-marker-alt"></i></label>
   <input type="text" name="eventLocation" value="@Model["selectedEvent"].GetEventLocation()" required>
 
-  <label for="menuId">Menu:</label>
+  <label for="menuId">Menu <i class="fas fa-book-open"></i></label>
   <input type="text" name="menuId" value="@Model["eventMenu"].GetMenuTheme()" required>
   SHOULD BE DROPDOWN TO SELECT
 
