@@ -62,9 +62,49 @@ An event planning web application to assist in organizing venues, menus, food, a
 | Scenario 06 |             |
 |------------:|:------------|
 | Behavior    | As an event planner, I need to be able to add tasks to an event|
-| Input       | Select task for an event |
+| Input       | Select task to add to an event |
 | Output      | Add given task to event, return to event list |
 | Notes       | Will add one task at a time |
+| Completion  | False |
+
+| Scenario 07 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to remove tasks from an event|
+| Input       | Select task to remove from an event |
+| Output      | Remove given task to event, return to event list |
+| Notes       | Will remove one task at a time |
+| Completion  | False |
+
+| Scenario 08 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add invitees to an event|
+| Input       | Select invitee to add to an event |
+| Output      | Add given invitee to event, return to event list |
+| Notes       | Will add one invitee at a time |
+| Completion  | False |
+
+| Scenario 09 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to remove invitees from an event |
+| Input       | Select invitee to remove from an event |
+| Output      | Remove given invitee to event, return to event list |
+| Notes       | Will remove one invitee at a time |
+| Completion  | False |
+
+| Scenario 10 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to edit a detail of an event |
+| Input       | Select event, modify a single detail |
+| Output      | Update event detail, local and in database |
+| Notes       | Able to edit one details of a single event |
+| Completion  | False |
+
+| Scenario 11 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to edit all of an event's details |
+| Input       | Select event, modify any of its details |
+| Output      | Update event details, local and in database |
+| Notes       | Able to edit one or multiple details of a single event |
 | Completion  | False |
 
 ## Setup and Use
