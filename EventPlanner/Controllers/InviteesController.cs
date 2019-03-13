@@ -31,21 +31,24 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int inviteeId)
     {
       Invitee invitee = Invitee.Find(inviteeId);
+      List<Event> allEvents = Event.GetAll();
       List<Event> events = invitee.GetEvents();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("invitee", invitee);
       model.Add("events", events);
+      model.Add("allEvents", allEvents);
+
       return View(model);
     }
 
-    [HttpPost("/invitees/{inviteeId}/event/new")]
+    [HttpPost("/invitees/{inviteeId}/events/new")]
     public ActionResult AddEvent(int inviteeId, int eventId)
     {
       Invitee invitee = Invitee.Find(inviteeId);
       invitee.AddEvent(Event.Find(eventId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/invitees/{inviteeId}/event/new")]
+    [HttpGet("/invitees/{inviteeId}/events/{eventId}/delete")]
     public ActionResult DeleteEvent(int inviteeId, int eventId)
     {
       Invitee invitee = Invitee.Find(inviteeId);
@@ -53,7 +56,7 @@ namespace EventPlanner.Controllers
       return RedirectToAction("Show");
     }
 
-    [HttpPost("/invitees/{inviteeId}/delete")]
+    [HttpGet("/invitees/{inviteeId}/delete")]
     public ActionResult Delete(int inviteeId)
     {
       Invitee invitee = Invitee.Find(inviteeId);

@@ -2,9 +2,27 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle">EDIT<h2>@Model["Invitee"].GetEventName()</h2></h1>
+<br>
+
+<form action="/events/@Model["selectedEvent"].GetId()/edit" method="post">
+
+  <label for="name">Name:</label>
+  <input type="text" name="name" value="@Model["selectedEvent"].GetEventName()" required>
+
+  <label for="eventDate">Date:</label>
+  <input type="text" name="eventDate" value="@Model["selectedEvent"].GetEventDate()" required>
+
+  <label for="eventLocation">Location:</label>
+  <input type="text" name="eventLocation" value="@Model["selectedEvent"].GetEventLocation()" required>
+
+  <button type="submit">Update</button>
+</form>
+
+
+<hr>
+<br>
 <div class="container">
-  <h1>edit invite</h1>
-   <a href="/invitees/new">new invite</a>
-  <a href="/invitees/{id}">show invite</a>
-  <a href="/invitees/{id}/edit">edit invite</a>
+  <br>
+  <a href="/events/@Model["selectedEvent"].GetId()">back to @Model["selectedEvent"].GetEventName()</a>
 </div>
