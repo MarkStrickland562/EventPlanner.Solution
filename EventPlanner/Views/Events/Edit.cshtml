@@ -1,5 +1,6 @@
 @{
   Layout = "_Layout";
+  @Html.Partial("eventNav")
 }
 
 <h1 id="pageTitle">EDIT<h2>@Model["selectedEvent"].GetEventName()</h2></h1>
@@ -17,9 +18,8 @@
   <input type="text" name="eventLocation" value="@Model["selectedEvent"].GetEventLocation()" required>
 
   <label for="menuId">Menu:</label>
-  <input type="text" name="menuId" value="@Model["selectedEvent"].GetMenusId()" required>
-  <select type="text" name="menuId" value="@Model["selectedEvent"].GetMenusId()" required>
-  </select>
+  <input type="text" name="menuId" value="@Model["eventMenu"].GetMenuTheme()" required>
+  SHOULD BE DROPDOWN TO SELECT
 
   <button type="submit">Update</button>
 </form>
