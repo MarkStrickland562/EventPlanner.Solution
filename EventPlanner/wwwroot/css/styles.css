@@ -7,9 +7,10 @@ div#footer {
     bottom:0px;
     left:0px;
     width:100%;
-    color:#CCC;
+    color:rgb(226, 226, 226);
     background:rgb(226, 226, 226);
     padding:8px;
+    padding-right: 3%;
 }
 
 svg.fa- {
@@ -141,10 +142,6 @@ ul ul a {
 
 #logo {
     font-size: 45px;
-}
-
-#footer {
-    padding-right: 25%;
 }
 
 #sidebarCollapse {

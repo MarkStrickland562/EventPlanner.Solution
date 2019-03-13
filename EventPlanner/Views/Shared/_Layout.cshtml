@@ -35,16 +35,16 @@
             </button>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="/events">EVENTS<br><h3 id="logo">+</h3></a>
+                <a href="/events">EVENTS<br><i class="fas fa-utensils"></i></a>
             </li>
             <li>
                 <a href="/menus">MENUS<br><i class="fas fa-utensils"></i></a>
             </li>
             <li>
-                <a href="/dishes">DISHES<br><i class="fas fa-utensils"></i></a>
+                <a href="/menuItems">DISHES<br><i class="fas fa-utensils"></i></a>
             </li>
             <li>
-                <a href="/ingredients">FOODS<br><i class="fas fa-utensils"></i></a>
+                <a href="/menuItemIngredients">FOODS<br><i class="fas fa-utensils"></i></a>
             </li>
             <li>
                 <a href="/stores">STORES<br><i class="fas fa-shopping-cart"></i></a>
@@ -53,22 +53,19 @@
                 <a href="/tasks">TASKS<br><i class="fas fa-check"></i></a>
             </li>
              <li>
-                <a href="/invites">INVITES<br><i class="fas fa-at"></i></a>
+                <a href="/invitees">INVITES<br><i class="fas fa-at"></i></a>
             </li>
         </ul>
     </nav>
 
-            <div id="content">
+    <div id="content">
 
-                <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default">
                     <div class="container-fluid">
 
-                        <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse">
-                                <svg class="fas fa-bars"></svg>
-                            </button>
-                        </div>
-
+                        <button type="button" id="sidebarCollapse">
+                        <svg class="fas fa-bars"></svg>
+                        </button>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#">LINK</a></li>
@@ -77,10 +74,10 @@
                         </div>
                     </div>
                 </nav>
-                <div id="main-content">
-                    @RenderBody()
-                </div>
-                    @Html.Partial("Footer")
+            <div id="main-content">
+            @RenderBody()
+            </div>
+            @Html.Partial("Footer")
             </div>
     </div>
 
