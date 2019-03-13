@@ -2,9 +2,22 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle">NEW STORE</h1>
+<hr>
+
+<form action="/stores/new" method="post">
+
+  <label for="storeName">Name:</label>
+  <input id="storeName" name="storeName" type="text" required>
+
+  <br>
+
+  <button type="submit">Submit</button>
+</form>
+<br>
+
+<hr>
+<br>
 <div class="container">
-  <h1>stores new</h1>
-    <a href="/stores/new">new stores</a>
-    <a href="/stores/{id}">show stores</a>
-    <a href="/stores/{id}/edit">edit stores</a>
+  <a href="/stores">Back to Stores</a>
 </div>

@@ -2,9 +2,20 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle">EDIT<h2>@Model["stores"].GetStoreName()</h2></h1>
+<br>
+
+<form action="/stores/@Model["stores"].GetId()/edit" method="post">
+
+  <label for="storeName">Name:</label>
+  <input type="text" name="storeName" value="@Model["stores"].GetStoreName()" required>
+
+  <button type="submit">Update</button>
+</form>
+
+<hr>
+<br>
 <div class="container">
-  <h1>stores edit</h1>
-    <a href="/stores/new">new stores</a>
-    <a href="/stores/{id}">show stores</a>
-    <a href="/stores/{id}/edit">edit stores</a>
+  <br>
+  <a href="/events/@Model["stores"].GetId()">Back to @Model["stores"].GetStoreName()</a>
 </div>
