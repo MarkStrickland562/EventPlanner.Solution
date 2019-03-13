@@ -295,3 +295,198 @@ SELECT 'Irish Whiskey, 2-Litres', a.menu_items_id, b.store_id
 FROM (SELECT id AS menu_items_id FROM menu_items WHERE menu_item_description = 'Irish Whiskey') as a
 JOIN (SELECT id AS store_id FROM stores WHERE store_name = 'Costco') as b
 ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Set Up Tables & Chairs', '2019-07-04 12:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'July 4th BBQ') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Set Up Tables & Chairs') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Put Baked Beans in Oven', '2019-07-04 13:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'July 4th BBQ') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Put Baked Beans in Oven') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Light Grill', '2019-07-04 14:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'July 4th BBQ') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Light Grill') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Grill Meat', '2019-07-04 14:30:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'July 4th BBQ') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Grill Meat') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Put Food Out', '2019-07-04 15:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'July 4th BBQ') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Put Food Out') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Set Tables', '2019-04-21 08:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'Easter Sunday Brunch') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Set Tables') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Make Quiches', '2019-04-21 09:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'Easter Sunday Brunch') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Make Quiches') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Put Cinnamon Rolls in Oven', '2019-04-21 09:30:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'Easter Sunday Brunch') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Put Cinnamon Rolls in Oven') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Bake Quiches', '2019-04-21 10:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'Easter Sunday Brunch') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Bake Quiches') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Fry Bacon', '2019-04-21 10:30:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'Easter Sunday Brunch') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Fry Bacon') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Make Bloody Marys', '2019-04-21 10:45:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'Easter Sunday Brunch') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Make Bloody Marys') b
+ON 1=1;
+
+INSERT INTO menu_items (menu_item_description) VALUES ('Corned Beef');
+INSERT INTO menu_items (menu_item_description) VALUES ('Scalloped Potatoes');
+INSERT INTO menu_items (menu_item_description) VALUES ('Brussels Sprouts');
+INSERT INTO menu_items (menu_item_description) VALUES ('Soda Bread');
+INSERT INTO menu_items (menu_item_description) VALUES ('Irish Whiskey');
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Peel and Slice Potatoes', '2019-03-17 13:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Peel and Slice Potatoes') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Brine the Brisket', '2019-03-17 13:30:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Brine the Brisket') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Prepare Buffet Table', '2019-03-17 14:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Prepare Buffet Table') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Prepare Drink Table', '2019-03-17 15:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Prepare Drink Table') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Put Corned Beef in Oven', '2019-03-17 16:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Put Corned Beef in Oven') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Put Scalloped Potatoes in Oven', '2019-03-17 16:30:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Put Scalloped Potatoes in Oven') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Put Brussels Sprouts in Oven', '2019-03-17 17:00:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Put Brussels Sprouts in Oven') b
+ON 1=1;
+
+INSERT INTO tasks (task_description, planned_start_datetime)
+VALUES ('Put Food Out', '2019-03-17 17:30:00');
+
+INSERT INTO events_tasks (events_id, tasks_id)
+SELECT a.events_id, b.tasks_id
+FROM (SELECT id AS events_id FROM events WHERE name = 'St. Patricks Day Party') a
+JOIN (SELECT id AS tasks_id FROM tasks WHERE task_description = 'Put Food Out') b
+ON 1=1;
+
+INSERT INTO invitees (invitee_name, invitee_email_address)
+VALUES ('Mark Strickland', 'markstrickland562@hotmail.com');
+
+INSERT INTO invitees (invitee_name, invitee_email_address)
+VALUES ('Clara Munro', 'clarajmunro@gmail.com');
+
+INSERT INTO invitees (invitee_name, invitee_email_address)
+VALUES ('Shawn Lunsford', 'lunsford.sk@gmail.com');
+
+INSERT INTO invitees (invitee_name, invitee_email_address)
+VALUES ('Micaela Jawor', 'micaelajawor@yahoo.com');
+
+INSERT INTO events_invitees (events_id, invitees_id)
+SELECT a.events_id, b.invitees_id
+FROM (SELECT id AS events_id FROM events) a
+JOIN (SELECT id AS invitees_id FROM invitees) b
+ON 1=1;
