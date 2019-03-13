@@ -21,7 +21,12 @@ svg.fa- {
 
 .wrapper {
     display: flex;
+<<<<<<< HEAD
+    width: 100%
+    align-items: stretch;
+=======
     width: 100%;
+>>>>>>> master
 }
 
 
@@ -64,6 +69,18 @@ svg.fa- {
 
 #sidebar.active {
     margin-left: -100px;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 
 body {
@@ -171,6 +188,8 @@ ul ul a {
         margin-left: 0;
     }
 }
+<<<<<<< HEAD
+=======
 
 
 
@@ -185,3 +204,4 @@ ul ul a {
     right: 20px;
     transform: translateY(-50%);
 } */
+>>>>>>> master
