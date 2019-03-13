@@ -16,6 +16,32 @@
 <br>
 @Model["selectedEvent"].GetMenusId() ---- WE NEED THE NAME NOT ID #
 <br>
+TASKS SECTION:
+@if (@Model["stylistClients"].Count != 0)
+{
+  <h4>TASKS SECTION:</h4>
+  <ul>
+    @foreach (var task in @Model["stylistClients"])
+    {
+      <li>@task.GetTaskDescription()</li>
+    }
+  </ul>
+}
+<h4>ADD A TASK:</h4>
+<form action='/events/@Model["selectedEvent"].GetId()/tasks/new' method='post'>
+  <label for='taskId'>Select A Task</label>
+  <select id='taskId' name='taskId' type='text'>
+    @foreach (var task in @Model["allClients"])
+    {
+      <option value='@task.GetId()'>@task.GetTaskDescription()</option>
+    }
+  </select>
+  <button type='submit'>Add</button>
+</form>
+<hr>
+<br>
+INVITES SECTION:
+<br>
 
 
 <hr>
