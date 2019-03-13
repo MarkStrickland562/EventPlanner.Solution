@@ -14,16 +14,17 @@ namespace EventPlanner.Tests
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
     }
 
+    public HomeController controller = new HomeController();
+
     [TestMethod]
     public void Index_ReturnsCorrectView_True()
     {
-      HomeController controller = new HomeController();
       Assert.IsInstanceOfType(controller.Index(), typeof(ViewResult));
     }
     [TestMethod]
     public void Index_HasCorrectModelType_EventsList()
     {
-      ViewResult indexView = new HomeController().Index() as ViewResult;
+      ViewResult indexView = controller.Index() as ViewResult;
       var result = indexView.ViewData.Model;
       Assert.IsInstanceOfType(result, typeof(List<Event>));
     }
