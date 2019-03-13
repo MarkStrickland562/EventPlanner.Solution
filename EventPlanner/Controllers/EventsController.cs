@@ -70,7 +70,7 @@ namespace EventPlanner.Controllers
       return RedirectToAction("Show");
     }
 
-    [HttpPost("/events/{eventId}/delete")]
+    [HttpGet("/events/{eventId}/delete")]
     public ActionResult Delete(int eventId)
     {
       Event selectedEvent = Event.Find(eventId);

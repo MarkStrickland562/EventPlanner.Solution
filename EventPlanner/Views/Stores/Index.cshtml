@@ -2,9 +2,25 @@
   Layout = "_Layout";
 }
 
-<div class="container">
-  <h1>STORES LIST</h1>
-    <a href="/stores/new">new stores</a>
-    <a href="/stores/{id}">show stores</a>
-    <a href="/stores/{id}/edit">edit stores</a>
-</div>
+<h1 id="pageTitle">STORES</h1>
+<br>
+  
+  @if (Model.Count != 0)
+{
+    @foreach (var stores in Model)
+    {
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"><a href='/stores/@stores.GetId()'>@stores.GetStoreName()</a></li>
+        <li class="list-group-item"><a href="/stores/@stores.GetId()/edit">EDIT</a></li>
+        <li class="list-group-item"><a href='/stores/@stores.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+      </ul>
+    }
+}
+
+
+  <hr>
+  <br>
+  <div class="container">
+  <a href="/stores/new">new store</a>
+   <br>
+  </div>
