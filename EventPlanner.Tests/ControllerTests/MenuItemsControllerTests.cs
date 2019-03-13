@@ -86,6 +86,12 @@ namespace EventPlanner.Tests
       Assert.IsInstanceOfType(deletePost, typeof(ActionResult));
       CollectionAssert.AreEqual(new List<MenuItem> { }, MenuItem.GetAll());
     }
+    [TestMethod]
+    public void DeleteAll_ReturnsCorrectActionType_RedirectToActionResult()
+    {
+      IActionResult view = _controller.DeleteAll();
+      Assert.IsInstanceOfType(view, typeof(RedirectToActionResult));
+    }
 
     [TestMethod]
     public void Edit_HasCorrectModelType_MenuItemList()
