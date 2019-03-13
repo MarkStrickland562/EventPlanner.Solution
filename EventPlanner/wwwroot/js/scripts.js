@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // $(this).scrollTop(0);
-  $("li").click(function() {
-    $("li").removeClass("active");
+  $(".sidebar").click(function() {
+    $(".sidebar").removeClass("active");
     $(this).addClass("active");
   });
 });

@@ -145,32 +145,32 @@ a, a:hover {
     color: #c99de8;
 }
 
-.fa-plus {
+.sidebar.fa-plus {
   color: #3da599 !important;
 }
 
-.fa-book-open {
+.sidebar.fa-book-open {
   font-size: 30px;
   color: #c41e3d !important;
 }
 
-.fa-utensils {
+.sidebar.fa-utensils {
   color: #da394a !important;
 }
 
-.fa-check {
+.sidebar.fa-check {
   color: #ffc857 !important;
 }
 
-.fa-at {
+.sidebar.fa-at {
   color: #ef798a !important;
 }
 
-.fa-shopping-cart {
+.sidebar.fa-shopping-cart {
   color: #ea8c55 !important;
 }
 
-.fa-seedling {
+.sidebar.fa-seedling {
   color: #ff696d !important;
 }
 
@@ -201,7 +201,7 @@ ul ul a {
     text-align: left;
 }
 
-.fa-utensils, .fa-check, .fa-at, .fa-shopping-cart, .fa-seedling, .fa-plus {
+.sidebar.fa-utensils, .sidebar.fa-check, .sidebar.fa-at, .sidebar.fa-shopping-cart, .sidebar.fa-seedling, .sidebar.fa-plus {
   font-size: 3rem;
 }
 

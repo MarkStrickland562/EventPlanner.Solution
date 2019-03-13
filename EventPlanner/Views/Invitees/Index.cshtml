@@ -4,14 +4,14 @@
 
 <h1 id="pageTitle">INVITES LIST</h1>
 <br>
-  
+
   @if (Model.Count != 0)
 {
     @foreach (var invites in Model)
     {
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item"><a href='/invitees/@invites.GetId()'>@invites.GetInviteeName()</a></li>
-        <li class="list-group-item"><a href="/invitees/@invites.GetId()/edit">EDIT</a></li>
+        <li class="list-group-item"><a href="/invitees/@invites.GetId()/edit">EDIT  <i class="fas fa-edit"></i></a></li>
         <li class="list-group-item"><a href='/invitees/@invites.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
       </ul>
     }
