@@ -2,9 +2,18 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle">NEW EVENT</h1>
+<hr>
+
+<form action="/events" method="post">
+  <label for="eventName">Event Title:</label>
+  <input id="eventName" name="eventName" type="text" required>
+  <button type="submit">Submit</button>
+</form>
+<br>
+
+<hr>
+<br>
 <div class="container">
-  <h1>new event</h1>
-  <a href="/events/new">new event</a>
-  <a href="/events/{id}">show event</a>
-  <a href="/events/{id}/edit">edit event</a>
+  <a href="/events">back to events</a>
 </div>
