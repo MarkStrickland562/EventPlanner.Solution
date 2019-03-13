@@ -71,8 +71,10 @@ namespace EventPlanner.Controllers
     public ActionResult Edit(int inviteeId)
     {
       Invitee invitee = Invitee.Find(inviteeId);
+      List<Event> events = invitee.GetEvents();
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("Invitee", invitee);
+      model.Add("invitee", invitee);
+      model.Add("events", events);
       return View(model);
     }
     [HttpPost("/invitees/{inviteeId}/edit")]

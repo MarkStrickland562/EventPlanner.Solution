@@ -31,10 +31,12 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int eventId)
     {
       Event selectedEvent = Event.Find(eventId);
+      List<Menu> menu = selectedEvent.GetMenu();
       List<Task> tasks = selectedEvent.GetTasks();
       List<Invitee> invitees = selectedEvent.GetInvitees();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("selectedEvent", selectedEvent);
+      model.Add("menu", menu);
       model.Add("tasks", tasks);
       model.Add("invitees", invitees);
       return View(model);
@@ -88,9 +90,14 @@ namespace EventPlanner.Controllers
     public ActionResult Edit(int eventId)
     {
       Event selectedEvent = Event.Find(eventId);
+      List<Menu> menu = selectedEvent.GetMenu();
+      List<Task> tasks = selectedEvent.GetTasks();
+      List<Invitee> invitees = selectedEvent.GetInvitees();
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Console.WriteLine(selectedEvent.GetEventName());
       model.Add("selectedEvent", selectedEvent);
+      model.Add("menu", menu);
+      model.Add("tasks", tasks);
+      model.Add("invitees", invitees);
       return View(model);
     }
     [HttpPost("/events/{eventId}/edit")]

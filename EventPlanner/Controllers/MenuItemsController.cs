@@ -31,27 +31,12 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int menuItemId)
     {
       MenuItem menuItem = MenuItem.Find(menuItemId);
-      // List <MenuItemIngredient> menuItemIngredients = MenuItem.GetMenuItemIngredients(menuItemId);
+      List<Menu> menu = menuItem.GetMenus();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menuItem", menuItem);
-      // model.Add("menuItemIngredients", menuItemIngredients);
+      model.Add("menu", menu);
       return View(model);
     }
-
-    // [HttpPost("/menuItems/{menuItemId}/ingredients/new")]
-    // public ActionResult AddIngredient(int menuItemId, int menuItemIngredientId)
-    // {
-    //   MenuItem menuItem = MenuItem.Find(menuItemId);
-    //   menuItem.AddMenuItemIngredient(menuItemIngredient.Find(menuItemIngredientId));
-    //   return RedirectToAction("Show");
-    // }
-    // [HttpPost("/menuItems/{menuItemId}/ingredients/delete")]
-    // public ActionResult DeleteIngredient(int menuItemId, int menuItemIngredientId)
-    // {
-    //   MenuItem menuItem = MenuItem.Find(menuItemId);
-    //   menuItem.DeleteMenuItemIngredient(menuItemIngredient.Find(menuItemIngredientId));
-    //   return RedirectToAction("Show");
-    // }
 
     [HttpPost("/menuItems/{menuItemId}/menu/new")]
     public ActionResult AddMenu(int menuItemId, int menuId)
@@ -86,8 +71,10 @@ namespace EventPlanner.Controllers
     public ActionResult Edit(int menuItemId)
     {
       MenuItem menuItem = MenuItem.Find(menuItemId);
+      List<Menu> menu = menuItem.GetMenus();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menuItem", menuItem);
+      model.Add("menu", menu);
       return View(model);
     }
     [HttpPost("/menuItems/{menuItemId}/edit")]
