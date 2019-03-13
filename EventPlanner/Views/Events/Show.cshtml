@@ -4,19 +4,43 @@
 
 <h1 id="pageTitle"><h2>@Model["selectedEvent"].GetEventName()</h2></h1>
 <br>
-<a href="/events/{id}/edit">EDIT</a>
+<a href="/events/@Model["selectedEvent"].GetId()/edit">EDIT</a>
 <hr>
 
+<br>
+@Model["selectedEvent"].GetEventName()
 <br>
 @Model["selectedEvent"].GetEventDate()
 <br>
 @Model["selectedEvent"].GetEventLocation()
 <br>
-@Model["selectedEvent"].GetMenusId()
+@Model["selectedEvent"].GetMenusId() ---- WE NEED THE NAME NOT ID #
 <br>
-@Model["tasks"].GetTasks()
+TASKS SECTION:
+@if (@Model["tasks"].Count != 0)
+{
+  <h4>TASKS SECTION:</h4>
+  <ul>
+    @foreach (var task in @Model["tasks"])
+    {
+      <li>@task.GetTaskDescription()</li>
+    }
+  </ul>
+}
+<h4>ADD A TASK:</h4>
+<form action='/events/@Model["selectedEvent"].GetId()/tasks/new' method='post'>
+  <label for='taskId'>Select A Task</label>
+  <select id='taskId' name='taskId' type='text'>
+    @foreach (var task in @Model["tasks"])
+    {
+      <option value='@task.GetId()'>@task.GetTaskDescription()</option>
+    }
+  </select>
+  <button type='submit'>Add</button>
+</form>
+<hr>
 <br>
-@Model["invitees"].GetInvitees()
+INVITES SECTION:
 <br>
 
 

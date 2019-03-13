@@ -2,9 +2,25 @@
   Layout = "_Layout";
 }
 
-<div class="container">
-  <h1>TASKS LIST</h1>
-    <a href="/tasks/new">new tasks</a>
-    <a href="/tasks/{id}">show tasks</a>
-    <a href="/tasks/{id}/edit">edit tasks</a>
-</div>
+<h1 id="pageTitle">TASKS</h1>
+<br>
+  
+  @if (Model.Count != 0)
+{
+    @foreach (var tasks in Model)
+    {
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"><a href='/tasks/@tasks.GetId()'>@tasks.GetTaskDescription()</a></li>
+        <li class="list-group-item"><a href="/tasks/@tasks.GetId()/edit">EDIT</a></li>
+        <li class="list-group-item"><a href='/tasks/@tasks.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+      </ul>
+    }
+}
+
+
+  <hr>
+  <br>
+  <div class="container">
+  <a href="/tasks/new">new task</a>
+   <br>
+  </div>
