@@ -22,7 +22,7 @@ namespace EventPlanner.Tests
       Invitee.ClearAll();
       Menu.ClearAll();
       MenuItem.ClearAll();
-      MenuItem.ClearAll();
+      MenuItemIngredient.ClearAll();
       Store.ClearAll();
       Task.ClearAll();
     }
@@ -54,6 +54,13 @@ namespace EventPlanner.Tests
     {
       ActionResult createPost = _controller.Create("TestDescription");
       Assert.IsInstanceOfType(createPost, typeof(ActionResult));
+    }
+
+    [TestMethod]
+    public void Show_ReturnsCorrectView_True()
+    {
+      ActionResult showView = _controller.Show(1);
+      Assert.IsInstanceOfType(showView, typeof(ViewResult));
     }
 
     [TestMethod]

@@ -57,6 +57,13 @@ namespace EventPlanner.Tests
     }
 
     [TestMethod]
+    public void Show_ReturnsCorrectView_True()
+    {
+      ActionResult showView = _controller.Show(1);
+      Assert.IsInstanceOfType(showView, typeof(ViewResult));
+    }
+
+    [TestMethod]
     public void Delete_DeletesMenuItemIngredientObject_True()
     {
       _menuItemIngredient.Save();

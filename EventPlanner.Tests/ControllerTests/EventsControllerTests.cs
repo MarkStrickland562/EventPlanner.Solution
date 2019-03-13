@@ -57,14 +57,12 @@ namespace EventPlanner.Tests
       Assert.IsInstanceOfType(createPost, typeof(ActionResult));
     }
 
-    // [TestMethod]
-    // public void Show_ProcessesShowModelCorrectly_True()
-    // {
-    //   _newEvent.Save();
-    //   var showView = _controller.Show(_newEvent.GetId()) as ViewResult;
-    //   var result = showView.ViewData.Model;
-    //   Assert.AreEqual(result, typeof(Dictionary<string, object>));
-    // }
+    [TestMethod]
+    public void Show_ReturnsCorrectView_True()
+    {
+      ActionResult showView = _controller.Show(1);
+      Assert.IsInstanceOfType(showView, typeof(ViewResult));
+    }
 
     [TestMethod]
     public void AddTask_AddInstanceOfTaskForEvent_True()
