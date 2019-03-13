@@ -172,6 +172,79 @@ namespace EventPlanner.Models
       }
     }
 
+    public void AddMenuItem(MenuItem newMenuItem)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO menus_menu_items (menus_id, menu_items_id) VALUES (@menuId, @menuItemsId);";
+      MySqlParameter menuItemsIdParameter = new MySqlParameter();
+      menuItemsIdParameter.ParameterName = "@menuItemsId";
+      menuItemsIdParameter.Value = newMenuItem.GetId();
+      cmd.Parameters.Add(menuItemsIdParameter);
+      MySqlParameter menuIdParameter = new MySqlParameter();
+      menuIdParameter.ParameterName = "@menuId";
+      menuIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public List<MenuItem> GetMenuItems()
+    {
+      List<MenuItem> allMenuItems = new List<MenuItem> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT *
+                            FROM menu_items
+                           WHERE id IN (SELECT menu_items_id FROM menus_menu_items WHERE menus_id = @menuId);";
+      MySqlParameter menuId = new MySqlParameter();
+      menuId.ParameterName = "@menuId";
+      menuId.Value = this._id;
+      cmd.Parameters.Add(menuId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int menuItemId = rdr.GetInt32(0);
+        string menuItemDescription = rdr.GetString(1);
+        MenuItem newMenuItem = new MenuItem(menuItemDescription, menuItemId);
+        allMenuItems.Add(newMenuItem);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allMenuItems;
+    }
+
+    public void DeleteMenuItem(MenuItem newMenuItem)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM menus_menu_items WHERE menus_id = (@menuId) AND menu_items_id = (@menuItemsId);";
+      MySqlParameter menuItemsIdParameter = new MySqlParameter();
+      menuItemsIdParameter.ParameterName = "@menuItemsId";
+      menuItemsIdParameter.Value = newMenuItem.GetId();
+      cmd.Parameters.Add(menuItemsIdParameter);
+      MySqlParameter menuIdParameter = new MySqlParameter();
+      menuIdParameter.ParameterName = "@menuId";
+      menuIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public override bool Equals(System.Object otherMenu)
     {
       if (!(otherMenu is Menu))
@@ -185,6 +258,11 @@ namespace EventPlanner.Models
         bool menuThemeEquality = this.GetMenuTheme().Equals(newMenu.GetMenuTheme());
         return (idEquality && menuThemeEquality);
       }
+    }
+
+    public override int GetHashCode()
+    {
+      return this.GetId().GetHashCode();
     }
   }
 }

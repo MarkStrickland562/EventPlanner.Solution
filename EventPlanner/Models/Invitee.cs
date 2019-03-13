@@ -219,6 +219,28 @@ namespace EventPlanner.Models
       }
     }
 
+    public void DeleteEvent(Event newEvent)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM events_invitees WHERE events_id = (@eventId) AND invitees_id = (@inviteeId);";
+      MySqlParameter eventIdParameter = new MySqlParameter();
+      eventIdParameter.ParameterName = "@eventId";
+      eventIdParameter.Value = newEvent.GetId();
+      cmd.Parameters.Add(eventIdParameter);
+      MySqlParameter inviteeIdParameter = new MySqlParameter();
+      inviteeIdParameter.ParameterName = "@inviteeId";
+      inviteeIdParameter.Value = this._id;
+      cmd.Parameters.Add(inviteeIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public List<Event> GetEvents()
     {
       List<Event> allEventInvitees = new List<Event> {};
@@ -265,6 +287,11 @@ namespace EventPlanner.Models
         bool inviteeEmailAddressEquality = this.GetInviteeEmailAddress().Equals(newInvitee.GetInviteeEmailAddress());
         return (idEquality && inviteeNameEquality && inviteeEmailAddressEquality);
       }
+    }
+
+    public override int GetHashCode()
+    {
+      return this.GetId().GetHashCode();
     }
   }
 }

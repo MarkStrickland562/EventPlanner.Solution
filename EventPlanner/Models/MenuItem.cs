@@ -198,6 +198,28 @@ namespace EventPlanner.Models
       }
     }
 
+    public void DeleteMenu(Menu newMenu)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM menus_menu_items WHERE menus_id = (@menuId) AND menu_items_id = (@menuItemId);";
+      MySqlParameter menuIdParameter = new MySqlParameter();
+      menuIdParameter.ParameterName = "@menuId";
+      menuIdParameter.Value = newMenu.GetId();
+      cmd.Parameters.Add(menuIdParameter);
+      MySqlParameter menuItemIdParameter = new MySqlParameter();
+      menuItemIdParameter.ParameterName = "@menuItemId";
+      menuItemIdParameter.Value = this._id;
+      cmd.Parameters.Add(menuItemIdParameter);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public List<Menu> GetMenus()
     {
       List<Menu> allMenus = new List<Menu> {};
@@ -240,6 +262,11 @@ namespace EventPlanner.Models
         bool menuItemDescriptionEquality = this.GetMenuItemDescription().Equals(newMenuItem.GetMenuItemDescription());
         return (idEquality && menuItemDescriptionEquality);
       }
+    }
+
+    public override int GetHashCode()
+    {
+      return this.GetId().GetHashCode();
     }
   }
 }

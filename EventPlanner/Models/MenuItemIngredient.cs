@@ -237,5 +237,9 @@ namespace EventPlanner.Models
         return (idEquality && ingredientDescriptionEquality && menuItemsIdEquality && storeIdEquality);
       }
     }
+    public override int GetHashCode()
+    {
+      return this.GetId().GetHashCode();
+    }
   }
 }
