@@ -3,7 +3,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using EventPlanner.Models;
 
-namespace MenuPlanner.Controllers
+namespace EventPlanner.Controllers
 {
   public class MenusController : Controller
   {
