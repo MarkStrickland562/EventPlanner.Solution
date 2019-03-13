@@ -10,23 +10,8 @@
   <label for="name">Name:</label>
   <input id="name" name="name" type="text" required>
   <br>
-  <label for="eventDate">Date:</label>
-  <div class="well">
-    <div id="datetimepicker" class="input-append">
-      <input data-format="MM/dd/yyyy HH:mm:ss PP"id="eventDate" name="eventDate" type="text" required>
-      <span class="add-on">
-        <i data-date-icon="fas fa-calendar-alt" date-time-icon="fas fa-clock"></i>
-      </span>
-    </div>
-  </div>
-  <script type="text/javascript">
-    $(function() {
-      $(#datetimepicker').datetimepicker({
-        language: 'en',
-        pick12HourFormat: true
-      });
-    });
-  </script>
+  <label for="eventDate">Date <i class="fas fa-calendar-alt"></i></label>
+  <input id="eventDate" name="eventDate" type="datetime" required>
   <br>
   <label for="eventLocation">Location:</label>
   <input id="eventLocation" name="eventLocation" type="text" required>
