@@ -2,9 +2,39 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle"><h2>@Model["menu"].GetMenuTheme()</h2></h1>
+<br>
+<a href="/menus/@Model["menu"].GetId()/edit">EDIT</a>
+<hr>
+
+<br>
+@Model["menu"].GetMenuTheme()
+<br>
+
+@if (@Model["menuItems"].Count != 0)
+{
+  <h4>DISHES SECTION:</h4>
+  <ul>
+    @foreach (var menu in @Model["menuItems"])
+    {
+      <li>@menu.GetMenuItemDescription()<a href='/menus/@Model["menu"].GetId()/menuItems/@menu.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+    }
+  </ul>
+}
+<form action='/menus/@Model["menu"].GetId()/menuItems/new' method='post'>
+  <label for='menuItemId'>Select a Dish</label>
+  <select id='menuItemId' name='menuItemId' type='text'>
+    @foreach (var menuItem in @Model["allMenuItems"])
+    {
+      <option value='@menuItem.GetId()'>@menuItem.GetMenuItemDescription()</option>
+    }
+  </select>
+  <button type='submit'>Add</button>
+</form>
+<hr>
+
+<hr>
+<br>
 <div class="container">
-  <h1>show menu</h1>
-    <a href="/menus/new">new menus</a>
-    <a href="/menus/{id}">show menus</a>
-    <a href="/menus/{id}/edit">edit menus</a>
+  <a href="/menus">back to menus</a>
 </div>

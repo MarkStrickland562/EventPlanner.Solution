@@ -2,19 +2,16 @@
   Layout = "_Layout";
 }
 
-<h1 id="pageTitle">EDIT<h2>@Model["Invitee"].GetEventName()</h2></h1>
+<h1 id="pageTitle">EDIT<h2>@Model["invitee"].GetInviteeName()</h2></h1>
 <br>
 
-<form action="/events/@Model["selectedEvent"].GetId()/edit" method="post">
+<form action="/invitees/@Model["invitee"].GetId()/edit" method="post">
 
-  <label for="name">Name:</label>
-  <input type="text" name="name" value="@Model["selectedEvent"].GetEventName()" required>
+  <label for="inviteeName">Name:</label>
+  <input type="text" name="inviteeName" value="@Model["invitee"].GetInviteeName()" required>
 
-  <label for="eventDate">Date <i class="fas fa-calendar-alt"></i></label>
-  <input type="text" name="eventDate" value="@Model["selectedEvent"].GetEventDate()" required>
-
-  <label for="eventLocation">Location <i class="fas fa-map-marker-alt"></i></label>
-  <input type="text" name="eventLocation" value="@Model["selectedEvent"].GetEventLocation()" required>
+  <label for="inviteeEmailAddress">Email:</label>
+  <input type="text" name="inviteeEmailAddress" value="@Model["invitee"].GetInviteeEmailAddress()" required>
 
   <button type="submit">Update</button>
 </form>
@@ -24,5 +21,5 @@
 <br>
 <div class="container">
   <br>
-  <a href="/events/@Model["selectedEvent"].GetId()">back to @Model["selectedEvent"].GetEventName()</a>
+  <a href="/events/@Model["invitee"].GetId()">back to @Model["invitee"].GetInviteeName()</a>
 </div>

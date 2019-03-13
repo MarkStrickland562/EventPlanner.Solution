@@ -31,12 +31,12 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int inviteeId)
     {
       Invitee invitee = Invitee.Find(inviteeId);
-      List<Event> allevents = Event.GetAll();
+      List<Event> allEvents = Event.GetAll();
       List<Event> events = invitee.GetEvents();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("invitee", invitee);
       model.Add("events", events);
-      model.Add("allevents", allevents);
+      model.Add("allEvents", allEvents);
 
       return View(model);
     }

@@ -23,9 +23,9 @@
     }
   </ul>
 }
-<form action='/invitees/@Model["invitees"].GetId()/events/new' method='post'>
-  <label for='inviteeId'>Select A Invitee</label>
-  <select id='inviteeId' name='inviteeId' type='text'>
+<form action='/invitees/@Model["invitee"].GetId()/events/new' method='post'>
+  <label for='eventId'>Add Event</label>
+  <select id='eventId' name='eventId' type='text'>
     @foreach (var selectedEvent in @Model["allEvents"])
     {
       <option value='@selectedEvent.GetId()'>@selectedEvent.GetEventName()</option>
