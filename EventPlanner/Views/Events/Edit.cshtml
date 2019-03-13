@@ -6,8 +6,20 @@
 <br>
 
 <form action="/events/@Model["selectedEvent"].GetId()" method="post">
+
   <label for="newEventName">Name:</label>
   <input type="text" name="newEventName" value="@Model["selectedEvent"].GetEventName()" required>
+
+  <label for="eventDate">Date:</label>
+  <input type="text" name="eventDate" value="@Model["selectedEvent"].GetEventName()" required>
+
+  <label for="newEventName">Location:</label>
+  <input type="text" name="newEventName" value="@Model["selectedEvent"].GetEventName()" required>
+
+  <label for="newEventName">Menu:</label>
+  <input type="text" name="newEventName" value="@Model["selectedEvent"].GetEventName()" required>
+
+
   <button type="submit">Update</button>
 </form>
 
@@ -15,7 +27,6 @@
 <hr>
 <br>
 <div class="container">
-  <a href="/events/new">new event</a>
   <br>
-  <a href="/events/{id}">show event</a>
+  <a href="/events/@Model["selectedEvent"].GetId()">back to @Model["selectedEvent"].GetEventName()</a>
 </div>
