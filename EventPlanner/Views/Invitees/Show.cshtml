@@ -23,8 +23,8 @@
     }
   </ul>
 }
-<form action='/invitees/@Model["invitees"].GetId()/events/new' method='post'>
-  <label for='inviteeId'>Select A Invitee</label>
+<form action='/invitees/@Model["invitee"].GetId()/events/new' method='post'>
+  <label for='inviteeId'>Add Event</label>
   <select id='inviteeId' name='inviteeId' type='text'>
     @foreach (var selectedEvent in @Model["allEvents"])
     {
