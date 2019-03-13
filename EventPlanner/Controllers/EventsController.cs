@@ -34,7 +34,7 @@ namespace EventPlanner.Controllers
       List<Task> tasks = selectedEvent.GetTasks();
       List<Invitee> invitees = selectedEvent.GetInvitees();
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("event", selectedEvent);
+      model.Add("selectedEvent", selectedEvent);
       model.Add("tasks", tasks);
       model.Add("invitees", invitees);
       return View(model);
@@ -89,7 +89,7 @@ namespace EventPlanner.Controllers
     {
       Event selectedEvent = Event.Find(eventId);
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("event", selectedEvent);
+      model.Add("selectedEvent", selectedEvent);
       return View(model);
     }
     [HttpPost("/events/{eventId}/edit")]
