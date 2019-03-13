@@ -5,7 +5,7 @@ using EventPlanner.Models;
 
 namespace EventPlanner.Controllers
 {
-  public class MenuIitemIngredientsController : Controller
+  public class MenuItemIngredientsController : Controller
   {
     [HttpGet("/menuItemIngredients")]
     public ActionResult Index()
