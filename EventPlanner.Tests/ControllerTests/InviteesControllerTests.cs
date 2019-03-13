@@ -13,6 +13,8 @@ namespace EventPlanner.Tests
     public InviteesControllerTest()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=event_planner_tests;";
+      _controller = new InviteesController();
+      _invitee = new Invitee("TestName", "Test@Email.com");
     }
     public void Dispose()
     {
@@ -25,8 +27,8 @@ namespace EventPlanner.Tests
       Task.ClearAll();
     }
 
-    public InviteesController _controller = new InviteesController();
-    public Invitee _invitee = new Invitee("TestName", "Test@Email.com");
+    private InviteesController _controller;
+    private Invitee _invitee;
 
     [TestMethod]
     public void Index_ReturnsCorrectView_True()
