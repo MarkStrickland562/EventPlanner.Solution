@@ -89,6 +89,7 @@ namespace EventPlanner.Controllers
     {
       Event selectedEvent = Event.Find(eventId);
       Dictionary<string, object> model = new Dictionary<string, object>();
+      Console.WriteLine(selectedEvent.GetEventName());
       model.Add("selectedEvent", selectedEvent);
       return View(model);
     }

@@ -2,9 +2,26 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle"><h2>@Model["selectedEvent"].GetEventName()</h2></h1>
+<br>
+<a href="/events/{id}/edit">EDIT</a>
+<hr>
+
+<br>
+@Model["selectedEvent"].GetEventDate()
+<br>
+@Model["selectedEvent"].GetEventLocation()
+<br>
+@Model["selectedEvent"].GetMenusId()
+<br>
+@Model["tasks"].GetTasks()
+<br>
+@Model["invitees"].GetInvitees()
+<br>
+
+
+<hr>
+<br>
 <div class="container">
-  <h1>show event</h1>
-  <a href="/events/new">new event</a>
-  <a href="/events/{id}">show event</a>
-  <a href="/events/{id}/edit">edit event</a>
+  <a href="/events">back to events</a>
 </div>

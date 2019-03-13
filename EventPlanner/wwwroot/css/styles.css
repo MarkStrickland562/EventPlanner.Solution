@@ -29,6 +29,11 @@ svg.fa- {
 >>>>>>> master
 }
 
+.far {
+    text-align: right;
+}
+
+
 
 #sidebar {
     width: 100px;
@@ -49,6 +54,10 @@ svg.fa- {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+#pageTitle {
+    font-size: 30px;
 }
 
 .navbar-default {
@@ -122,7 +131,7 @@ a, a:hover {
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
+    /* font-size: 1.1em; */
     display: block;
     text-align: center;
 }
@@ -167,15 +176,56 @@ ul ul a {
     text-align: left;
 }
 
-.fas-fa-times {
-    background-color: transparent;
-    border: none;
-    text-align: right;
+.fa-utensils, .fa-check, .fa-at, .fa-shopping-cart, .fa-seedling, .fa-plus {
+  font-size: 3rem;
 }
 
-.svg-inline--fa {
-    height: 3%;
+.fa-plus {
+  color: #3da599;
 }
+
+.fa-book-open {
+  font-size: 30px;
+  color: #c41e3d;
+}
+
+.fa-utensils {
+  color: #da394a;
+}
+
+.fa-check {
+  color: #ffc857;
+}
+
+.fa-at {
+  color: #ef798a;
+}
+
+.fa-shopping-cart {
+  color: #ea8c55;
+}
+
+.fa-seedling {
+  color: #ff696d;
+}
+
+#closeNav {
+    background-color: transparent;
+    border: none;
+    padding-left: 43%;
+    font-size: 2rem;
+}
+
+/* .fas-fa-times {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    padding: 50%;
+} */
+
+/* .svg-inline--fa {
+    height: 3%;
+} */
 
 @media (max-width: 768px) {
     #sidebar {
