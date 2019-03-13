@@ -11,8 +11,8 @@
     {
       <ul class="list-group-horizontal">
         <li class="list-group-item"><a href='/events/@selectedEvent.GetId()'>@selectedEvent.GetEventName()</a></li>
-        <li class="list-group-item"><a href="/events/{id}/edit">EDIT</a></li>
-        <li class="list-group-item"><i class="far fa-times-circle"></i></li>
+        <li class="list-group-item"><a href="/events/@selectedEvent.GetId()/edit">EDIT</a></li>
+        <li class="list-group-item"><a href='/events/@selectedEvent.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
       </ul>
     }
 }
@@ -23,5 +23,4 @@
   <div class="container">
   <a href="/events/new">new event</a>
    <br>
-  <a href="/events/{id}/edit">edit event</a>
   </div>
