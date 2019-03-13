@@ -14,24 +14,22 @@
 <br>
 @Model["selectedEvent"].GetEventLocation()
 <br>
-@Model["selectedEvent"].GetMenusId() ---- WE NEED THE NAME NOT ID #
+@Model["eventMenu"].GetMenuTheme()
 <br>
-TASKS SECTION:
 @if (@Model["tasks"].Count != 0)
 {
   <h4>TASKS SECTION:</h4>
   <ul>
     @foreach (var task in @Model["tasks"])
     {
-      <li>@task.GetTaskDescription()</li>
+      <li>@task.GetTaskDescription()<a href='/events/@Model["selectedEvent"].GetId()/tasks/@task.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
     }
   </ul>
 }
-<h4>ADD A TASK:</h4>
 <form action='/events/@Model["selectedEvent"].GetId()/tasks/new' method='post'>
   <label for='taskId'>Select A Task</label>
   <select id='taskId' name='taskId' type='text'>
-    @foreach (var task in @Model["tasks"])
+    @foreach (var task in @Model["allTasks"])
     {
       <option value='@task.GetId()'>@task.GetTaskDescription()</option>
     }
@@ -39,9 +37,29 @@ TASKS SECTION:
   <button type='submit'>Add</button>
 </form>
 <hr>
-<br>
-INVITES SECTION:
-<br>
+
+@if (@Model["invitees"].Count != 0)
+{
+  <h4>Invites SECTION:</h4>
+  <ul>
+    @foreach (var invitee in @Model["invitees"])
+    {
+      <li>@invitee.GetInviteeName()<a href='/events/@Model["selectedEvent"].GetId()/invitees/@invitee.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+    }
+  </ul>
+}
+<form action='/events/@Model["selectedEvent"].GetId()/invitees/new' method='post'>
+  <label for='inviteeId'>Select A Invitee</label>
+  <select id='inviteeId' name='inviteeId' type='text'>
+    @foreach (var invitee in @Model["allInvitees"])
+    {
+      <option value='@invitee.GetId()'>@invitee.GetInviteeName()</option>
+    }
+  </select>
+  <button type='submit'>Add</button>
+</form>
+<hr>
+
 
 
 <hr>

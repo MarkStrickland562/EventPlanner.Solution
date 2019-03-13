@@ -31,14 +31,18 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int eventId)
     {
       Event selectedEvent = Event.Find(eventId);
-      List<Menu> menu = selectedEvent.GetMenu();
+      Menu eventMenu = Menu.Find(selectedEvent.GetMenusId());
       List<Task> tasks = selectedEvent.GetTasks();
       List<Invitee> invitees = selectedEvent.GetInvitees();
+      List<Task> allTasks = Task.GetAll();
+      List<Invitee> allInvitees = Invitee.GetAll();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("selectedEvent", selectedEvent);
-      model.Add("menu", menu);
       model.Add("tasks", tasks);
       model.Add("invitees", invitees);
+      model.Add("eventMenu", eventMenu);
+      model.Add("allInvitees", allInvitees);
+      model.Add("allTasks", allTasks);
       return View(model);
     }
 
@@ -49,11 +53,11 @@ namespace EventPlanner.Controllers
       selectedEvent.AddTask(Task.Find(taskId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/events/{eventId}/tasks/delete")]
-    public ActionResult DeleteTask(int eventId, int taskId)
+    [HttpGet("/events/{eventId}/tasks/{tasksId}/delete")]
+    public ActionResult DeleteTask(int eventId, int tasksId)
     {
       Event selectedEvent = Event.Find(eventId);
-      selectedEvent.DeleteTask(Task.Find(taskId));
+      selectedEvent.DeleteTask(Task.Find(tasksId));
       return RedirectToAction("Show");
     }
 
@@ -64,11 +68,11 @@ namespace EventPlanner.Controllers
       selectedEvent.AddInvitee(Invitee.Find(inviteeId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/events/{eventId}/invitees/delete")]
-    public ActionResult DeleteInvitee(int eventId, int inviteeId)
+    [HttpGet("/events/{eventId}/invitees/{inviteesId}/delete")]
+    public ActionResult DeleteInvitee(int eventId, int inviteesId)
     {
       Event selectedEvent = Event.Find(eventId);
-      selectedEvent.DeleteInvitee(Invitee.Find(inviteeId));
+      selectedEvent.DeleteInvitee(Invitee.Find(inviteesId));
       return RedirectToAction("Show");
     }
 
@@ -90,14 +94,10 @@ namespace EventPlanner.Controllers
     public ActionResult Edit(int eventId)
     {
       Event selectedEvent = Event.Find(eventId);
-      List<Menu> menu = selectedEvent.GetMenu();
-      List<Task> tasks = selectedEvent.GetTasks();
-      List<Invitee> invitees = selectedEvent.GetInvitees();
+      Menu eventMenu = Menu.Find(selectedEvent.GetMenusId());
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("selectedEvent", selectedEvent);
-      model.Add("menu", menu);
-      model.Add("tasks", tasks);
-      model.Add("invitees", invitees);
+      model.Add("eventMenu", eventMenu);
       return View(model);
     }
     [HttpPost("/events/{eventId}/edit")]
