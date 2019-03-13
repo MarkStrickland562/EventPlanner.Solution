@@ -29,6 +29,11 @@ svg.fa- {
 >>>>>>> master
 }
 
+.far {
+    text-align: right;
+}
+
+
 
 #sidebar {
     width: 100px;
@@ -49,6 +54,10 @@ svg.fa- {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+#pageTitle {
+    font-size: 30px;
 }
 
 .navbar-default {
