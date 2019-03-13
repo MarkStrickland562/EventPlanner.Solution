@@ -4,19 +4,17 @@
 
 <h1 id="pageTitle"><h2>@Model["selectedEvent"].GetEventName()</h2></h1>
 <br>
-<a href="/events/{id}/edit">EDIT</a>
+<a href="/events/@Model["selectedEvent"].GetId()/edit">EDIT</a>
 <hr>
 
+<br>
+@Model["selectedEvent"].GetEventName()
 <br>
 @Model["selectedEvent"].GetEventDate()
 <br>
 @Model["selectedEvent"].GetEventLocation()
 <br>
-@Model["selectedEvent"].GetMenusId()
-<br>
-@Model["tasks"].GetTasks()
-<br>
-@Model["invitees"].GetInvitees()
+@Model["selectedEvent"].GetMenusId() ---- WE NEED THE NAME NOT ID #
 <br>
 
 
