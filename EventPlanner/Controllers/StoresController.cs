@@ -43,7 +43,7 @@ namespace EventPlanner.Controllers
       store.Delete();
       return RedirectToAction("Index");
     }
-    [HttpPost("/stores/delete")]
+    [HttpGet("/stores/delete")]
     public ActionResult DeleteAll()
     {
       Store.DeleteAll();
