@@ -1,10 +1,20 @@
 @{
   Layout = "_Layout";
+  @Html.Partial("eventNav")
 }
 
+<h1 id="pageTitle">EDIT FOOD ITEM<h2>@Model["menuItemIngredient"].GetIngredientDescription()</h2></h1>
+<br>
+
+<form action="/menuItemIngredients/@Model["menuItemIngredient"].GetId()/edit" method="post">
+  <label for="ingredientDescription">Description:</label>
+  <input type="text" name="ingredientDescription" value="@Model["menuItemIngredient"].GetIngredientDescription()" required>
+  <button type="submit">Update Food Item</button>
+</form>
+
+<hr>
+<br>
 <div class="container">
-  <h1>edit ingredient</h1>
-    <a href="/menuItemIngredients/new">new ingredients</a>
-    <a href="/menuItemIngredients/{id}">show ingredients</a>
-    <a href="/menuItemIngredients/{id}/edit">edit ingredients</a>
+  <br>
+  <a href="/menuItemIngredients/@Model["menuItemIngredient"].GetId()">Return to @Model["menuItemIngredient"].GetIngredientDescription()</a>
 </div>

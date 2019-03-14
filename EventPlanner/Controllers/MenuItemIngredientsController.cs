@@ -19,9 +19,12 @@ namespace EventPlanner.Controllers
     {
       return View();
     }
+
     [HttpPost("/menuItemIngredients/new")]
-    public ActionResult Create(string ingredientDescription, int menuItemId, int storeId)
+    public ActionResult Create(string ingredientDescription)
     {
+      int menuItemId = 0;
+      int storeId = 0;
       MenuItemIngredient newMenuItemIngredient = new MenuItemIngredient(ingredientDescription, menuItemId, storeId);
       newMenuItemIngredient.Save();
       return RedirectToAction("Index");
@@ -42,14 +45,15 @@ namespace EventPlanner.Controllers
       return View(model);
     }
 
-    [HttpPost("/menuItemIngredients/{menuItemIngredientId}/delete")]
+    [HttpGet("/menuItemIngredients/{menuItemIngredientId}/delete")]
     public ActionResult Delete(int menuItemIngredientId)
     {
       MenuItemIngredient menuItemIngredient = MenuItemIngredient.Find(menuItemIngredientId);
       menuItemIngredient.Delete();
       return RedirectToAction("Index");
     }
-    [HttpPost("/menuItemIngredients/delete")]
+
+    [HttpGet("/menuItemIngredients/delete")]
     public ActionResult DeleteAll()
     {
       MenuItemIngredient.DeleteAll();
@@ -64,6 +68,7 @@ namespace EventPlanner.Controllers
       model.Add("menuItemIngredient", menuItemIngredient);
       return View(model);
     }
+
     [HttpPost("/menuItemIngredients/{menuItemIngredientId}/edit")]
     public ActionResult Update(int menuItemIngredientId, string ingredientDescription, int menuItemId, int storeId)
     {
