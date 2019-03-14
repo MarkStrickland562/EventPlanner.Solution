@@ -2,32 +2,32 @@
   Layout = "_Layout";
 }
 
-<h1 id="pageTitle">NEW EVENT</h1>
+<h1 id="pageTitle">ADD NEW EVENT</h1>
 <hr>
 
 <form action="/events" method="post">
 
-  <label for="name">Name:</label>
+  <label for="name">Event Name:</label>
   <input id="name" name="name" type="text" required>
   <br>
-  <label for="eventDate">Date:</label>
+  <label for="eventDate">Event Date:</label>
   <input id="eventDate" name="eventDate" type="datetime" required>
   <br>
-  <label for="eventLocation">Location:</label>
+  <label for="eventLocation">Event Location:</label>
   <input id="eventLocation" name="eventLocation" type="text" required>
   <br>
-  <label for="menuId">Menu SELECT DROPDOWN:</label>
+  <label for="menuId">Event Menu:</label>
   <input id="menuId" name="menuId" type="text" required>
   </div>
 
   <br>
 
-  <button type="submit">Submit</button>
+  <button type="submit">Add New Event</button>
 </form>
 <br>
 
 <hr>
 <br>
 <div class="container">
-  <a href="/events">back to events</a>
+  <a href="/events">Return to Events</a>
 </div>

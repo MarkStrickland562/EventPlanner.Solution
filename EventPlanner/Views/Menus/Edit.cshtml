@@ -1,17 +1,15 @@
 @{
   Layout = "_Layout";
-  @Html.Partial("eventNav")
 }
 
-<h1 id="pageTitle">EDIT<h2>@Model["menu"].GetMenuTheme()</h2></h1>
+<h1 id="pageTitle">UPDATE MENU<h2>@Model["menu"].GetMenuTheme()</h2></h1>
 <br>
 
 <form action="/menus/@Model["menu"].GetId()/edit" method="post">
-  <label for="menuTheme">Name:</label>
+  <label for="menuTheme">Menu Theme:</label>
   <input type="text" name="menuTheme" value="@Model["menu"].GetMenuTheme()" required>
   <button type="submit">Update</button>
 </form>
-
 
 <hr>
 <br>
