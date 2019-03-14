@@ -32,9 +32,11 @@ namespace EventPlanner.Controllers
     {
       MenuItem menuItem = MenuItem.Find(menuItemId);
       List<Menu> menu = menuItem.GetMenus();
+      List<Menu> allMenus = Menu.GetAll();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("menuItem", menuItem);
       model.Add("menu", menu);
+      model.Add("allMenus", allMenus);
       return View(model);
     }
 
@@ -45,7 +47,8 @@ namespace EventPlanner.Controllers
       menuItem.AddMenu(Menu.Find(menuId));
       return RedirectToAction("Show");
     }
-    [HttpPost("/menuItems/{menuItemId}/menu/delete")]
+
+    [HttpGet("/menuItems/{menuItemId}/menus/{menuId}/delete")]
     public ActionResult DeleteMenu(int menuItemId, int menuId)
     {
       MenuItem menuItem = MenuItem.Find(menuItemId);
@@ -53,14 +56,14 @@ namespace EventPlanner.Controllers
       return RedirectToAction("Show");
     }
 
-    [HttpPost("/menuItems/{menuItemId}/delete")]
+    [HttpGet("/menuItems/{menuItemId}/delete")]
     public ActionResult Delete(int menuItemId)
     {
       MenuItem menuItem = MenuItem.Find(menuItemId);
       menuItem.Delete();
       return RedirectToAction("Index");
     }
-    [HttpPost("/menuItems/delete")]
+    [HttpGet("/menuItems/delete")]
     public ActionResult DeleteAll()
     {
       MenuItem.DeleteAll();

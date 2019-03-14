@@ -7,10 +7,8 @@
 <br>
 
 <form action="/menus/@Model["menu"].GetId()/edit" method="post">
-
   <label for="menuTheme">Name:</label>
   <input type="text" name="menuTheme" value="@Model["menu"].GetMenuTheme()" required>
-
   <button type="submit">Update</button>
 </form>
 
@@ -19,5 +17,5 @@
 <br>
 <div class="container">
   <br>
-  <a href="/menus/@Model["menu"].GetId()">back to @Model["menu"].GetMenuTheme()</a>
+  <a href="/menus/@Model["menu"].GetId()">Return to @Model["menu"].GetMenuTheme()</a>
 </div>
