@@ -32,11 +32,11 @@ namespace EventPlanner.Controllers
     {
       Store store = Store.Find(storeId);
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("store", store);
+      model.Add("stores", store);
       return View(model);
     }
 
-    [HttpPost("/stores/{storeId}/delete")]
+    [HttpGet("/stores/{storeId}/delete")]
     public ActionResult Delete(int storeId)
     {
       Store store = Store.Find(storeId);
@@ -55,7 +55,7 @@ namespace EventPlanner.Controllers
     {
       Store store = Store.Find(storeId);
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("Store", store);
+      model.Add("stores", store);
       return View(model);
     }
     [HttpPost("/stores/{storeId}/edit")]
