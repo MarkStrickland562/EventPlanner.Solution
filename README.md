@@ -1325,6 +1325,7 @@ An event planning web application to assist in organizing venues, menus, food, a
 * .NET Core 1.1 SDK or higher
 * .NET Core Runtime 1.1 or higher
 * [Mono](https://www.mono-project.com/)
+* [MAMP](https://www.mamp.info/en/)
 
 #### Download Repo
 1. Download required software: .NET Core SDK, .NET Core Runtime, Mono
@@ -1384,6 +1385,13 @@ Query OK, 0 row affected (0.00 sec)
 
 mysql>DemoData.sql
 ```
+
+#### phpMyAdmin Database Import
+1. Start MySql and Apache through MAMP
+2. Browse MAMP tools to phpMyAdmin
+3. Import event_planner.sql
+4. Review database to ensure import was successful
+5. Select event.planner.sql, import DemoData.sql
 
 #### Edit
 1. Navigate to the working directory: _$ cd EventPlanner.Solution_
