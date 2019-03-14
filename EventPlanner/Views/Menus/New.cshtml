@@ -2,9 +2,22 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle">MENU</h1>
+<hr>
+
+<form action="/menus/new" method="post">
+
+  <label for="menuTheme">Theme:</label>
+  <input id="menuTheme" name="menuTheme" type="text" required>
+  <br>
+  <br>
+
+  <button type="submit">Add Menu</button>
+</form>
+<br>
+
+<hr>
+<br>
 <div class="container">
-  <h1>new menu</h1>
-    <a href="/menus/new">new menus</a>
-    <a href="/menus/{id}">show menus</a>
-    <a href="/menus/{id}/edit">edit menus</a>
+  <a href="/menus">Return to Menus</a>
 </div>
