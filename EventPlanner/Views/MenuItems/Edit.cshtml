@@ -1,10 +1,21 @@
 @{
   Layout = "_Layout";
+  @Html.Partial("eventNav")
 }
 
+<h1 id="pageTitle">EDIT<h2>@Model["menuItem"].GetMenuItemDescription()</h2></h1>
+<br>
+
+<form action="/menuItems/@Model["menuItem"].GetId()/edit" method="post">
+  <label for="menuItemDescription">Description:</label>
+  <input type="text" name="menuItemDescription" value="@Model["menuItem"].GetMenuItemDescription()" required>
+  <button type="submit">Update</button>
+</form>
+
+
+<hr>
+<br>
 <div class="container">
-  <h1>edit dish</h1>
-     <a href="/menuItems/new">new dishes</a>
-    <a href="/menuItems/{id}">show dishes</a>
-    <a href="/menuItems/{id}/edit">edit dishes   <i class="fas fa-edit"></i></a>
+  <br>
+  <a href="/menuItems/@Model["menuItem"].GetId()">Return to @Model["menuItem"].GetMenuItemDescription()</a>
 </div>

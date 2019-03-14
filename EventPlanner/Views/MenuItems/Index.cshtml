@@ -2,26 +2,25 @@
   Layout = "_Layout";
 }
 
-
 <h1 id="pageTitle">DISHES</h1>
+<h5>Click on a Dish to See its Details</h5>
 <br>
 
-  @if (Model.Count != 0)
+@if (Model.Count != 0)
 {
-    @foreach (var menuItems in Model)
-    {
-      <ul class="list-group list-group-horizontal">
-        <li class="list-group-item"><a href='/dishes/@menuItems.GetId()'>@menuItems.GetMenuItemDescription()</a></li>
-        <li class="list-group-item"><a href="/dishes/@menuItems.GetId()/edit">EDIT  <i class="fas fa-edit"></i></a></li>
-        <li class="list-group-item"><a href='/dishes/@menuItems.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
-      </ul>
-    }
+  @foreach (var menuItems in Model)
+  {
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><a href='/menuItems/@menuItems.GetId()'>@menuItems.GetMenuItemDescription()</a></li>
+      <li class="list-group-item"><a href="/menuItems/@menuItems.GetId()/edit">EDIT</a></li>
+      <li class="list-group-item"><a href='/menuItems/@menuItems.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+    </ul>
+  }
 }
 
-
-  <hr>
-  <br>
-  <div class="container">
-  <a href="/dishes/new">new dish</a>
+<hr>
+<br>
+<div class="container">
+  <a href="/menuItems/new">New Dish</a>
    <br>
-  </div>
+</div>
