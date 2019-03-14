@@ -1,9 +1,8 @@
 @{
   Layout = "_Layout";
-  @Html.Partial("eventNav")
 }
 
-<h1 id="pageTitle">EDIT<h2>@Model["menuItem"].GetMenuItemDescription()</h2></h1>
+<h1 id="pageTitle">UPDATE DISH<h2>@Model["menuItem"].GetMenuItemDescription()</h2></h1>
 <br>
 
 <form action="/menuItems/@Model["menuItem"].GetId()/edit" method="post">
@@ -11,7 +10,6 @@
   <input type="text" name="menuItemDescription" value="@Model["menuItem"].GetMenuItemDescription()" required>
   <button type="submit">Update</button>
 </form>
-
 
 <hr>
 <br>

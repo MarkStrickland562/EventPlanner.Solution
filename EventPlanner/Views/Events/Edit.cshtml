@@ -2,23 +2,22 @@
   Layout = "_Layout";
 }
 
-<h1 id="pageTitle">EDIT<h2>@Model["selectedEvent"].GetEventName()</h2></h1>
+<h1 id="pageTitle">UPDATE EVENT<h2>@Model["selectedEvent"].GetEventName()</h2></h1>
 <br>
 
 <form action="/events/@Model["selectedEvent"].GetId()/edit" method="post">
 
-  <label for="name">Name:</label>
+  <label for="name">Event Name:</label>
   <input type="text" name="name" value="@Model["selectedEvent"].GetEventName()" required>
 
-  <label for="eventDate">Date:</label>
+  <label for="eventDate">Event Date:</label>
   <input type="text" name="eventDate" value="@Model["selectedEvent"].GetEventDate()" required>
 
-  <label for="eventLocation">Location:</label>
+  <label for="eventLocation">Event Location:</label>
   <input type="text" name="eventLocation" value="@Model["selectedEvent"].GetEventLocation()" required>
 
-  <label for="menuId">Menu:</label>
+  <label for="menuId">Event Menu:</label>
   <input type="text" name="menuId" value="@Model["eventMenu"].GetMenuTheme()" required>
-  SHOULD BE DROPDOWN TO SELECT
 
   <button type="submit">Update</button>
 </form>
@@ -28,5 +27,5 @@
 <br>
 <div class="container">
   <br>
-  <a href="/events/@Model["selectedEvent"].GetId()">back to @Model["selectedEvent"].GetEventName()</a>
+  <a href="/events/@Model["selectedEvent"].GetId()">Return to @Model["selectedEvent"].GetEventName()</a>
 </div>
