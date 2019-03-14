@@ -52,7 +52,7 @@ namespace EventPlanner.Tests
     [TestMethod]
     public void Create_CreatesNewInstanceOfMenuItemIngredient_True()
     {
-      ActionResult createPost = _controller.Create("TestDescription", 0, 0);
+      ActionResult createPost = _controller.Create("TestDescription");
       Assert.IsInstanceOfType(createPost, typeof(ActionResult));
     }
 
