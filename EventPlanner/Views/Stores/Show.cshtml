@@ -2,9 +2,15 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle"><h2>@Model["stores"].GetStoreName()</h2></h1>
+<br>
+<a href="/stores/@Model["stores"].GetId()/edit">EDIT</a>
+<hr>
+
+<br>
+
+<hr>
+<br>
 <div class="container">
-  <h1>stores show</h1>
-    <a href="/stores/new">new stores</a>
-    <a href="/stores/{id}">show stores</a>
-    <a href="/stores/{id}/edit">edit stores</a>
+  <a href="/stores">Return to Stores</a>
 </div>
