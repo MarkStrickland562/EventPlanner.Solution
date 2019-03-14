@@ -6,18 +6,6 @@
 <h5>Click on a Menu to See its Details</h5>
 <br>
 
-<<<<<<< HEAD
-  @if (Model.Count != 0)
-{
-    @foreach (var menu in Model)
-    {
-      <ul class="list-group list-group-horizontal">
-        <li class="list-group-item"><a href='/menus/@menu.GetId()'>@menu.GetMenuTheme()</a></li>
-        <li class="list-group-item"><a href="/menus/@menu.GetId()/edit">EDIT  <i class="fas fa-edit"></i></a></li>
-        <li class="list-group-item"><a href='/menus/@menu.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
-      </ul>
-    }
-=======
 @if (Model.Count != 0)
 {
   @foreach (var menu in Model)
@@ -28,7 +16,6 @@
       <li class="list-group-item"><a href='/menus/@menu.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
     </ul>
   }
->>>>>>> master
 }
 
 <hr>

@@ -4,14 +4,14 @@
 
 <h1 id="pageTitle">INGREDIENTS LIST</h1>
 <br>
-
+  
   @if (Model.Count != 0)
 {
     @foreach (var menuItemIngreidents in Model)
     {
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item"><a href='/menuItemIngreidents/@menuItemIngreidents.GetId()'>@menuItemIngreidents.GetIngredientDescription()</a></li>
-        <li class="list-group-item"><a href="/menuItemIngreidents/@menuItemIngreidents.GetId()/edit">EDIT  <i class="fas fa-edit"></i></a></li>
+        <li class="list-group-item"><a href="/menuItemIngreidents/@menuItemIngreidents.GetId()/edit">EDIT</a></li>
         <li class="list-group-item"><a href='/menuItemIngreidents/@menuItemIngreidents.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
       </ul>
     }
