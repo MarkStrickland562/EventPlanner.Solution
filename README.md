@@ -27,26 +27,21 @@ An event planning web application to assist in organizing venues, menus, food, a
     <th></th>
   </tr>
   <tr>
-  <tr>
     <td>Behavior</td>
     <td>As an event planner, I need to be able to see a list of events</td>
   </tr>
-  <tr>
   <tr>
     <td>Input</td>
     <td>Click on view events</td>
   </tr>
   <tr>
-  <tr>
     <td>Output</td>
     <td>Return list of all events</td>
   </tr>
   <tr>
-  <tr>
     <td>Notes</td>
     <td>Events should display some details about them</td>
   </tr>
-  <tr>
   <tr>
     <td>Completion</td>
     <td>False</td>
