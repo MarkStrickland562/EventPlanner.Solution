@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-<h1 id="pageTitle">EDIT<h2>@Model["invitee"].GetInviteeName()</h2></h1>
+<h1 id="pageTitle">UPDATE INVITEE<h2>@Model["invitee"].GetInviteeName()</h2></h1>
 <br>
 
 <form action="/invitees/@Model["invitee"].GetId()/edit" method="post">
@@ -16,10 +16,9 @@
   <button type="submit">Update</button>
 </form>
 
-
 <hr>
 <br>
 <div class="container">
   <br>
-  <a href="/events/@Model["invitee"].GetId()">back to @Model["invitee"].GetInviteeName()</a>
+  <a href="/events/@Model["invitee"].GetId()">Return to @Model["invitee"].GetInviteeName()</a>
 </div>
