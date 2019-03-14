@@ -5,8 +5,7 @@
 
 ## | **eHappenings Project** |
 
-#### By Clara Munro, Mark Strickland, Micaela Jawor, Shawn Lunsford
-###### Initiated March 5th, 2019. Updated March 6th, 2019.
+###### Initiated March 5th, 2019. Updated March 14th, 2019.
 
 ----------
 
@@ -17,95 +16,1313 @@ An event planning web application to assist in organizing venues, menus, food, a
 
 * No known bugs.
 
-## Specifications
+## User Stories and Specifications
 
-| Scenario 01 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to see a list of events |
-| Input       | Click on view events |
-| Output      | Return list of all events |
-| Notes       | Events should display some details about them |
-| Completion  | False |
+<details>
+  <summary>Click Here for User Stories and Specifications</summary>
 
-| Scenario 02 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to add an event |
-| Input       | Click on add/new events, submit form |
-| Output      | Return new event form, creates new instance on submit |
-| Notes       | Will create one event at a time |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 01</th>
+    <th></th>
+  </tr>
+  <tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to see a list of events</td>
+  </tr>
+  <tr>
+  <tr>
+    <td>Input</td>
+    <td>Click on view events</td>
+  </tr>
+  <tr>
+  <tr>
+    <td>Output</td>
+    <td>Return list of all events</td>
+  </tr>
+  <tr>
+  <tr>
+    <td>Notes</td>
+    <td>Events should display some details about them</td>
+  </tr>
+  <tr>
+  <tr>
+    <td>Completion</td>
+    <td>False</td>
+  </tr>
+</table>
 
-| Scenario 02 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to set the menu for an event |
-| Input       | On new event form, set event menu|
-| Output      | Return new event list, with menu set to that event |
-| Notes       | One menu for an event |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 02</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add an event </td>
+  </tr>
+  <tr>
+    <td>Input</td>  
+    <td>Click on add/new events, submit form </td>
+  </tr>
+  <tr>
+    <td>Output</td>  
+    <td>Return new event form, creates new instance on submit </td>
+  </tr>
+  <tr>
+    <td>Notes</td>  
+    <td>Will create one event at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
 
-| Scenario 04 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to delete a single event |
-| Input       | Click on delete/remove event |
-| Output      | Delete selected event, return to event list |
-| Notes       | Will delete one event at a time |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 03</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to set the menu for an event </td>
+  </tr>
+  <tr>
+    <td>Input</td>  
+    <td>On new event form, set event menu </td>
+  </tr>
+  <tr>
+    <td>Output</td>  
+    <td>Return new event list, with menu set to that event </td>
+  </tr>
+  <tr>
+    <td>Notes</td>  
+    <td>One menu for an event </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+      <td>False </td>
+  </tr>
+</table>
 
-| Scenario 05 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to delete all events |
-| Input       | Click on delete/remove events |
-| Output      | Delete all events, return to event list |
-| Notes       | Will delete all events at one time |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 04</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete a single event </td>
+  </tr>
+  <tr>
+    <td>Input</td>  
+    <td>Click on delete/remove event </td>
+  </tr>
+  <tr>
+    <td>Output</td>  
+    <td>Delete selected event, return to event list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>  
+    <td>Will delete one event at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+      <td>False </td>
+  </tr>
+</table>
 
-| Scenario 06 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to add tasks to an event|
-| Input       | Select task to add to an event |
-| Output      | Add given task to event, return to event list |
-| Notes       | Will add one task at a time |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 05</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete all events </td>
+  </tr>
+  <tr>
+    <td>Input</td>  
+    <td>Click on delete/remove events </td>
+  </tr>
+  <tr>
+    <td>Output</td>  
+    <td>Delete all events, return to event list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>  
+    <td>Will delete all events at one time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
 
-| Scenario 07 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to remove tasks from an event|
-| Input       | Select task to remove from an event |
-| Output      | Remove given task to event, return to event list |
-| Notes       | Will remove one task at a time |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 06</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add tasks to an event</td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select task to add to an event </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Add given task to event, return to event list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will add one task at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
 
-| Scenario 08 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to add invitees to an event|
-| Input       | Select invitee to add to an event |
-| Output      | Add given invitee to event, return to event list |
-| Notes       | Will add one invitee at a time |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 07</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to remove tasks from an event</td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select task to remove from an event </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Remove given task to event, return to event list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will remove one task at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
 
-| Scenario 09 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to remove invitees from an event |
-| Input       | Select invitee to remove from an event |
-| Output      | Remove given invitee to event, return to event list |
-| Notes       | Will remove one invitee at a time |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 08</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add invitees to an event</td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select invitee to add to an event </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Add given invitee to event, return to event list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will add one invitee at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
 
-| Scenario 10 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to edit a detail of an event |
-| Input       | Select event, modify a single detail |
-| Output      | Update event detail, local and in database |
-| Notes       | Able to edit one details of a single event |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 09</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to remove invitees from an event </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select invitee to remove from an event </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Remove given invitee to event, return to event list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will remove one invitee at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
 
-| Scenario 11 |             |
-|------------:|:------------|
-| Behavior    | As an event planner, I need to be able to edit all of an event's details |
-| Input       | Select event, modify any of its details |
-| Output      | Update event details, local and in database |
-| Notes       | Able to edit one or multiple details of a single event |
-| Completion  | False |
+<table>
+  <tr>
+    <th>Scenario 10</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to edit a detail of an event </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select event, modify a single detail </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Update event detail, local and in database </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Able to edit one details of a single event </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 11</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to edit all of an event's details </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select event, modify any of its details </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Update event details, local and in database </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Able to edit one or multiple details of a single event </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 12</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to see a list of invitees </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on view invitees </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return list of all invitees </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Invitees should display some details about them </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 13</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add an invitee's details to the database </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on add/new invitee, submit form </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new invitee form, creates new instance on submit </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will create one invitee at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 14</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete one invitee </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove invitee </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete selected invitee, return to invitee list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete one invitee at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 15</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete all invitees </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove invitees </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete all invitees, return to invitee list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete all invitees at one time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 16</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to edit a detail of an invitee </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select invitee, modify a single detail </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Update invitee detail, local and in database </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Able to edit one detail of a single invitee </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 17</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to edit all of an invitee's details </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select invitee, modify any of its details </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Update invitee details, local and in database </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Able to edit one or multiple details of a single invitee </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 18</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to see a list of tasks </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on view tasks </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return list of all tasks </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Tasks should display some details about them </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 19</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add a task's details to the database </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on add/new invitee, submit form </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new invitee form, creates new instance on submit </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will create one invitee at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 20</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete one task </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove task </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete selected task, return to task list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete one task at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 21</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete all tasks </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove tasks </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete all tasks, return to task list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete all tasks at one time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 22</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to edit a detail of a task </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select task, modify a single detail </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Update task detail, local and in database </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Able to edit one detail of a single task </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 23</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to edit all of a task's details </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select task, modify any of its details </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Update task details, local and in database </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Able to edit one or multiple details of a single task </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 24</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to see a list of menus </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on view menus </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return list of all menus </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Menus should display details about them </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 25</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add a menu </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on add/new menu, submit form </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new menu form, creates new instance on submit </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will create one menu at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 26</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to set the food items for a menu </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>On new menu form, set menu food items </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new menu list, with food items set to that menu </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>One menu can have many food items </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 27</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete a single menu </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove menu </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete selected menu, return to menu list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete one menu at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 28</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete all menus </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove menus </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete all menus, return to menu list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete all menus at one time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 29</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add food items to an menu</td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select a food item to add to a menu </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Add given food item to menu, return to menu list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will add one food item at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 30</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to remove food items from an menu</td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select food item to remove from a menu </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Remove given food item to menu, return to menu list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will remove one food item at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 31</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to see a list of food items </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on view food items </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return list of all food items </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td></td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 32</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add a food item </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on add/new food item, submit form </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new food item form, creates new instance on submit </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will create one food item at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 33</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to set the ingredients for a food item </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>On new food item form, set the ingredients </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new food item list, with ingredients set to that food item </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>One food item can have many ingredients </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 34</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete a single food item </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove food item </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete selected food item, return to food item list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete one food item at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 35</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete all food items </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove food items </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete all food items, return to food item list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete all food items at one time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 36</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add ingredients to a food item</td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select an ingredient to add to a food item </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Add given ingredient to food item, return to food item list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will add one ingredient at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 37</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to remove ingredients from a food item</td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select an ingredient to remove from a food item </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Remove given ingredient from food item, return to food item list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will remove one ingredient at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 38</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to see a list of ingredients </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on view ingredients </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return list of all ingredients </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td></td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 39</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add an ingredient </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on add/new ingredient, submit form </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new ingredient form, creates new instance on submit </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will create one ingredient at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 40</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to set the stores for an ingredient </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>On new ingredient form, set the stores </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new ingredient list, with stores set to that ingredient </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>One ingredient can have many stores </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 41</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete a single ingredient </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove ingredient </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete selected ingredient, return to ingredient list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete one ingredient at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 42</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete all ingredients </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove ingredients </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete all ingredients, return to ingredient list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete all ingredients at one time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 43</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add stores to an ingredient </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select an store to add to an ingredient </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Add given store to ingredient, return to ingredient list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will add one store at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 44</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to remove stores from an ingredient </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Select an store to remove from a ingredient </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Remove given store from ingredient, return to ingredient list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will remove one store at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 45</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to see a list of stores </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on view stores </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return list of all stores </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Stores should display details about them </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 46</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to add a store </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on add/new store, submit form </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Return new store form, creates new instance on submit </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will create one store at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 47</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete a single store </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove store </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete selected store, return to store list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete one store at a time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Scenario 48</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Behavior</td>
+    <td>As an event planner, I need to be able to delete all stores </td>
+  </tr>
+  <tr>
+    <td>Input</td>   
+    <td>Click on delete/remove stores </td>
+  </tr>
+  <tr>
+    <td>Output</td>   
+    <td>Delete all stores, return to store list </td>
+  </tr>
+  <tr>
+    <td>Notes</td>   
+    <td>Will delete all stores at one time </td>
+  </tr>
+  <tr>
+    <td>Completion</td>  
+    <td>False </td>
+  </tr>
+</table>
+
+</details>
 
 ## Setup and Use
 
@@ -116,7 +1333,7 @@ An event planning web application to assist in organizing venues, menus, food, a
 
 #### Download Repo
 1. Download required software: .NET Core SDK, .NET Core Runtime, Mono
-2. Clone [this repository](https://github.com/LondresRi/EventPlanner.Solution): _$ git clone (repo HTTPS TODO)_
+2. Clone [this repository](https://github.com/LondresRi/EventPlanner.Solution): _$ git clone https://github.com/LondresRi/EventPlanner.Solution.git_
 
 #### Open Locally - Browser
 1. Navigate to the application directory: _$ cd EventPlanner.Solution/EventPlanner_
@@ -139,12 +1356,13 @@ Application started. Press Ctrl+C to shut down.
 
 #### Compile Locally
 1. Navigate to the project directory: _$ cd EventPlanner.Solution/EventPlanner_
-2. Execute _$ mcs Program.cs Models/TODO.cs_ to compile new Program.exe file
+2. Execute _$ mcs Program.cs Models/Database.cs Models/Event.cs Models/Invitee.cs Models/Menu.cs Models/MenuItem.cs Models/MenuItemIngredient.cs Models/Store.cs Models/Task.cs_ to compile new Program.exe file
 
 #### MySql Database Import
 1. Open your preferred database manager
 2. Import event_planner.sql
 3. Review database to ensure import was successful
+4. Import DemoData.sql to populate event_planner.sql
 
 ```
 D:\user>mysql -u root -p
@@ -168,6 +1386,8 @@ Query OK, 0 row affected (0.00 sec)
 
 mysql>DESCRIBE [insert any table name, case sensitive];
 Query OK, 0 row affected (0.00 sec)
+
+mysql>DemoData.sql
 ```
 
 #### Edit
@@ -181,16 +1401,20 @@ Query OK, 0 row affected (0.00 sec)
 
 ## Built With
 
-* TODO
+* Windows 10.1
+* iMac OS X El Capitan 10.11.6
 * Linux Ubuntu 18.04 bionic
 * Atom (IDE)
+* VisualStudio Code (IDE)
 * C#
-* HTML / CSS
-* Bootstrap 3.TODO
+* JavaScript / jQuery 3.3.7
+* HTML-5 / CSS-3
+* Bootstrap 4.1.0
 * Microsoft SDK
+* Microsoft Web SDK
 * .NET Core 1.1 - 2.2
-* .ASPNetCore
-* MySql
+* .ASPNetCore 1.1.2
+* MySql (MAMP / phpMyAdmin)
 
 ## Contributors
 

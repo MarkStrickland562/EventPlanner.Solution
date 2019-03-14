@@ -2,25 +2,27 @@
   Layout = "_Layout";
 }
 
-<h1 id="pageTitle">INGREDIENTS LIST</h1>
+<h1 id="pageTitle">FOOD ITEM LIST</h1>
+<h5>Click on a Food Item to See its Details</h5>
+<h5><a href="/menuItemIngredients/new">Add a New Food Item</a><h/h5>
 <br>
-  
-  @if (Model.Count != 0)
+<br>
+
+@if (Model.Count != 0)
 {
-    @foreach (var menuItemIngreidents in Model)
-    {
-      <ul class="list-group list-group-horizontal">
-        <li class="list-group-item"><a href='/menuItemIngreidents/@menuItemIngreidents.GetId()'>@menuItemIngreidents.GetIngredientDescription()</a></li>
-        <li class="list-group-item"><a href="/menuItemIngreidents/@menuItemIngreidents.GetId()/edit">EDIT</a></li>
-        <li class="list-group-item"><a href='/menuItemIngreidents/@menuItemIngreidents.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
-      </ul>
-    }
+  @foreach (var menuItemIngredients in Model)
+  {
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><a href='/menuItemIngredients/@menuItemIngredients.GetId()'>@menuItemIngredients.GetIngredientDescription()</a></li>
+      <li class="list-group-item"><a href="/menuItemIngredients/@menuItemIngredients.GetId()/edit">EDIT</a></li>
+      <li class="list-group-item"><a href='/menuItemIngredients/@menuItemIngredients.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+    </ul>
+  }
 }
 
-
-  <hr>
+<hr>
+<br>
+<div class="container">
+  <a href="/menuItemIngredients/new">Add a New Food Item</a>
   <br>
-  <div class="container">
-  <a href="/menuItemIngredients/new">new ingredient</a>
-   <br>
-  </div>
+</div>
