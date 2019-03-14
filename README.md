@@ -27,29 +27,24 @@ An event planning web application to assist in organizing venues, menus, food, a
     <th></th>
   </tr>
   <tr>
-  <tr>
     <td>Behavior</td>
     <td>As an event planner, I need to be able to see a list of events</td>
   </tr>
-  <tr>
   <tr>
     <td>Input</td>
     <td>Click on view events</td>
   </tr>
   <tr>
-  <tr>
     <td>Output</td>
     <td>Return list of all events</td>
   </tr>
-  <tr>
   <tr>
     <td>Notes</td>
     <td>Events should display some details about them</td>
   </tr>
   <tr>
-  <tr>
     <td>Completion</td>
-    <td>False</td>
+    <td>True</td>
   </tr>
 </table>
 
@@ -76,7 +71,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -103,7 +98,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-      <td>False </td>
+      <td>True </td>
   </tr>
 </table>
 
@@ -130,7 +125,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-      <td>False </td>
+      <td>True </td>
   </tr>
 </table>
 
@@ -157,7 +152,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -184,7 +179,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -211,7 +206,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -238,7 +233,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -265,7 +260,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -292,7 +287,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -319,7 +314,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -346,7 +341,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -373,7 +368,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -400,7 +395,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -427,7 +422,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -454,7 +449,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -481,7 +476,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -508,7 +503,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -535,7 +530,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -562,7 +557,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -589,7 +584,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -616,7 +611,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -643,7 +638,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -670,7 +665,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -697,7 +692,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -724,7 +719,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -751,7 +746,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -778,7 +773,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -805,7 +800,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -832,7 +827,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -859,7 +854,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -886,7 +881,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -913,7 +908,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -940,7 +935,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -967,7 +962,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -994,7 +989,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1021,7 +1016,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1048,7 +1043,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1075,7 +1070,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1102,7 +1097,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1129,7 +1124,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1156,7 +1151,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1183,7 +1178,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1210,7 +1205,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1237,7 +1232,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1264,7 +1259,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1291,7 +1286,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1318,7 +1313,7 @@ An event planning web application to assist in organizing venues, menus, food, a
   </tr>
   <tr>
     <td>Completion</td>  
-    <td>False </td>
+    <td>True </td>
   </tr>
 </table>
 
@@ -1330,6 +1325,7 @@ An event planning web application to assist in organizing venues, menus, food, a
 * .NET Core 1.1 SDK or higher
 * .NET Core Runtime 1.1 or higher
 * [Mono](https://www.mono-project.com/)
+* [MAMP](https://www.mamp.info/en/)
 
 #### Download Repo
 1. Download required software: .NET Core SDK, .NET Core Runtime, Mono
@@ -1389,6 +1385,13 @@ Query OK, 0 row affected (0.00 sec)
 
 mysql>DemoData.sql
 ```
+
+#### phpMyAdmin Database Import
+1. Start MySql and Apache through MAMP
+2. Browse MAMP tools to phpMyAdmin
+3. Import event_planner.sql
+4. Review database to ensure import was successful
+5. Select event.planner.sql, import DemoData.sql
 
 #### Edit
 1. Navigate to the working directory: _$ cd EventPlanner.Solution_
