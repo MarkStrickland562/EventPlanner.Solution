@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Roboto');
+
+body {
+  position: relative;
+  background: url("../img/photobackground1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.container {
+  padding-top: 10%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.e {
+  font-size: 30px;
+}
+
+h1, h2 {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+button {
+  background-color: #c99de8;
+  color: black;
+  width: 200px;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 25px;
+}
+
+a {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
