@@ -5,8 +5,7 @@
 
 ## | **eHappenings Project** |
 
-#### By Clara Munro, Mark Strickland, Micaela Jawor, Shawn Lunsford
-###### Initiated March 5th, 2019. Updated March 6th, 2019.
+###### Initiated March 5th, 2019. Updated March 14th, 2019.
 
 ----------
 
@@ -17,7 +16,7 @@ An event planning web application to assist in organizing venues, menus, food, a
 
 * No known bugs.
 
-## Specifications
+## User Stories and Specifications
 
 | Scenario 01 |             |
 |------------:|:------------|
@@ -38,7 +37,7 @@ An event planning web application to assist in organizing venues, menus, food, a
 | Scenario 02 |             |
 |------------:|:------------|
 | Behavior    | As an event planner, I need to be able to set the menu for an event |
-| Input       | On new event form, set event menu|
+| Input       | On new event form, set event menu |
 | Output      | Return new event list, with menu set to that event |
 | Notes       | One menu for an event |
 | Completion  | False |
@@ -107,6 +106,302 @@ An event planning web application to assist in organizing venues, menus, food, a
 | Notes       | Able to edit one or multiple details of a single event |
 | Completion  | False |
 
+| Scenario 12 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to see a list of invitees |
+| Input       | Click on view invitees |
+| Output      | Return list of all invitees |
+| Notes       | Invitees should display some details about them |
+| Completion  | False |
+
+| Scenario 13 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add an invitee's details to the database |
+| Input       | Click on add/new invitee, submit form |
+| Output      | Return new invitee form, creates new instance on submit |
+| Notes       | Will create one invitee at a time |
+| Completion  | False |
+
+| Scenario 14 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete one invitee |
+| Input       | Click on delete/remove invitee |
+| Output      | Delete selected invitee, return to invitee list |
+| Notes       | Will delete one invitee at a time |
+| Completion  | False |
+
+| Scenario 15 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete all invitees |
+| Input       | Click on delete/remove invitees |
+| Output      | Delete all invitees, return to invitee list |
+| Notes       | Will delete all invitees at one time |
+| Completion  | False |
+
+| Scenario 16 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to edit a detail of an invitee |
+| Input       | Select invitee, modify a single detail |
+| Output      | Update invitee detail, local and in database |
+| Notes       | Able to edit one detail of a single invitee |
+| Completion  | False |
+
+| Scenario 17 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to edit all of an invitee's details |
+| Input       | Select invitee, modify any of its details |
+| Output      | Update invitee details, local and in database |
+| Notes       | Able to edit one or multiple details of a single invitee |
+| Completion  | False |
+
+| Scenario 18 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to see a list of tasks |
+| Input       | Click on view tasks |
+| Output      | Return list of all tasks |
+| Notes       | Tasks should display some details about them |
+| Completion  | False |
+
+| Scenario 19 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add a task's details to the database |
+| Input       | Click on add/new invitee, submit form |
+| Output      | Return new invitee form, creates new instance on submit |
+| Notes       | Will create one invitee at a time |
+| Completion  | False |
+
+| Scenario 20 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete one task |
+| Input       | Click on delete/remove task |
+| Output      | Delete selected task, return to task list |
+| Notes       | Will delete one task at a time |
+| Completion  | False |
+
+| Scenario 21 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete all tasks |
+| Input       | Click on delete/remove tasks |
+| Output      | Delete all tasks, return to task list |
+| Notes       | Will delete all tasks at one time |
+| Completion  | False |
+
+| Scenario 22 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to edit a detail of a task |
+| Input       | Select task, modify a single detail |
+| Output      | Update task detail, local and in database |
+| Notes       | Able to edit one detail of a single task |
+| Completion  | False |
+
+| Scenario 23 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to edit all of a task's details |
+| Input       | Select task, modify any of its details |
+| Output      | Update task details, local and in database |
+| Notes       | Able to edit one or multiple details of a single task |
+| Completion  | False |
+
+| Scenario 24 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to see a list of menus |
+| Input       | Click on view menus |
+| Output      | Return list of all menus |
+| Notes       | Menus should display details about them |
+| Completion  | False |
+
+| Scenario 25 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add a menu |
+| Input       | Click on add/new menu, submit form |
+| Output      | Return new menu form, creates new instance on submit |
+| Notes       | Will create one menu at a time |
+| Completion  | False |
+
+| Scenario 26 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to set the food items for a menu |
+| Input       | On new menu form, set menu food items |
+| Output      | Return new menu list, with food items set to that menu |
+| Notes       | One menu can have many food items |
+| Completion  | False |
+
+| Scenario 27 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete a single menu |
+| Input       | Click on delete/remove menu |
+| Output      | Delete selected menu, return to menu list |
+| Notes       | Will delete one menu at a time |
+| Completion  | False |
+
+| Scenario 28 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete all menus |
+| Input       | Click on delete/remove menus |
+| Output      | Delete all menus, return to menu list |
+| Notes       | Will delete all menus at one time |
+| Completion  | False |
+
+| Scenario 29 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add food items to an menu|
+| Input       | Select a food item to add to a menu |
+| Output      | Add given food item to menu, return to menu list |
+| Notes       | Will add one food item at a time |
+| Completion  | False |
+
+| Scenario 30 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to remove food items from an menu|
+| Input       | Select food item to remove from a menu |
+| Output      | Remove given food item to menu, return to menu list |
+| Notes       | Will remove one food item at a time |
+| Completion  | False |
+
+| Scenario 31 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to see a list of food items |
+| Input       | Click on view food items |
+| Output      | Return list of all food items |
+| Notes       | |
+| Completion  | False |
+
+| Scenario 32 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add a food item |
+| Input       | Click on add/new food item, submit form |
+| Output      | Return new food item form, creates new instance on submit |
+| Notes       | Will create one food item at a time |
+| Completion  | False |
+
+| Scenario 33 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to set the ingredients for a food item |
+| Input       | On new food item form, set the ingredients |
+| Output      | Return new food item list, with ingredients set to that food item |
+| Notes       | One food item can have many ingredients |
+| Completion  | False |
+
+| Scenario 34 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete a single food item |
+| Input       | Click on delete/remove food item |
+| Output      | Delete selected food item, return to food item list |
+| Notes       | Will delete one food item at a time |
+| Completion  | False |
+
+| Scenario 35 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete all food items |
+| Input       | Click on delete/remove food items |
+| Output      | Delete all food items, return to food item list |
+| Notes       | Will delete all food items at one time |
+| Completion  | False |
+
+| Scenario 36 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add ingredients to a food item|
+| Input       | Select an ingredient to add to a food item |
+| Output      | Add given ingredient to food item, return to food item list |
+| Notes       | Will add one ingredient at a time |
+| Completion  | False |
+
+| Scenario 37 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to remove ingredients from a food item|
+| Input       | Select an ingredient to remove from a food item |
+| Output      | Remove given ingredient from food item, return to food item list |
+| Notes       | Will remove one ingredient at a time |
+| Completion  | False |
+
+| Scenario 38 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to see a list of ingredients |
+| Input       | Click on view ingredients |
+| Output      | Return list of all ingredients |
+| Notes       | |
+| Completion  | False |
+
+| Scenario 39 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add an ingredient |
+| Input       | Click on add/new ingredient, submit form |
+| Output      | Return new ingredient form, creates new instance on submit |
+| Notes       | Will create one ingredient at a time |
+| Completion  | False |
+
+| Scenario 40 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to set the stores for an ingredient |
+| Input       | On new ingredient form, set the stores |
+| Output      | Return new ingredient list, with stores set to that ingredient |
+| Notes       | One ingredient can have many stores |
+| Completion  | False |
+
+| Scenario 41 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete a single ingredient |
+| Input       | Click on delete/remove ingredient |
+| Output      | Delete selected ingredient, return to ingredient list |
+| Notes       | Will delete one ingredient at a time |
+| Completion  | False |
+
+| Scenario 42 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete all ingredients |
+| Input       | Click on delete/remove ingredients |
+| Output      | Delete all ingredients, return to ingredient list |
+| Notes       | Will delete all ingredients at one time |
+| Completion  | False |
+
+| Scenario 43 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add stores to an ingredient |
+| Input       | Select an store to add to an ingredient |
+| Output      | Add given store to ingredient, return to ingredient list |
+| Notes       | Will add one store at a time |
+| Completion  | False |
+
+| Scenario 44 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to remove stores from an ingredient |
+| Input       | Select an store to remove from a ingredient |
+| Output      | Remove given store from ingredient, return to ingredient list |
+| Notes       | Will remove one store at a time |
+| Completion  | False |
+
+| Scenario 45 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to see a list of stores |
+| Input       | Click on view stores |
+| Output      | Return list of all stores |
+| Notes       | Stores should display details about them |
+| Completion  | False |
+
+| Scenario 46 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to add a store |
+| Input       | Click on add/new store, submit form |
+| Output      | Return new store form, creates new instance on submit |
+| Notes       | Will create one store at a time |
+| Completion  | False |
+
+| Scenario 47 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete a single store |
+| Input       | Click on delete/remove store |
+| Output      | Delete selected store, return to store list |
+| Notes       | Will delete one store at a time |
+| Completion  | False |
+
+| Scenario 48 |             |
+|------------:|:------------|
+| Behavior    | As an event planner, I need to be able to delete all stores |
+| Input       | Click on delete/remove stores |
+| Output      | Delete all stores, return to store list |
+| Notes       | Will delete all stores at one time |
+| Completion  | False |
+
 ## Setup and Use
 
 #### Prerequisites
@@ -116,7 +411,7 @@ An event planning web application to assist in organizing venues, menus, food, a
 
 #### Download Repo
 1. Download required software: .NET Core SDK, .NET Core Runtime, Mono
-2. Clone [this repository](https://github.com/LondresRi/EventPlanner.Solution): _$ git clone (repo HTTPS TODO)_
+2. Clone [this repository](https://github.com/LondresRi/EventPlanner.Solution): _$ git clone https://github.com/LondresRi/EventPlanner.Solution.git_
 
 #### Open Locally - Browser
 1. Navigate to the application directory: _$ cd EventPlanner.Solution/EventPlanner_
@@ -139,12 +434,13 @@ Application started. Press Ctrl+C to shut down.
 
 #### Compile Locally
 1. Navigate to the project directory: _$ cd EventPlanner.Solution/EventPlanner_
-2. Execute _$ mcs Program.cs Models/TODO.cs_ to compile new Program.exe file
+2. Execute _$ mcs Program.cs Models/Database.cs Models/Event.cs Models/Invitee.cs Models/Menu.cs Models/MenuItem.cs Models/MenuItemIngredient.cs Models/Store.cs Models/Task.cs_ to compile new Program.exe file
 
 #### MySql Database Import
 1. Open your preferred database manager
 2. Import event_planner.sql
 3. Review database to ensure import was successful
+4. Import DemoData.sql to populate event_planner.sql
 
 ```
 D:\user>mysql -u root -p
@@ -168,6 +464,8 @@ Query OK, 0 row affected (0.00 sec)
 
 mysql>DESCRIBE [insert any table name, case sensitive];
 Query OK, 0 row affected (0.00 sec)
+
+mysql>DemoData.sql
 ```
 
 #### Edit
@@ -181,16 +479,20 @@ Query OK, 0 row affected (0.00 sec)
 
 ## Built With
 
-* TODO
+* Windows 10.1
+* iMac OS X El Capitan 10.11.6
 * Linux Ubuntu 18.04 bionic
 * Atom (IDE)
+* VisualStudio Code (IDE)
 * C#
-* HTML / CSS
-* Bootstrap 3.TODO
+* JavaScript / jQuery 3.3.7
+* HTML-5 / CSS-3
+* Bootstrap 4.1.0
 * Microsoft SDK
+* Microsoft Web SDK
 * .NET Core 1.1 - 2.2
-* .ASPNetCore
-* MySql
+* .ASPNetCore 1.1.2
+* MySql (MAMP / phpMyAdmin)
 
 ## Contributors
 
