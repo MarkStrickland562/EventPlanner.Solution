@@ -4,16 +4,13 @@
 
 <h1 id="pageTitle"><h2>@Model["selectedEvent"].GetEventName()</h2></h1>
 <br>
-<h4><a href="/events/@Model["selectedEvent"].GetId()/edit">EDIT</a></h4>
-<hr>
+<h4><a href="/events/@Model["selectedEvent"].GetId()/edit">EDIT DETAILS</a></h4>
+<br>
 
-@Model["selectedEvent"].GetEventName()
-<br>
-@Model["selectedEvent"].GetEventDate()
-<br>
-@Model["selectedEvent"].GetEventLocation()
-<br>
-@Model["eventMenu"].GetMenuTheme()
+<h5>Event Date:  @Model["selectedEvent"].GetEventDate()</h5>
+<h5>Event Location:  @Model["selectedEvent"].GetEventLocation()</h5>
+<h5>Event Menu:  @Model["eventMenu"].GetMenuTheme()</h5>
+
 <br>
 <br>
 @if (@Model["tasks"].Count != 0)

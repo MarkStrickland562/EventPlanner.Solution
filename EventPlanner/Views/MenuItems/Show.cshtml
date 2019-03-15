@@ -3,13 +3,7 @@
 }
 
 <h1 id="pageTitle"><h2>@Model["menuItem"].GetMenuItemDescription()</h2></h1>
-<br>
-<a href="/menuItems/@Model["menuItem"].GetId()/edit">EDIT</a>
-<hr>
-
-<br>
-@Model["menuItem"].GetMenuItemDescription()
-<br>
+<h4><a href="/menuItems/@Model["menuItem"].GetId()/edit">EDIT DETAILS</a></h4>
 
 @if (@Model["menu"].Count != 0)
 {

@@ -5,21 +5,26 @@
 <h1 id="pageTitle">ADD NEW EVENT</h1>
 <hr>
 
-<form action="/events" method="post">
+<form action="/events/new" method="post">
 
   <label for="name">Event Name:</label>
   <input id="name" name="name" type="text" required>
   <br>
   <label for="eventDate">Event Date:</label>
-  <input id="eventDate" name="eventDate" type="datetime" required>
+  <input id="eventDate" name="eventDate" class="form-control" type="date" required>
   <br>
   <label for="eventLocation">Event Location:</label>
   <input id="eventLocation" name="eventLocation" type="text" required>
   <br>
-  <label for="menuId">Event Menu:</label>
-  <input id="menuId" name="menuId" type="text" required>
-  </div>
+  <label for="menuId">Select a Menu:</label>
+  <select id="menuId" name="menuId" type="text">
+  @foreach (var menu in @Model)
+  {
+    <option value='@menu.GetId()'>@menu.GetMenuTheme()</option>
+  }
+  </select>
 
+  <br>
   <br>
 
   <button type="submit">Add New Event</button>

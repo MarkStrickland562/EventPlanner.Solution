@@ -4,11 +4,8 @@
 
 <h1 id="pageTitle"><h2>@Model["menu"].GetMenuTheme()</h2></h1>
 <br>
-<a href="/menus/@Model["menu"].GetId()/edit">EDIT</a>
+<a href="/menus/@Model["menu"].GetId()/edit">EDIT DETAILS</a>
 <hr>
-
-<br>
-<br>
 
 @if (@Model["menuItems"].Count != 0)
 {
@@ -28,7 +25,7 @@
       <option value='@menuItem.GetId()'>@menuItem.GetMenuItemDescription()</option>
     }
   </select>
-  <button type='submit'>Add Dish</button>
+  <button type='submit'>Add Dish to the Menu</button>
 </form>
 <hr>
 

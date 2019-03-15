@@ -53,6 +53,7 @@ svg.fa- {
     position: absolute;
     top: 0;
     right: 0;
+    background-color: beige;
 }
 
 #pageTitle {
@@ -61,6 +62,7 @@ svg.fa- {
 
 .navbar-default {
     box-shadow: 0px 4px 6px #CDCDCD;
+    background-color: beige;
 }
 
 .navbar-header {
