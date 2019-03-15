@@ -31,10 +31,12 @@ namespace EventPlanner.Controllers
     public ActionResult Show(int taskId)
     {
       Task task = Task.Find(taskId);
+      List<Event> allEvents = Event.GetAll();
       List<Event> events = task.GetEvents();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("task", task);
       model.Add("events", events);
+      model.Add("allEvents", allEvents);
       return View(model);
     }
 

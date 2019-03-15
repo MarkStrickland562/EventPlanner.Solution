@@ -2,9 +2,25 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle">ADD NEW TASK</h1>
+<hr>
+
+<form action="/tasks/new" method="post">
+  <label for="taskDescription">Description:</label>
+  <input id="taskDescription" name="taskDescription" type="text" required>
+  <br>
+  <label for="taskPlannedStartDateTime">Planned Start Date/Time:</label>
+  <input id="taskPlannedStartDateTime" name="taskPlannedStartDateTime" class="form-control" type="datetime-local" required>
+  <br>
+  <br>
+
+  <button type="submit">Add New Task</button>
+</form>
+<br>
+<br>
+
+<hr>
+<br>
 <div class="container">
-  <h1>tasks new</h1>
-    <a href="/tasks/new">new tasks</a>
-    <a href="/tasks/{id}">show tasks</a>
-    <a href="/tasks/{id}/edit">edit tasks</a>
+  <a href="/tasks">Return to Tasks</a>
 </div>

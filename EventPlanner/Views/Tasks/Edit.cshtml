@@ -2,9 +2,23 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle">UPDATE TASK<h2>@Model["task"].GetTaskDescription()</h2></h1>
+<br>
+
+<form action="/tasks/@Model["task"].GetId()/edit" method="post">
+
+  <label for="taskDescription">Name:</label>
+  <input type="text" name="taskDescription" value="@Model["task"].GetTaskDescription()" required>
+  <br>
+  <label for="taskPlannedStartDateTime">Planned Start Date/Time:</label>
+  <input type="datetime-local" name="taskPlannedStartDateTime" class="form-control" value="@Model["task"].GetTaskPlannedStartDateTime()" required>
+  <br>
+  <button type="submit">Update</button>
+</form>
+
+<hr>
+<br>
 <div class="container">
-  <h1>tasks edit</h1>
-    <a href="/tasks/new">new tasks</a>
-    <a href="/tasks/{id}">show tasks</a>
-    <a href="/tasks/{id}/edit">edit tasks</a>
+  <br>
+  <a href="/tasks/@Model["task"].GetId()">Return to @Model["task"].GetTaskDescription()</a>
 </div>

@@ -17,8 +17,10 @@ namespace EventPlanner.Controllers
     [HttpGet("/events/new")]
     public ActionResult New()
     {
-      return View();
+      List<Menu> allMenus = Menu.GetAll();
+      return View(allMenus);
     }
+
     [HttpPost("/events/new")]
     public ActionResult Create(string name, DateTime eventDate, string eventLocation, int menuId)
     {
@@ -83,6 +85,7 @@ namespace EventPlanner.Controllers
       selectedEvent.Delete();
       return RedirectToAction("Index");
     }
+
     [HttpPost("/events/delete")]
     public ActionResult DeleteAll()
     {
@@ -95,10 +98,13 @@ namespace EventPlanner.Controllers
     {
       Event selectedEvent = Event.Find(eventId);
       Menu eventMenu = Menu.Find(selectedEvent.GetMenusId());
+      List<Menu> allMenus = Menu.GetAll();
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("selectedEvent", selectedEvent);
       model.Add("eventMenu", eventMenu);
+      model.Add("allMenus", allMenus);
       return View(model);
+
     }
     [HttpPost("/events/{eventId}/edit")]
     public ActionResult Update(int eventId, string name, DateTime eventDate, string eventLocation, int menuId)

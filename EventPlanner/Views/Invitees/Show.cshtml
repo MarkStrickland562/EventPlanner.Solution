@@ -4,18 +4,15 @@
 
 <h1 id="pageTitle"><h2>@Model["invitee"].GetInviteeName()</h2></h1>
 <br>
-<a href="/invitees/@Model["invitee"].GetId()/edit">EDIT</a>
-<hr>
+<a href="/invitees/@Model["invitee"].GetId()/edit">EDIT DETAILS</a>
 
 <br>
-@Model["invitee"].GetInviteeName()
-<br>
-@Model["invitee"].GetInviteeEmailAddress()
+<h5>Invitee Email Address:  @Model["invitee"].GetInviteeEmailAddress()</h5>
 <br>
 
 @if (@Model["events"].Count != 0)
 {
-  <h4>EVENTS SECTION:</h4>
+  <h4>EVENTS:</h4>
   <ul>
     @foreach (var selectedEvent in @Model["events"])
     {
@@ -31,7 +28,7 @@
       <option value='@selectedEvent.GetId()'>@selectedEvent.GetEventName()</option>
     }
   </select>
-  <button type='submit'>Add</button>
+  <button type='submit'>Add Event for the Invitee</button>
 </form>
 <hr>
 
@@ -40,5 +37,5 @@
 <hr>
 <br>
 <div class="container">
-  <a href="/events">back to events</a>
+  <a href="/invitees">Return to Invitees</a>
 </div>

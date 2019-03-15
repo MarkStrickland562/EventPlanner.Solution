@@ -2,9 +2,36 @@
   Layout = "_Layout";
 }
 
+<h1 id="pageTitle"><h2>@Model["task"].GetTaskDescription()</h2></h1>
+<h4><a href="/tasks/@Model["task"].GetId()/edit">EDIT DETAILS</a></h4>
+
+<h5>Planned Start Date/Time:  @Model["task"].GetTaskPlannedStartDateTime()</h5>
+<br>
+
+@if (@Model["events"].Count != 0)
+{
+  <h4>EVENTS:</h4>
+  <ul>
+    @foreach (var selectedEvent in @Model["events"])
+    {
+      <li>@selectedEvent.GetEventName()<a href='/tasks/@Model["task"].GetId()/events/@selectedEvent.GetId()/delete'><i class="far fa-times-circle"></i></a></li>
+    }
+  </ul>
+}
+<form action='/tasks/@Model["task"].GetId()/events/new' method='post'>
+  <label for='eventId'>Add Event</label>
+  <select id='eventId' name='eventId' type='text'>
+    @foreach (var selectedEvent in @Model["allEvents"])
+    {
+      <option value='@selectedEvent.GetId()'>@selectedEvent.GetEventName()</option>
+    }
+  </select>
+  <button type='submit'>Add Event for the Task</button>
+</form>
+<hr>
+
+<hr>
+<br>
 <div class="container">
-  <h1>tasks show</h1>
-    <a href="/tasks/new">new tasks</a>
-    <a href="/tasks/{id}">show tasks</a>
-    <a href="/tasks/{id}/edit">edit tasks</a>
+  <a href="/tasks">Return to Tasks</a>
 </div>
