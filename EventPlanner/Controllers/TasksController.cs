@@ -62,7 +62,7 @@ namespace EventPlanner.Controllers
       task.Delete();
       return RedirectToAction("Index");
     }
-    [HttpPost("/tasks/delete")]
+    [HttpGet("/tasks/delete")]
     public ActionResult DeleteAll()
     {
       Task.DeleteAll();

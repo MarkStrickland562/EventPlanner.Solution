@@ -86,7 +86,7 @@ namespace EventPlanner.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/events/delete")]
+    [HttpGet("/events/delete")]
     public ActionResult DeleteAll()
     {
       Event.DeleteAll();

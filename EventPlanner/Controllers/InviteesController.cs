@@ -63,7 +63,7 @@ namespace EventPlanner.Controllers
       invitee.Delete();
       return RedirectToAction("Index");
     }
-    [HttpPost("/invitees/delete")]
+    [HttpGet("/invitees/delete")]
     public ActionResult DeleteAll()
     {
       Invitee.DeleteAll();

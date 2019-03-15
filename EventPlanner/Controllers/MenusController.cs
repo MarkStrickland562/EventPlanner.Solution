@@ -19,7 +19,7 @@ namespace EventPlanner.Controllers
     {
       return View();
     }
-    
+
     [HttpPost("/menus/new")]
     public ActionResult Create(string menuTheme)
     {
@@ -64,7 +64,7 @@ namespace EventPlanner.Controllers
       menu.Delete();
       return RedirectToAction("Index");
     }
-    [HttpPost("/menus/delete")]
+    [HttpGet("/menus/delete")]
     public ActionResult DeleteAll()
     {
       Menu.DeleteAll();
